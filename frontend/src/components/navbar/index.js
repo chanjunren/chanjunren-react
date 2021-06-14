@@ -1,12 +1,45 @@
 import React from 'react';
-import {Nav, NavBarContainer, NavLogo} from './navbar_elements';
+import {FaRobot} from 'react-icons/fa';
+
+import {
+  Nav,
+  NavBarContainer,
+  NavLogo,
+  MobileIcon,
+  NavMenu,
+  NavItem,
+  NavLinks,
+  NavBtn,
+  NavBtnLink,
+} from './navbar_elements';
 
 const NavBar = () => {
   return (
     <React.Fragment>
       <Nav>
-        <NavLogo href="/">Robosolutions</NavLogo>
-        <NavBarContainer/>
+        <NavBarContainer>
+          <NavLogo href="/">Robosolutions</NavLogo>
+          <MobileIcon>
+            <FaRobot/>
+          </MobileIcon>
+          <NavMenu>
+            <NavItem>
+              <NavLinks to="about">About</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="services">Services</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="gallery">Gallery</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="contactUs">Contact Us</NavLinks>
+            </NavItem>
+          </NavMenu>
+          <NavBtn>
+            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          </NavBtn>
+        </NavBarContainer>
       </Nav>
     </React.Fragment>
   );
