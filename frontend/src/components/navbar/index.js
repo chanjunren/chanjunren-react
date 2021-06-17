@@ -18,22 +18,22 @@ const NavBar = () => {
     <React.Fragment>
       <Nav>
         <NavBarContainer>
-          <NavLogo href="/">Robosolutions</NavLogo>
+          <NavLogo to="/">Robosolutions</NavLogo>
           <MobileIcon>
             <FaRobot/>
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="about">About</NavLinks>
+              <NavLinks to="/about">About</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="services">Services</NavLinks>
+              <NavLinks to="/gallery">Gallery</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="gallery">Gallery</NavLinks>
+              <NavLinks to="/guides">Guides</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contactUs">Contact Us</NavLinks>
+              <NavLinks to="/contactUs">Contact Us</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
