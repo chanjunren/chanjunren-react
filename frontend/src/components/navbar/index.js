@@ -13,13 +13,13 @@ import {
   NavBtnLink,
 } from './navbar_elements';
 
-const NavBar = () => {
+const NavBar = ({toggle}) => {
   return (
     <React.Fragment>
       <Nav>
         <NavBarContainer>
           <NavLogo to="/">Robosolutions</NavLogo>
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaRobot/>
           </MobileIcon>
           <NavMenu>
