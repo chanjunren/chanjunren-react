@@ -1,46 +1,38 @@
 import React from 'react';
 import {FaRobot} from 'react-icons/fa';
+import {Link as LinkR} from 'react-router-dom';
+import {Link as LinkS} from 'react-scroll';
 
-import {
-  Nav,
-  NavBarContainer,
-  NavLogo,
-  MobileIcon,
-  NavMenu,
-  NavItem,
-  NavLinks,
-  NavBtn,
-  NavBtnLink,
-} from './navbar_elements';
+import './navbar.css';
 
 const NavBar = ({toggle}) => {
   return (
     <React.Fragment>
-      <Nav>
-        <NavBarContainer>
-          <NavLogo to="/">Robosolutions</NavLogo>
-          <MobileIcon onClick={toggle}>
+      <nav id="main-nav">
+        <div id="nav-bar-container">
+          <LinkR id="nav-logo" to="/">Robosolutions</LinkR>
+          <div id="mobile-icon" onClick={toggle}>
             <FaRobot/>
-          </MobileIcon>
-          <NavMenu>
-            <NavItem>
-              <NavLinks to="/about">About</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="/gallery">Gallery</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="/guides">Guides</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="/contactUs">Contact Us</NavLinks>
-            </NavItem>
-          </NavMenu>
-          <NavBtn>
-            <NavBtnLink to="/signin">Sign In</NavBtnLink>
-          </NavBtn>
-        </NavBarContainer>
-      </Nav>
+          </div>
+          <ul id="nav-menu">
+            <li class="nav-item">
+              <LinkS class="nav-link" to="/about">About</LinkS>
+            </li>
+            <li class="nav-item">
+              <LinkS class="nav-link" to="/gallery">Gallery</LinkS>
+            </li>
+            <li class="nav-item">
+              <LinkS class="nav-link" to="/guides">Guides</LinkS>
+            </li>
+            <li class="nav-item">
+              <LinkS class="nav-link" to="/contactUs">Contact Us</LinkS>
+            </li>
+          </ul>
+          <nav class="nav-btn">
+            <LinkR class="nav-btn-link" to="/signin">Sign In</LinkR>
+          </nav>
+        </div>
+      </nav>
     </React.Fragment>
   );
 };
