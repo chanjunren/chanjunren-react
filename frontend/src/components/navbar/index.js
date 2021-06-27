@@ -15,21 +15,21 @@ const NavBar = ({toggle}) => {
             <FaRobot/>
           </div>
           <ul id="nav-menu">
-            <li class="nav-item">
-              <LinkS class="nav-link" to="/about">About</LinkS>
+            <li className="nav-item">
+              <LinkS className="nav-link" to="/about">About</LinkS>
             </li>
-            <li class="nav-item">
-              <LinkS class="nav-link" to="/gallery">Gallery</LinkS>
+            <li className="nav-item">
+              <LinkS className="nav-link" to="/gallery">Gallery</LinkS>
             </li>
-            <li class="nav-item">
-              <LinkS class="nav-link" to="/guides">Guides</LinkS>
+            <li className="nav-item">
+              <LinkS className="nav-link" to="/guides">Guides</LinkS>
             </li>
-            <li class="nav-item">
-              <LinkS class="nav-link" to="/contactUs">Contact Us</LinkS>
+            <li className="nav-item">
+              <LinkS className="nav-link" to="/contactUs">Contact Us</LinkS>
             </li>
           </ul>
-          <nav class="nav-btn">
-            <LinkR class="nav-btn-link" to="/signin">Sign In</LinkR>
+          <nav className="nav-btn">
+            <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR>
           </nav>
         </div>
       </nav>
