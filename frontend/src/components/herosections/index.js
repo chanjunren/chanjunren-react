@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import {Button} from '../shared/ButtonElement';
 
 import Video from '../../videos/homeVideo.mp4';
 
-import {HeroContainer, HeroBg, VideoBg} from './HeroElements';
+import {
+  HeroContainer,
+  HeroBg,
+  VideoBg,
+  HeroContent,
+  HeroH1,
+  HeroP,
+  HeroBtnWrapper,
+  ArrowForward,
+  ArrowRight,
+} from './HeroElements';
 
 const HeroSection = () => {
-//   console.log('VIdeo:  ' + Video);
+  const [hover, setHover] = useState(false);
+
+  const onHoverHandler = () => {
+    setHover(!hover);
+  };
+
   return (
     <HeroContainer id="home">
       <HeroBg>
@@ -16,6 +33,18 @@ const HeroSection = () => {
           src={Video}
           type='video/mp4'/>
       </HeroBg>
+      <HeroContent>
+        <HeroH1>Your Personal Robot Assistant</HeroH1>
+        <HeroP>Exclusive Reseller in Singapore / Malaysia :D</HeroP>
+        <HeroBtnWrapper>
+          <Button
+            to="/signup"
+            onMouseEnter={onHoverHandler}
+            onMouseLeave={onHoverHandler}>
+              Get Started {hover ? <ArrowForward/> : <ArrowRight/>}
+          </Button>
+        </HeroBtnWrapper>
+      </HeroContent>
     </HeroContainer>
   );
 };
