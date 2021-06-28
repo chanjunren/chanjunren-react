@@ -65,11 +65,11 @@
 }
 
 .nav-btn-link {
-    border-radius: 50px;
+    border-radius: 10px;
     background: #01bf71;
     white-space: nowrap;
     padding: 10px 22px;
-    color: #010606;
+    color: #fff;
     font-size: 16px;
     text-shadow: 0.4px 0 currentColor;
     outline: none;
@@ -81,8 +81,8 @@
 
 .nav-btn-link:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+    background: #3FCA90;
+    color: #fff;
 }
 
 @media only screen and (max-width: 960px) {
