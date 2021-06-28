@@ -16,16 +16,16 @@ const NavBar = ({toggle}) => {
           </div>
           <ul id="nav-menu">
             <li className="nav-item">
-              <LinkS className="nav-link" to="/about">About</LinkS>
+              <LinkS className="nav-link" to="about">About</LinkS>
             </li>
             <li className="nav-item">
-              <LinkS className="nav-link" to="/gallery">Gallery</LinkS>
+              <LinkS className="nav-link" to="gallery">Gallery</LinkS>
             </li>
             <li className="nav-item">
-              <LinkS className="nav-link" to="/guides">Guides</LinkS>
+              <LinkS className="nav-link" to="applications">Applications</LinkS>
             </li>
             <li className="nav-item">
-              <LinkS className="nav-link" to="/contactUs">Contact Us</LinkS>
+              <LinkS className="nav-link" to="contactUs">Contact Us</LinkS>
             </li>
           </ul>
           <nav className="nav-btn">
