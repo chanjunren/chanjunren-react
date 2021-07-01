@@ -1,7 +1,13 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Home from './pages';
+import {
+  BrowserRouter,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import Home from './company_site/pages/index';
+import Dashboard from './app_manager/dashboard/index';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -9,10 +15,37 @@ import Home from './pages';
  * @return {div} The html of the page
  */
 function App() {
+  const token = null;
+  let routes;
+  if (!token) {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <Home/>
+        </Route>
+        <Route path="/signIn">
+          {/* TO DO */}
+        </Route>
+        <Redirect to="/"/>
+      </Switch>);
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/dashboard" exact>
+          {/* TO DO */}
+          <Dashboard/>
+        </Route>
+        <Redirect to="/dashboard"/>
+      </Switch>
+    );
+  }
+  // let routes;
   return (
-    <Router>
-      <Home/>
-    </Router>
+    <BrowserRouter>
+      <main>
+        {routes}
+      </main>
+    </BrowserRouter>
   );
 }
 
