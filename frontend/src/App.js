@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Home from './company_site/pages/index';
 import Dashboard from './app_manager/dashboard/index';
+import AuthPage from './company_site/pages/auth_page';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -25,6 +26,7 @@ function App() {
         </Route>
         <Route path="/signIn">
           {/* TO DO */}
+          <AuthPage/>
         </Route>
         <Redirect to="/"/>
       </Switch>);

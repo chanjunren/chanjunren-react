@@ -10,6 +10,7 @@ import {
   contactUsSectionObj,
   gallerySectionObj,
 } from '../components/info_section/data';
+import Footer from '../components/footer';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,7 @@ const Home = () => {
       <InfoSection {...gallerySectionObj}/>
       <AppsSection/>
       <InfoSection {...contactUsSectionObj}/>
+      <Footer/>
     </>
   );
 };
