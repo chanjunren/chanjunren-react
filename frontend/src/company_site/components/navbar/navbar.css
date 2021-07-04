@@ -1,5 +1,5 @@
-#main-nav {
-    background: #000;
+.main-nav {
+    background: transparent;
     height: 80px;
     margin-top: -80px;
     display: flex;
@@ -9,6 +9,10 @@
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.main-nav-scrollNav {
+    background: #000;
 }
 
 #nav-bar-container {
@@ -41,6 +45,10 @@
     margin-right: -22px;
 }
 
+.nav-item {
+    height: 80px;
+}
+
 #mobile-icon {
     display: none;
 }
@@ -55,7 +63,7 @@
     cursor: pointer;
 }
 
-.nav-link::active {
+.active {
     border-bottom: 3px solid #01bf71;
 }
 

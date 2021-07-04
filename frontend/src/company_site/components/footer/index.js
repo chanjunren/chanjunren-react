@@ -40,24 +40,24 @@ const Footer = () => {
         </div>
         <section id="social-media">
           <div id="social-media-wrap">
-            <LinkS id="social-logo">Robosolutions</LinkS>
+            <LinkS to="/" id="social-logo">Robosolutions</LinkS>
             <small id="website-rights">
               Robosolutions © {new Date().getFullYear()}  All Rights Reserved
             </small>
             <div id="social-icons">
-              <a class="social-icon-link"
+              <a className="social-icon-link"
                 href="/"
                 target="_blank"
                 aria-label="Facebook">
                 <FaFacebook/>
               </a>
-              <a class="social-icon-link"
+              <a className="social-icon-link"
                 href="/"
                 target="_blank"
                 aria-label="Instagram">
                 <FaInstagram/>
               </a>
-              <a class="social-icon-link"
+              <a className="social-icon-link"
                 href="/"
                 target="_blank"
                 aria-label="LinkedIn">
