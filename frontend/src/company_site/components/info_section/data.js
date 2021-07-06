@@ -37,18 +37,17 @@ export const gallerySectionObj = {
 
 export const contactUsSectionObj = {
   id: 'contactUs',
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: false,
-  topLine: 'About Us',
-  headline: 'Exclusive distributor ' +
-    'of Temi Robots in Singapore, Malaysia and Indonesia',
-  description: 'Extra description',
-  buttonLabel: 'Get Started',
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: true,
+  topLine: 'Contact Us',
+  headline: 'To be filled',
+  description: 'To be filled',
+  buttonLabel: 'To be filled',
   imgStart: true,
   img: require('../../images/about_svg.svg').default,
   alt: 'About Us Svg',
-  dark: true,
-  primary: true,
+  dark: false,
+  primary: false,
   darkText: true,
 };
