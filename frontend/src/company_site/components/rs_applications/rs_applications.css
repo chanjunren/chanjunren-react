@@ -1,0 +1,86 @@
+.apps-container {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #010606;
+}
+
+#apps-h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 64px;
+}
+
+#apps-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  grid-gap: 16px;
+  padding: 0 50px;
+}
+
+@media screen and (max-width: 1000px) {
+  #apps-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .apps-container {
+    height: 1100px; 
+  }
+
+  #apps-wrapper {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .apps-container {
+    height: 1300px;
+  }
+
+  #apps-h1 {
+    font-size: 2rem;
+  }
+}
+
+.app-card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  height: 280px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.app-card:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.app-icon {
+  height: 160px;
+  width: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.app-h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.app-p {
+  font-size: 1rem;
+  text-align: center;
+}
