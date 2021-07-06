@@ -19,7 +19,7 @@ const NavBar = ({toggle}) => {
 
   useEffect(() => {
     window.addEventListener('scroll', navListener);
-  });
+  }, []);
 
   const scrollToTopListener = () => {
     scroll.scrollToTop();
