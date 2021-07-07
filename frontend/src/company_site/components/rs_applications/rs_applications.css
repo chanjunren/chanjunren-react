@@ -2,7 +2,7 @@
   height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   background: #010606;
 }
@@ -38,19 +38,44 @@
     height: 1100px; 
   }
 
+  .swiper-container {
+    max-width: 500px;
+    border: 20px;
+  }
+
   #apps-wrapper {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
+    max-width: 500px;
+    border: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .apps-container {
-    height: 1300px;
+    height: 600px;
   }
 
   #apps-h1 {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .apps-container {
+    height: 400px;
+  }
+
+  #apps-h1 {
+    font-size: 1.5rem;
+  }
+
+  .swiper-container {
+    max-width: 300px;
+    border: 10px;
+  }
+
+  #apps-wrapper {
+    max-width: 300px;
+    border: 10px;
   }
 }
 
