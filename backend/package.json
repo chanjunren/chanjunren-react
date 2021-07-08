@@ -16,7 +16,6 @@
     "express-validator": "^6.12.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
-    "mongoose-unique-validator": "^2.0.3",
     "password-validator": "^5.1.1"
   },
   "devDependencies": {
