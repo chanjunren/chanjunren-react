@@ -1,10 +1,28 @@
 const User = require('../models/user');
 const HttpError = require('../models/http_error');
-const { isValidPassword } = require('../util/validators/user_validators');
+
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const { isValidPassword } = require('../util/validators/user_validators');
+const { jwtPrivateKey } = require('../util/values');
 
 const getAllUsers = async (req, res, next) => {
-  console.log('Get all users in user controller called');
+  let users;
+  try {
+    users = await User.find({}, '-password');
+  } catch (err) {
+    return next(
+      new HttpError(
+        'Something went wrong when trying to get all users! :(',
+        500,
+      ),
+    );
+  }
+
+  res
+    .status(201)
+    .json({ users: users.map((user) => user.toObject({ getters: true })) });
 };
 
 const createUser = async (req, res, next) => {
@@ -24,13 +42,12 @@ const createUser = async (req, res, next) => {
   const existingUser = await User.findOne({ username: username });
 
   if (existingUser) {
-    console.log(existingUser);
     return next(new HttpError('This user already exists! D:', 409));
   }
 
   let hashedPw;
   try {
-    hashedPw = bcrypt.hash(password, 12);
+    hashedPw = await bcrypt.hash(password, 12);
   } catch (err) {
     return next(
       new HttpError(
@@ -43,7 +60,7 @@ const createUser = async (req, res, next) => {
   const newUser = new User({
     role: role,
     username: username,
-    password: password,
+    password: hashedPw,
   });
 
   try {
@@ -51,6 +68,7 @@ const createUser = async (req, res, next) => {
     await newUser.save();
     console.log(newUser.toObject({ getters: true }));
   } catch (err) {
+    console.error(err);
     return next(
       new HttpError(
         'Something went wrong when trying to create this user! D:',
@@ -58,12 +76,58 @@ const createUser = async (req, res, next) => {
       ),
     );
   }
-  res.status(201).json({message: 'User succesfully created! :D'});
-
+  res.status(201).json({ message: 'User succesfully created! :D' });
 };
 
-const loginUser = (req, res, next) => {
-  console.log('Login user in user controller called');
+const loginUser = async (req, res, next) => {
+  const { username, password } = req.body;
+  let user;
+  try {
+    user = await User.findOne({ username: username });
+    if (!user) {
+      return next(new HttpError('This user does not exist', 401));
+    }
+  } catch (err) {
+    return next(
+      new HttpError(
+        'Something went wrong when trying to find this user! :(',
+        500,
+      ),
+    );
+  }
+
+  let isCredentialsCorrect;
+  try {
+    isCredentialsCorrect = await bcrypt.compare(password, user.password);
+  } catch (err) {
+    return next(
+      new HttpError('An error occured while validating your password!', 401),
+    );
+  }
+
+  if (!isCredentialsCorrect) {
+    return next(
+      new HttpError('The password you entered is incorrect! D:', 401),
+    );
+  }
+
+  let token;
+  try {
+    token = jwt.sign(
+      {
+        role: user.role,
+        username: user.username,
+      },
+      jwtPrivateKey,
+      { expiresIn: '1h' },
+    );
+    res.status(201).json({ username: user.username, token: token });
+  } catch (err) {
+    console.error(err);
+    return next(
+      new HttpError('Something went wrong when generating the token! D:', 401),
+    );
+  }
 };
 
 exports.getAllUsers = getAllUsers;
