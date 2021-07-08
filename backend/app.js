@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const appRoutes = require('./routes/rs_app_routes');
-// const temiRoutes = require('./routes/temi_routes');
+const appRoutes = require('./routes/rs_app_routes');
+const temiRoutes = require('./routes/temi_routes');
 const userRoutes = require('./routes/user_routes');
 
 const app = express();
@@ -18,9 +18,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use('/api/temis', temiRoutes);
+app.use('/api/temis', temiRoutes);
 
-// app.use('/api/apps', appRoutes);
+app.use('/api/apps', appRoutes);
 
 app.use('/api/users', userRoutes);
 
