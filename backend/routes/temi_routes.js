@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", temiController.getAllTemiUnits);
 router.post("/", temiController.addNewTemiUnit);
-router.patch("/:tid", temiController.updateTemiUnitById);
-router.delete("/:tid", temiController.deleteTemiUnitById);
+router.patch("/:temiId", temiController.updateTemiUnitById);
+router.delete("/:temiId", temiController.deleteTemiUnitById);
 
 module.exports = router;
