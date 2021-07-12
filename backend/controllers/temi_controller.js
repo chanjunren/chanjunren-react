@@ -1,6 +1,7 @@
 const HttpError = require('../models/http_error');
 const TemiUnit = require('../models/temi_unit');
 const Application = require('../models/rs_app');
+const mongoose = require('mongoose');
 
 const getAllTemiUnits = (req, res, next) => {};
 
@@ -17,7 +18,7 @@ const addNewTemiUnit = async (req, res, next) => {
   }
 
   if (existingUnit) {
-    console.dir(existingUnit);
+    // console.dir(existingUnit);
     return next(
       new HttpError('A Temi Unit with this serial number already exists!', 409),
     );
@@ -30,7 +31,15 @@ const addNewTemiUnit = async (req, res, next) => {
   });
 
   try {
-    await newUnit.save();
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    for (var appId of newUnit.applications) {
+      let application = await Application.findById(appId);
+      application.units.push(newUnit._id);
+      await application.save({session: session});
+    }
+    await newUnit.save({session: session});
+    await session.commitTransaction();
   } catch (err) {
     console.error(err);
     return next(
@@ -70,7 +79,33 @@ const updateTemiUnitById = async (req, res, next) => {
   }
 };
 
-const deleteTemiUnitById = (req, res, next) => {};
+const deleteTemiUnitById = async (req, res, next) => {
+  let temiId = req.params.temiId;
+  let temiSpecified;
+
+  try {
+    temiSpecified = await TemiUnit.findById(temiId).populate('applications');
+  } catch (err) {
+    console.error(err);
+    return next(new HttpError("Something went wrong when looking for the unit to be deleted! D:", 500));
+  }
+
+  try {
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    await temiSpecified.remove({session: session});
+    for (let application of temiSpecified.applications) {
+      application.units.pull(temiSpecified);
+      await application.save({session: session});
+    }
+    await session.commitTransaction();
+  } catch (err) {
+    console.error(err);
+    return next(new HttpError("Something went wrong when trying to delete this unit! D:", 500));
+  }
+
+  res.status(200).json({ "This item has been deleted! :D": temiSpecified });
+};
 
 const getTemiUnitsByAppId = (req, res, next) => {};
 
