@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const appRoutes = require('./routes/rs_app_routes');
 const temiRoutes = require('./routes/temi_routes');
 const userRoutes = require('./routes/user_routes');
-
+const HttpError = require('./models/http_error');
 const app = express();
 
 app.use(express.json());
