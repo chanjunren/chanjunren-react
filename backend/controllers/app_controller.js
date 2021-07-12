@@ -1,4 +1,7 @@
+const mongoose = require('mongoose');
+
 const Application = require('../models/rs_app');
+const TemiUnit = require('../models/temi_unit');
 const HttpError = require('../models/http_error');
 
 const getAllApplications = async (req, res, next) => {
@@ -63,7 +66,7 @@ const deleteApplicationByAid = async (req, res, next) => {
   const appId = req.params.appId;
   let app;
   try {
-    app = await Application.find({});
+    app = await Application.findById(appId);
   } catch (err) {
     console.err(err);
     return next(
@@ -74,15 +77,33 @@ const deleteApplicationByAid = async (req, res, next) => {
     );
   }
 
+  try {
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    for (var temiId of app.units) {
+      temiUnit = await TemiUnit.findById(temiId);
+      temiUnit.applications.pull(app);
+      await temiUnit.save({session: session});
+    }
+    await app.remove({session: session});
+    await session.commitTransaction();
+    res.status(200).json({ 'This item has been deleted! :D': app });
+  } catch (err) {
+    console.error(err);
+    return next(
+      new HttpError(
+        'Something went wrong when trying to create this unit! D:',
+        500,
+      ),
+    );
+  }
+
   // TO DO 
 };
 
 const updateApplicationByAid = (req, res, next) => {};
 
-const getApplicationsByTid = (req, res, next) => {};
-
 exports.getAllApplications = getAllApplications;
 exports.addApplication = addApplication;
 exports.deleteApplicationByAid = deleteApplicationByAid;
-exports.getApplicationsByTid = getApplicationsByTid;
 exports.updateApplicationByAid = updateApplicationByAid;
