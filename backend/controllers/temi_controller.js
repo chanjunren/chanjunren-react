@@ -66,6 +66,7 @@ const addNewTemiUnit = async (req, res, next) => {
   res.status(201).json({ message: 'Unit succesfully created! :D' });
 };
 
+// TO BE FIXED
 const updateTemiUnitById = async (req, res, next) => {
   const temiId = req.params.temiId;
   const newValues = req.body;
@@ -140,7 +141,28 @@ const deleteTemiUnitById = async (req, res, next) => {
   res.status(200).json({ 'This item has been deleted! :D': temiSpecified });
 };
 
+const checkPermission = async (req, res, next) => {
+  let { temiSerialNumber, appId } = req.body;
+  let temiUnit;
+  try {
+    temiUnit = await TemiUnit.findOne({ serialNumber: temiSerialNumber });
+  } catch (err) {
+    console.error(err);
+    return next(
+      new HttpError(404, 'This Unit is not registered in our database! D:'),
+    );
+  }
+
+  for (app in temiUnit.applications) {
+    if (appId === app) {
+      return res.status(200); 
+    }
+  }
+  res.status(403).json({"message": "U HAVE NO RIGHTS"});
+};
+
 exports.getAllTemiUnits = getAllTemiUnits;
 exports.addNewTemiUnit = addNewTemiUnit;
 exports.updateTemiUnitById = updateTemiUnitById;
 exports.deleteTemiUnitById = deleteTemiUnitById;
+exports.checkPermission = checkPermission;

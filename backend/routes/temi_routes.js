@@ -6,5 +6,6 @@ router.get("/", temiController.getAllTemiUnits);
 router.post("/", temiController.addNewTemiUnit);
 router.patch("/:temiId", temiController.updateTemiUnitById);
 router.delete("/:temiId", temiController.deleteTemiUnitById);
+router.get("/permission", temiController.checkPermission);
 
 module.exports = router;
