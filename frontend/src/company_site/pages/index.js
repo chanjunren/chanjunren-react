@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <NavBar toggle={toggle}/>
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <HeroSection/>
@@ -29,7 +29,7 @@ const Home = () => {
       <AppsSection/>
       <InfoSection {...contactUsSectionObj}/>
       <Footer/>
-    </>
+    </React.Fragment>
   );
 };
 
