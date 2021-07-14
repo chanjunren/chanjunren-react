@@ -45,8 +45,8 @@ const useHttpClient = () => {
     setIsLoading(false);
   };
 
-  // Returning a function = cleanup code || Cancelling of http request when
-  // component is unmounted
+  // Returning a function => function called when component is unmounted ||
+  // Cancelling of http request when
   useEffect(() => {
     return () => {
       activeRequests.current.forEach((abortController) =>
