@@ -7,16 +7,18 @@ const FOCUS_ACTION = 'FOCUS';
 const formReducer = (state, action) => {
   switch (action.type) {
     case `${INPUT_ACTION}`: {
+      console.log('Action InputID: ' + action.inputId);
       const newState = {
         ...state,
         inputs: {
           ...state.inputs,
           [action.inputId]: {
+            ...state.inputs[action.inputId],
             value: action.value,
           },
         },
       };
-      // console.dir(newState);
+      console.dir(newState);
       return newState;
     }
     case `${FOCUS_ACTION}`: {
@@ -25,12 +27,12 @@ const formReducer = (state, action) => {
         inputs: {
           ...state.inputs,
           [action.inputId]: {
-            ...[action.inputId],
+            ...state.inputs[action.inputId],
             isFocused: action.isFocused,
           },
         },
       };
-      // console.dir(newState);
+      console.dir(newState);
       return newState;
     }
     default: {
@@ -44,7 +46,7 @@ const useForm = (initialInputs) => {
     inputs: initialInputs,
   });
 
-  const inputHandler = useCallback((id, value) => {
+  const formInputHandler = useCallback((id, value) => {
     dispatch({
       type: `${INPUT_ACTION}`,
       inputId: id,
@@ -53,16 +55,16 @@ const useForm = (initialInputs) => {
   }, []);
 
   // focus value is true or false
-  const focusHandler = useCallback((id, value) => {
+  const formFocusHandler = useCallback((id, isFocused) => {
     console.log('FOCUS EVENT');
     dispatch({
       type: `${FOCUS_ACTION}`,
       inputId: id,
-      value: value,
+      isFocused: isFocused,
     });
   }, []);
 
-  return [formState, inputHandler, focusHandler];
+  return [formState, formInputHandler, formFocusHandler];
 };
 
 export default useForm;

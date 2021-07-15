@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {FaUserAlt, FaLock} from 'react-icons/fa';
 import loginDisplay from '../images/sign_in_svg.svg';
 import avatar from '../images/avatar.png';
@@ -8,7 +8,7 @@ import useForm from '../hooks/form_hook';
 // import useHttpClient from '../hooks/http_hook';
 
 const AuthPage = () => {
-  const [formState, inputHandler, focusHandler] = useForm({
+  const [formState, formInputHandler, formFocusHandler] = useForm({
     usernameInput: {
       value: '',
       isFocused: false,
@@ -18,6 +18,14 @@ const AuthPage = () => {
       isFocused: false,
     },
   });
+
+  const pageInputHandler = useCallback((event) => {
+    formInputHandler(event.target.id, event.target.value);
+  }, []);
+
+  const pageFocusHandler = useCallback((event) => {
+    formFocusHandler(event.target.id, true);
+  }, []);
 
   // const {isLoading, errorEncountered, sendRequest, clearError} =
   //   useHttpClient;
@@ -42,8 +50,8 @@ const AuthPage = () => {
                 id="usernameInput"
                 type="text"
                 className="input"
-                onFocus={focusHandler}
-                onInput={inputHandler}
+                onFocus={pageFocusHandler}
+                onInput={pageInputHandler}
               />
             </div>
           </div>
@@ -61,8 +69,8 @@ const AuthPage = () => {
                 id="passwordInput"
                 type="password"
                 className="input"
-                onFocus={focusHandler}
-                onInput={inputHandler}
+                onFocus={pageFocusHandler}
+                onInput={pageInputHandler}
               />
             </div>
           </div>
