@@ -5,7 +5,8 @@ import avatar from '../images/avatar.png';
 
 import './auth_page.css';
 import useForm from '../hooks/form_hook';
-// import useHttpClient from '../hooks/http_hook';
+import useHttpClient from '../hooks/http_hook';
+import { BASE_ADDRESS } from '../../util/values';
 
 const AuthPage = () => {
   const [formState, formInputHandler, formFocusHandler] = useForm({
@@ -27,13 +28,35 @@ const AuthPage = () => {
     formFocusHandler(event.target.id, true);
   }, []);
 
-  // const {isLoading, errorEncountered, sendRequest, clearError} =
-  //   useHttpClient;
+  const { isLoading, errorEncountered, sendRequest, clearError } =
+    useHttpClient();
+
+  const onLoginHandler = async (event) => {
+    event.preventDefault();
+    try {
+      const responseData = await sendRequest(
+        `${BASE_ADDRESS}/api/users/login`,
+        'POST',
+        JSON.stringify({
+          username: formState.inputs.usernameInput.value,
+          password: formState.inputs.passwordInput.value,
+        }),
+        {
+          'Content-Type': 'application/json',
+        },
+      );
+
+      console.log(responseData);
+    } catch (err) {
+      console.error(err);
+    }
+    
+  };
   return (
     <div className="container">
       <img id="login-display" src={loginDisplay} alt="login-display" />
       <div className="login-content">
-        <form>
+        <form onSubmit={onLoginHandler}>
           <img src={avatar} alt="login-avatar" />
           <h2 className="title">Welcome</h2>
           <div

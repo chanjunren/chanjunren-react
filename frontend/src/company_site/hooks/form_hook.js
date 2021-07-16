@@ -7,7 +7,6 @@ const FOCUS_ACTION = 'FOCUS';
 const formReducer = (state, action) => {
   switch (action.type) {
     case `${INPUT_ACTION}`: {
-      console.log('Action InputID: ' + action.inputId);
       const newState = {
         ...state,
         inputs: {
@@ -18,7 +17,6 @@ const formReducer = (state, action) => {
           },
         },
       };
-      console.dir(newState);
       return newState;
     }
     case `${FOCUS_ACTION}`: {
@@ -32,7 +30,6 @@ const formReducer = (state, action) => {
           },
         },
       };
-      console.dir(newState);
       return newState;
     }
     default: {
@@ -56,7 +53,6 @@ const useForm = (initialInputs) => {
 
   // focus value is true or false
   const formFocusHandler = useCallback((id, isFocused) => {
-    console.log('FOCUS EVENT');
     dispatch({
       type: `${FOCUS_ACTION}`,
       inputId: id,

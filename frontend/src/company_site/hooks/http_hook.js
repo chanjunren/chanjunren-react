@@ -11,7 +11,7 @@ const useHttpClient = () => {
         setIsLoading(true);
 
         // Used to cancel request when page changes
-        const httpAbortController = new AbortController();
+        const httpAbortController = new window.AbortController();
         activeRequests.current.push(httpAbortController);
         try {
           const response = await fetch(url, {
