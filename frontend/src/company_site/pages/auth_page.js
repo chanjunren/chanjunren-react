@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {FaUserAlt, FaLock} from 'react-icons/fa';
 import loginDisplay from '../images/sign_in_svg.svg';
 import avatar from '../images/avatar.png';
@@ -7,8 +7,10 @@ import './auth_page.css';
 import useForm from '../hooks/form_hook';
 import useHttpClient from '../hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
+import {AuthContext} from '../components/shared/auth_context';
 
 const AuthPage = () => {
+  const authContext = useContext(AuthContext);
   const [formState, formInputHandler, formFocusHandler] = useForm({
     usernameInput: {
       value: '',
@@ -45,6 +47,8 @@ const AuthPage = () => {
           'Content-Type': 'application/json',
         },
       );
+
+      authContext.login(responseData.token, responseData.username);
 
       console.log(responseData);
     } catch (err) {
