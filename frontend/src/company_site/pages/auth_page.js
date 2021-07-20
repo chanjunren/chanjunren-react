@@ -1,5 +1,5 @@
-import React, {useCallback, useContext} from 'react';
-import {FaUserAlt, FaLock} from 'react-icons/fa';
+import React, { useCallback, useContext } from 'react';
+import { FaUserAlt, FaLock } from 'react-icons/fa';
 import loginDisplay from '../images/sign_in_svg.svg';
 import avatar from '../images/avatar.png';
 
@@ -7,7 +7,8 @@ import './auth_page.css';
 import useForm from '../hooks/form_hook';
 import useHttpClient from '../hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
-import {AuthContext} from '../components/shared/auth_context';
+import { AuthContext } from '../components/shared/auth_context';
+import CustomisedSnackBar from './components/snackbar';
 
 const AuthPage = () => {
   const authContext = useContext(AuthContext);
@@ -33,10 +34,11 @@ const AuthPage = () => {
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
 
+  let responseData;
   const onLoginHandler = async (event) => {
     event.preventDefault();
     try {
-      const responseData = await sendRequest(
+      responseData = await sendRequest(
         `${BASE_ADDRESS}/api/users/login`,
         'POST',
         JSON.stringify({
@@ -54,11 +56,15 @@ const AuthPage = () => {
     } catch (err) {
       console.error(err);
     }
-    
   };
   return (
     <div className="container">
       <img id="login-display" src={loginDisplay} alt="login-display" />
+      <CustomisedSnackBar 
+        message={errorEncountered}
+        success={!!!errorEncountered} 
+        open={!!errorEncountered}
+        clearError={clearError}/>
       <div className="login-content">
         <form onSubmit={onLoginHandler}>
           <img src={avatar} alt="login-avatar" />
