@@ -33,7 +33,7 @@ function App() {
       <Switch>
         <Route path="/dashboard" exact>
           {/* TO DO */}
-          <Dashboard />
+          <Dashboard/>
         </Route>
         <Redirect to="/dashboard" />
       </Switch>
