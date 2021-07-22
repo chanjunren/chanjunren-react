@@ -2,10 +2,15 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Home from './company_site/pages/index';
-import Dashboard from './app_manager/dashboard/index';
 import AuthPage from './company_site/pages/auth_page';
 import useAuth from './company_site/hooks/auth_hook';
 import { AuthContext } from './company_site/components/shared/auth_context';
+import DashboardNav from './app_manager/dashboard_nav/index';
+import AppDashboard from './app_manager/dashboards/app_dashboard';
+import TemiDashboard from './app_manager/dashboards/temi_dashboard';
+import UserDashboard from './app_manager/dashboards/user_dashboard';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -31,15 +36,39 @@ function App() {
   } else {
     routes = (
       <Switch>
-        <Route path="/dashboard" exact>
+        <Route path="/applications" exact>
           {/* TO DO */}
-          <Dashboard/>
+          <AppDashboard />
         </Route>
-        <Redirect to="/dashboard" />
+        <Route path="/temis" exact>
+          {/* TO DO */}
+          <TemiDashboard />
+        </Route>
+        <Route path="/users" exact>
+          {/* TO DO */}
+          <UserDashboard />
+        </Route>
+        <Redirect to="/applications" />
       </Switch>
     );
   }
-  // let routes;
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+    },
+    content: {
+      flexGrow: 1,
+      height: '100vh',
+      overflow: 'auto',
+    },
+    container: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
+  }));
+  const classes = useStyles();
+
   return (
     <AuthContext.Provider
       value={{
@@ -51,7 +80,10 @@ function App() {
       }}
     >
       <BrowserRouter>
-        <main>{routes}</main>
+        <div className={!!token ? classes.root : undefined}>
+          {!!token && <DashboardNav />}
+          <main className={classes.content}>{routes}</main>
+        </div>
       </BrowserRouter>
     </AuthContext.Provider>
   );

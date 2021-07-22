@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const CustomAppBar = (props) => {
-  const {drawerWidth, handleDrawerToggle, mobileOpen} = props;
+  const {drawerWidth, handleDrawerToggle} = props;
 
   const useStyles = makeStyles((theme) => ({
     appBar: {

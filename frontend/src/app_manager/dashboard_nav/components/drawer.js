@@ -3,17 +3,18 @@ import React from 'react';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+import CodeRoundedIcon from '@material-ui/icons/CodeRounded';
+import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
+import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded';
+import AppMenuItem from './app_menu_item';
 
 const CustomDrawer = (props) => {
   const { window, drawerWidth, mobileOpen, handleDrawerToggle } = props;
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
   const theme = useTheme();
   const useStyles = makeStyles((theme) => ({
     drawer: {
@@ -29,25 +30,31 @@ const CustomDrawer = (props) => {
   }));
   const classes = useStyles();
 
+  const appMenuItems = [
+    {
+      name: 'Applications',
+      link: '/applications',
+      Icon: CodeRoundedIcon,
+    },
+    {
+      name: 'Temis',
+      link: '/temis',
+      Icon: AndroidRoundedIcon,
+    },
+    {
+      name: 'Users',
+      link: '/users',
+      Icon: FaceRoundedIcon,
+    },
+  ];
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {appMenuItems.map((item) => (
+          <AppMenuItem {...item}/>
         ))}
       </List>
     </div>
