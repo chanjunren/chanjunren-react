@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 let logoutTimer;
 
@@ -15,11 +15,14 @@ const useAuth = () => {
     );
 
     // To allow for user to stay logged in
-    localStorage.setItem('userData', JSON.stringify({
-      uid: uid,
-      token: token,
-      tokenExpirationDate: tokenExpirationDate,
-    }));
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        uid: uid,
+        token: token,
+        tokenExpirationDate: tokenExpirationDate,
+      }),
+    );
   }, []);
 
   const logout = useCallback(() => {
@@ -31,24 +34,34 @@ const useAuth = () => {
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'));
+    console.log('Checking if user is logged in');
     // Checking if user is already logged in and that token not expired
-    if (storedData &&
+    if (
+      storedData &&
       storedData.token &&
-      new Date(storedData.tokenExpirationDate) > new Date()) {
-        login(storedData.token, storedData.uid);
+      new Date(storedData.tokenExpirationDate) > new Date()
+    ) {
+      login(storedData.token, storedData.uid);
+    } else {
+      login(
+        storedData.userId,
+        storedData.token,
+        new Date(storedData.tokenExpirationDate),
+      );
     }
   }, []);
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
-      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
       logoutTimer = setTimeout(logout, remainingTime);
     } else {
       clearTimeout(logoutTimer);
     }
   }, [token, logout, tokenExpirationDate]);
 
-  return {token, login, logout, loggedInUserId};
+  return { token, login, logout, loggedInUserId };
 };
 
 export default useAuth;

@@ -20,7 +20,9 @@ import { makeStyles } from '@material-ui/core/styles';
 function App() {
   const { token, login, logout, loggedInUserId } = useAuth();
   let routes;
+  console.log('Token: ' + token);
   if (!token) {
+    console.log('If routes');
     routes = (
       <Switch>
         <Route path="/" exact>
@@ -34,6 +36,7 @@ function App() {
       </Switch>
     );
   } else {
+    console.log('Else routes');
     routes = (
       <Switch>
         <Route path="/applications" exact>
