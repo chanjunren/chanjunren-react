@@ -57,6 +57,11 @@ function App() {
     root: {
       display: 'flex',
     },
+    content: {
+      flexGrow: 1,
+      height: '100vh',
+      overflow: 'auto',
+    },
   }));
   const classes = useStyles();
 
@@ -73,7 +78,7 @@ function App() {
       <BrowserRouter>
         <div className={!!token ? classes.root : undefined}>
           {!!token && <DashboardNav />}
-          <main>{routes}</main>
+          <main className={!!token ? classes.content: undefined}>{routes}</main>
         </div>
       </BrowserRouter>
     </AuthContext.Provider>
