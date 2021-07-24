@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '../shared/button';
+import { Button } from '../shared/button';
 
 import {
   InfoContainer,
@@ -16,9 +16,24 @@ import {
   Img,
 } from './info_elements';
 
-const InfoSection = ({id, lightBg, imgStart, topLine,
-  lightText, lightTextDesc, headline, description,
-  buttonLabel, img, alt, primary, dark, dark2}) => {
+const InfoSection = ({
+  id,
+  lightBg,
+  imgStart,
+  topLine,
+  lightText,
+  lightTextDesc,
+  headline,
+  description,
+  buttonLabel,
+  img,
+  alt,
+  primary,
+  dark,
+  dark2,
+}) => {
+  console.log('=== IMG ===');
+  console.log(img);
   return (
     <InfoContainer id={id} lightBg={lightBg}>
       <InfoWrapper>
@@ -38,7 +53,8 @@ const InfoSection = ({id, lightBg, imgStart, topLine,
                   offset={-80}
                   primary={primary ? 1 : 0}
                   dark={dark ? 1 : 0}
-                  dark2={dark2 ? 1 : 0}>
+                  dark2={dark2 ? 1 : 0}
+                >
                   {buttonLabel}
                 </Button>
               </BtnWrap>
@@ -46,7 +62,7 @@ const InfoSection = ({id, lightBg, imgStart, topLine,
           </Column1>
           <Column2>
             <ImgWrap>
-              <Img src={img} alt={alt}/>
+              <Img src={img} alt={alt} />
             </ImgWrap>
           </Column2>
         </InfoRow>
