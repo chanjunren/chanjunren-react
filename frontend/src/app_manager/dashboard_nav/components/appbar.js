@@ -5,44 +5,59 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const CustomAppBar = (props) => {
-  const {drawerWidth, handleDrawerToggle} = props;
+  const {drawerWidth, drawerZIndex, handleDrawerOpen, drawerOpen} = props;
 
   const useStyles = makeStyles((theme) => ({
     appBar: {
-      [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        zIndex: 99,
-      },
+      zIndex: drawerZIndex + 1, // TO BE FIXED
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      })
+    },
+    appBarShift: {
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      })
     },
     menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
+      marginRight: 36,
     },
+    hide: {
+      display: 'none',
+    }
   }));
 
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" noWrap>
-          Responsive drawer
-        </Typography>
-      </Toolbar>
+    <AppBar
+      position="fixed"
+      className={clsx(classes.appBar, {
+        [classes.appBarShift]: drawerOpen,
+      })}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: drawerOpen,
+            })}
+          >
+            <MenuIcon/>
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            I'm a mini drawer! XD
+          </Typography>
+        </Toolbar>
     </AppBar>
   );
 };

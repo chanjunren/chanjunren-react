@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import CustomAppBar from './components/appbar';
 import CustomDrawer from './components/drawer';
 
 const drawerWidth = 240;
+
+const drawerZIndex = 5;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,26 +41,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DashboardNav(props) {
+const DashboardNav = (props) => {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [drawerOpen, setOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <CustomAppBar
-        handleDrawerToggle={handleDrawerToggle}
-        mobileOpen={mobileOpen}
+        handleDrawerOpen={handleDrawerOpen}
+        drawerOpen={drawerOpen}
+        drawerZIndex={drawerZIndex}
         drawerWidth={drawerWidth}
       />
       <CustomDrawer
         drawerWidth={drawerWidth}
-        handleDrawerToggle={handleDrawerToggle}
-        mobileOpen={mobileOpen}
+        handleDrawerClose={handleDrawerClose}
+        drawerOpen={drawerOpen}
+        drawerZIndex={drawerZIndex}
       />
     </div>
   );

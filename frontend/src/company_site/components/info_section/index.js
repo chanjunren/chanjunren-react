@@ -32,8 +32,6 @@ const InfoSection = ({
   dark,
   dark2,
 }) => {
-  console.log('=== IMG ===');
-  console.log(img);
   return (
     <InfoContainer id={id} lightBg={lightBg}>
       <InfoWrapper>

@@ -59,6 +59,7 @@ function App() {
     },
     content: {
       flexGrow: 1,
+      paddingTop:'56px',
       height: '100vh',
       overflow: 'auto',
     },

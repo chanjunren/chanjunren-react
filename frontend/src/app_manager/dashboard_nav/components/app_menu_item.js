@@ -6,11 +6,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AppMenuItemComponent from './app_menu_item_component';
 
 const AppMenuItem = (props) => {
-  const { name, link, Icon } = props;
+  const { name, link, Icon, handleDrawerToggle } = props;
   const classes = useStyles();
 
-  const onClickHandler = (event) => {
-    console.log('Hi Im Clicked');
+  const onClickHandler = () => {
+    handleDrawerToggle();
   };
 
   const MenuItemRoot = (
