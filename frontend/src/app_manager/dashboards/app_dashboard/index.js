@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import useHttpClient from '../../../company_site/hooks/http_hook';
 import { BASE_ADDRESS } from '../../../util/values';
 
@@ -15,12 +17,17 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
 }));
 
 const AppDashboard = (props) => {
   const classes = useStyles();
   let applications;
   const {isLoading, errorEncountered, sendRequest, clearError} = useHttpClient();
+  const [loadedApplications, setLoadedApplications] = useState([]);
   
   useEffect(() => {
     const getApplications = async () => {
@@ -29,6 +36,7 @@ const AppDashboard = (props) => {
         console.log(responseData);
       } catch (err) {
         console.error(err);
+        clearError();
       }
     }
     getApplications();
@@ -36,6 +44,9 @@ const AppDashboard = (props) => {
 
   return (
     <div className={classes.root}>
+      <Backdrop className={classes.backdrop} open={isLoading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>xs=12</Paper>
