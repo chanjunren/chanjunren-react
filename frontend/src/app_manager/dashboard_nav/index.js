@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import CustomAppBar from './components/appbar';
 import CustomDrawer from './components/drawer';
+import { withTheme } from '../../util/theme';
 
 const drawerWidth = 240;
 
@@ -72,4 +73,4 @@ const DashboardNav = (props) => {
   );
 }
 
-export default DashboardNav;
+export default withTheme(DashboardNav);

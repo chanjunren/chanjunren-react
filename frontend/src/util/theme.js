@@ -1,16 +1,34 @@
-import {createTheme} from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import React from 'react';
+import {createTheme, ThemeProvider} from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
+import grey from '@material-ui/core/colors/grey';
 
 const theme = createTheme({
   palette: {
+    type: 'dark',
     primary: {
-      main: purple[500],
+      main: grey[300],
     },
     secondary: {
-      main: green[500],
+      main: teal[400],
     },
   },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    }
+  }
 });
 
-export default theme;
+const Theme = (props) => {
+  const {children} = props;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+}
+
+export const withTheme = (Component) => {
+  return (props) => {
+    return <Theme>
+      <Component {...props}/>
+    </Theme>;
+  };
+}

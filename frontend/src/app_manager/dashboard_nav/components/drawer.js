@@ -13,6 +13,7 @@ import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
 import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded';
 import AppMenuItem from './app_menu_item';
 import { IconButton } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
 
 const CustomDrawer = (props) => {
   const { drawerWidth, drawerOpen, drawerZIndex, handleDrawerClose } = props;
@@ -23,6 +24,7 @@ const CustomDrawer = (props) => {
       flexShrink: 0,
       zIndex: drawerZIndex,
       whiteSpace: 'nowrap',
+      backgroundColor: theme.palette.background.paper,
     },
     drawerOpen: {
       width: drawerWidth,
@@ -40,7 +42,7 @@ const CustomDrawer = (props) => {
       width: theme.spacing(7) + 1,
       [theme.breakpoints.up('sm')]: {
         width: theme.spacing(9) + 1,
-      }
+      },
     },
     toolbar: {
       display: 'flex',
