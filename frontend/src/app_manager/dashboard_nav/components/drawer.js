@@ -23,7 +23,8 @@ const CustomDrawer = (props) => {
       width: drawerWidth,
       flexShrink: 0,
       zIndex: drawerZIndex,
-      whiteSpace: 'nowrap',
+      // whiteSpace: 'nowrap',
+      background: theme.palette.background.paper,
       backgroundColor: theme.palette.background.paper,
     },
     drawerOpen: {
@@ -32,23 +33,28 @@ const CustomDrawer = (props) => {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen
       }),
+      background: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.paper,
     },
     drawerClose: {
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      overFlowX: 'hidden',
+      overflow: 'hidden',
       width: theme.spacing(7) + 1,
       [theme.breakpoints.up('sm')]: {
         width: theme.spacing(9) + 1,
       },
+      background: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.paper,
     },
     toolbar: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
       padding: theme.spacing(0, 1),
+      background: theme.palette.background.paper,
       // necessary for content to be below app bar ?
       ...theme.mixins.toolbar,
     }
@@ -98,7 +104,6 @@ const CustomDrawer = (props) => {
           return <AppMenuItem {...item}/>
         })}
       </List>
-
     </Drawer>
   );
 };

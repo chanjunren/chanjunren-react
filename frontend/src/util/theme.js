@@ -1,16 +1,16 @@
 import React from 'react';
-import {createTheme, ThemeProvider} from '@material-ui/core/styles';
+import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import grey from '@material-ui/core/colors/grey';
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: grey[300],
+      main: teal[400],
     },
     secondary: {
-      main: teal[400],
+      main: grey[600],
     },
   },
   props: {
@@ -19,6 +19,8 @@ const theme = createTheme({
     }
   }
 });
+
+theme = responsiveFontSizes(theme);
 
 const Theme = (props) => {
   const {children} = props;

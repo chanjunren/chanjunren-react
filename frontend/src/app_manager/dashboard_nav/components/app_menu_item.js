@@ -4,6 +4,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import AppMenuItemComponent from './app_menu_item_component';
+import { red } from '@material-ui/core/colors';
 
 const AppMenuItem = (props) => {
   const { name, link, Icon, handleDrawerToggle } = props;
@@ -54,15 +55,17 @@ const AppMenuItem = (props) => {
 const useStyles = makeStyles((theme) =>
   createStyles({
     menuItem: {
-      '&.active': {
+      "&.active": {
         background: 'rgba(0, 0, 0, 0.08)',
-        '& .MuiListItemIcon-root': {
-          color: '#fff',
-        },
+        // '& .MuiListItemIcon-root': {
+        //   // color: '#fff',
+        // },
+        
       },
+      color: theme.palette.primary.light,
     },
     menuItemIcon: {
-      color: '#97c05c',
+      color: theme.palette.primary.light,
     },
   }),
 );

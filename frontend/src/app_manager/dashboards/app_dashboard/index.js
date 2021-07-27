@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import useHttpClient from '../../../company_site/hooks/http_hook';
+import { BASE_ADDRESS } from '../../../util/values';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,8 +17,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppDashboard() {
+const AppDashboard = (props) => {
   const classes = useStyles();
+  let applications;
+  const {isLoading, errorEncountered, sendRequest, clearError} = useHttpClient();
+  
+  useEffect(() => {
+    const getApplications = async () => {
+      try {
+        let responseData = await sendRequest(`${BASE_ADDRESS}/api/apps`);
+        console.log(responseData);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getApplications();
+  }, [sendRequest])
 
   return (
     <div className={classes.root}>
@@ -46,3 +62,5 @@ export default function AppDashboard() {
     </div>
   );
 }
+
+export default AppDashboard;
