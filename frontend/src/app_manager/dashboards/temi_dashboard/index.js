@@ -4,9 +4,8 @@ import { BASE_ADDRESS } from '../../../util/values';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
-import TemiAccordion from './temi_accordion';
 import { withTheme } from '../../../util/theme';
-// import SimpleAccordion from './temi_accordion';
+import TemiCollapsibleTable from './temi_table';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -14,7 +13,7 @@ const TemiDashboard = () => {
       flexGrow: 1,
       padding: 20,
     },
-    accordionRoot: {
+    tableRoot: {
       width: '100%',
     },
     backdrop: {
@@ -47,18 +46,8 @@ const TemiDashboard = () => {
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </Backdrop>
-      <div className={classes.accordionRoot}>
-        {loadedTemis.map((temi, index) => {
-          console.log(index);
-          return (
-            <TemiAccordion
-              key={temi.serialNumber}
-              index={index + 1}
-              {...temi}
-            />
-          );
-        })}
-        {/* <SimpleAccordion/> */}
+      <div className={classes.tableRoot}>
+        <TemiCollapsibleTable units={loadedTemis}/>
       </div>
     </div>
   );
