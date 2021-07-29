@@ -6,6 +6,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useHttpClient from '../../../company_site/hooks/http_hook';
 import { BASE_ADDRESS } from '../../../util/values';
+import AppCard from './app_card';
+import { withTheme } from '../../../util/theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,21 +28,23 @@ const useStyles = makeStyles((theme) => ({
 const AppDashboard = (props) => {
   const classes = useStyles();
   let applications;
-  const {isLoading, errorEncountered, sendRequest, clearError} = useHttpClient();
+  const { isLoading, errorEncountered, sendRequest, clearError } =
+    useHttpClient();
   const [loadedApplications, setLoadedApplications] = useState([]);
-  
+
   useEffect(() => {
     const getApplications = async () => {
       try {
         let responseData = await sendRequest(`${BASE_ADDRESS}/api/apps`);
         console.log(responseData);
+        setLoadedApplications(responseData.applications);
       } catch (err) {
         console.error(err);
         clearError();
       }
-    }
+    };
     getApplications();
-  }, [sendRequest])
+  }, [sendRequest]);
 
   return (
     <div className={classes.root}>
@@ -48,30 +52,14 @@ const AppDashboard = (props) => {
         <CircularProgress color="inherit" />
       </Backdrop>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>xs=12</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
+        {loadedApplications.map((app) => {
+          return <Grid item xs={4}>
+            <AppCard title={app.name}/>
+          </Grid>
+        })}
       </Grid>
     </div>
   );
-}
+};
 
-export default AppDashboard;
+export default withTheme(AppDashboard);

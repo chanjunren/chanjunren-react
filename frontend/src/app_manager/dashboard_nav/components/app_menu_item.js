@@ -4,7 +4,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import AppMenuItemComponent from './app_menu_item_component';
-import { red } from '@material-ui/core/colors';
 
 const AppMenuItem = (props) => {
   const { name, link, Icon, handleDrawerToggle } = props;
@@ -62,10 +61,10 @@ const useStyles = makeStyles((theme) =>
         // },
         
       },
-      color: theme.palette.primary.light,
+      // color: theme.palette.primary.light,
     },
     menuItemIcon: {
-      color: theme.palette.primary.light,
+      // color: theme.palette.primary.light,
     },
   }),
 );
