@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -54,7 +53,7 @@ const AppDashboard = (props) => {
       <Grid container spacing={3}>
         {loadedApplications.map((app) => {
           return <Grid item xs={4}>
-            <AppCard title={app.name}/>
+            <AppCard key={app.name} title={app.name}/>
           </Grid>
         })}
       </Grid>
