@@ -8,24 +8,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 // import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import TemiRow from './temi_table_row';
+import UserRow from './user_table_row';
 
-const TemiCollapsibleTable = (props) => {
-  const {units} = props;
+const UserTable = (props) => {
+  const {users} = props;
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
+            <TableCell>Username</TableCell>
+            <TableCell>Role</TableCell>
             <TableCell/>
-            <TableCell>Owner</TableCell>
-            <TableCell>Serial Number</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {units.map((unit) => {
-            console.log(unit);
-            return <TemiRow {...unit}/>
+          {users.map((user) => {
+            console.log(user);
+            return <UserRow {...user}/>
           })}
         </TableBody>
       </Table>
@@ -33,4 +33,4 @@ const TemiCollapsibleTable = (props) => {
   );
 };
 
-export default TemiCollapsibleTable;
+export default UserTable;

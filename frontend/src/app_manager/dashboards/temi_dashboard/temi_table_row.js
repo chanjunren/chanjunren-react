@@ -31,7 +31,7 @@ const useRowStyles = makeStyles((theme) => ({
   }
 }));
 
-const Row = (props) => {
+const TemiRow = (props) => {
   const { owner, serialNumber, applications } = props;
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
@@ -76,4 +76,4 @@ const Row = (props) => {
   );
 };
 
-export default Row;
+export default TemiRow;
