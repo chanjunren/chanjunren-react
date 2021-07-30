@@ -93,7 +93,7 @@ const CustomDrawer = (props) => {
       <Divider/>
       <List>
         {appMenuItems.map((item) => {
-          return <AppMenuItem {...item} key={item.name}/>
+          return <AppMenuItem key={item.name} {...item}/>
         })}
       </List>
     </Drawer>

@@ -52,7 +52,7 @@ const AppDashboard = (props) => {
       </Backdrop>
       <Grid container spacing={3}>
         {loadedApplications.map((app) => {
-          return <Grid item xs={4}>
+          return <Grid key={app.name} item xs={4}>
             <AppCard key={app.name} title={app.name}/>
           </Grid>
         })}

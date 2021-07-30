@@ -60,7 +60,7 @@ const TemiRow = (props) => {
             <Box margin={1}>
               <div className={classes.applicationsRoot}>
                 {applications.map((application) => {
-                  return <Chip color="primary" label={application} />;
+                  return <Chip key={application} color="primary" label={application} />;
                 })}
               </div>
               <div className={classes.controlPanel}>
