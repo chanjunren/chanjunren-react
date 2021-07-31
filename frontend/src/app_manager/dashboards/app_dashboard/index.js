@@ -7,6 +7,8 @@ import useHttpClient from '../../../company_site/hooks/http_hook';
 import { BASE_ADDRESS } from '../../../util/values';
 import AppCard from './app_card';
 import { withTheme } from '../../../util/theme';
+import Button from '@material-ui/core/Button';
+import CreateAppModal from './create_app_modal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +33,12 @@ const AppDashboard = (props) => {
     useHttpClient();
   const [loadedApplications, setLoadedApplications] = useState([]);
 
+  const [openModal, toggleOpenModal] = useState(false);
+  const modalHandler = (event) => {
+    console.log('Hi im getting clicked');
+    toggleOpenModal(!openModal);
+    console.log('OpenModal: ' + openModal);
+  };
   useEffect(() => {
     const getApplications = async () => {
       try {
@@ -50,11 +58,24 @@ const AppDashboard = (props) => {
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </Backdrop>
+      <CreateAppModal openModal={openModal} modalHandler={modalHandler} />
       <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Button
+            variant="outlined"
+            size="medium"
+            color="primary"
+            onClick={modalHandler}
+          >
+            Add Application
+          </Button>
+        </Grid>
         {loadedApplications.map((app) => {
-          return <Grid key={app.name} item xs={4}>
-            <AppCard key={app.name} title={app.name}/>
-          </Grid>
+          return (
+            <Grid key={app.name} item xs={4}>
+              <AppCard key={app.name} title={app.name} />
+            </Grid>
+          );
         })}
       </Grid>
     </div>

@@ -14,7 +14,7 @@ import UserRow from './user_table_row';
 const UserTable = (props) => {
   const { users } = props;
   const [page, setPage] = React.useState(0);
-  const [usersPerPage, setUsersPerPage] = React.useState(7);
+  const [usersPerPage, setUsersPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

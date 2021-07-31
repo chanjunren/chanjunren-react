@@ -13,7 +13,7 @@ import TemiRow from './temi_table_row';
 const TemiCollapsibleTable = (props) => {
   const { units } = props;
   const [page, setPage] = React.useState(0);
-  const [unitsPerPage, setUnitsPerPage] = React.useState(7);
+  const [unitsPerPage, setUnitsPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -32,12 +32,16 @@ const TemiCollapsibleTable = (props) => {
               <TableCell />
               <TableCell>Owner</TableCell>
               <TableCell>Serial Number</TableCell>
+              <TableCell>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-          {units.slice(page * unitsPerPage, page * unitsPerPage + unitsPerPage).map((unit) => {
-              return <TemiRow key={unit.serialNumber} {...unit}/>
-            })}
+            {units
+              .slice(page * unitsPerPage, page * unitsPerPage + unitsPerPage)
+              .map((unit) => {
+                return <TemiRow key={unit.serialNumber} {...unit} />;
+              })}
           </TableBody>
         </Table>
       </TableContainer>

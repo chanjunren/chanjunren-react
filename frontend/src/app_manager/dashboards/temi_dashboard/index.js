@@ -6,6 +6,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import TemiCollapsibleTable from './temi_table';
+import Button from '@material-ui/core/Button';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -47,7 +48,10 @@ const TemiDashboard = () => {
         <CircularProgress color="inherit" />
       </Backdrop>
       <div className={classes.tableRoot}>
-        <TemiCollapsibleTable units={loadedTemis}/>
+        <TemiCollapsibleTable units={loadedTemis} />
+        <Button variant="outlined" size="medium" color="primary">
+          Add Temi Unit
+        </Button>
       </div>
     </div>
   );
