@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useHttpClient from '../../../company_site/hooks/http_hook';
-import { BASE_ADDRESS } from '../../../util/values';
 import AppCard from './app_card';
 import { withTheme } from '../../../util/theme';
 import Button from '@material-ui/core/Button';
 import CreateAppModal from './create_app_modal';
 import { getAppDataHook } from '../../hooks/data_hook';
 import CustomisedSnackBar from '../../../shared/snackbar';
+import { DataContext } from '../../shared/data_context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
 const AppDashboard = (props) => {
   const classes = useStyles();
   const { applications, fetchApplications, isLoading, errorEncountered, clearError } =
-    getAppDataHook();
-
+    useContext(DataContext);
+  
   useEffect(() => {
     fetchApplications();
   }, []);

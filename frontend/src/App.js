@@ -12,6 +12,7 @@ import UserDashboard from './app_manager/dashboards/user_dashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { DataContext } from './app_manager/shared/data_context';
+import { getAppDataHook } from './app_manager/hooks/data_hook';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -20,6 +21,20 @@ import { DataContext } from './app_manager/shared/data_context';
  */
 function App() {
   const { token, login, logout, loggedInUserId } = useAuth();
+  const {
+    fetchData,
+    fetchApplications,
+    fetchTemiUnits,
+    fetchAppUsers,
+    applications,
+    applicationsMap,
+    temiUnits,
+    users,
+    isLoading,
+    errorEncountered,
+    clearError,
+  } = getAppDataHook();
+
   let routes;
   if (!token) {
     routes = (
@@ -79,9 +94,17 @@ function App() {
     >
       <DataContext.Provider
         value={{
-          applications: [],
-          temiUnits: [],
-          users: [],
+          fetchData,
+          fetchApplications,
+          fetchTemiUnits,
+          fetchAppUsers,
+          applications,
+          applicationsMap,
+          temiUnits,
+          users,
+          isLoading,
+          errorEncountered,
+          clearError,
         }}
       >
         <BrowserRouter>

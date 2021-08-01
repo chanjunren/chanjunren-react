@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import useHttpClient from '../../company_site/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 
@@ -6,6 +6,8 @@ export const getAppDataHook = () => {
   const [applications, setApplications] = useState([]);
   const [temiUnits, setTemiUnits] = useState([]);
   const [users, setUsers] = useState([]);
+
+  const [applicationsMap, setApplicationsMap] = useState({});
 
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
@@ -20,10 +22,25 @@ export const getAppDataHook = () => {
     };
     try {
       await getApplications();
+      updateAppMap();
     } catch (err) {
       console.error(err);
     }
   }, []);
+
+  useEffect(() => {
+    updateAppMap();
+  }, [applications]);
+
+  const updateAppMap = () => {
+    let tempMap = {};
+    for (let i = 0; i < applications.length; i++) {
+      tempMap[applications[i].id] = applications[i].name;
+    }
+    console.log(tempMap);
+    setApplicationsMap(tempMap);
+  };
+
   const fetchTemiUnits = useCallback(async () => {
     const getTemiUnits = async () => {
       const responseData = await sendRequest(`${BASE_ADDRESS}/api/temis`);
@@ -36,6 +53,7 @@ export const getAppDataHook = () => {
       console.error(err);
     }
   }, []);
+
   const fetchAppUsers = useCallback(async () => {
     const getAppUsers = async () => {
       let responseData = await sendRequest(`${BASE_ADDRESS}/api/users`);
@@ -55,6 +73,7 @@ export const getAppDataHook = () => {
     fetchTemiUnits,
     fetchAppUsers,
     applications,
+    applicationsMap,
     temiUnits,
     users,
     isLoading,

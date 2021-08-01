@@ -32,7 +32,7 @@ const useRowStyles = makeStyles((theme) => ({
 }));
 
 const TemiRow = (props) => {
-  const { owner, serialNumber, applications } = props;
+  const { owner, serialNumber, applications, appMap } = props;
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
   return (
@@ -60,7 +60,9 @@ const TemiRow = (props) => {
             <Box margin={1}>
               <div className={classes.applicationsRoot}>
                 {applications.map((application) => {
-                  return <Chip key={application} color="primary" label={application} />;
+                  let appLabel = appMap[application];
+                  console.log('AppLabel: ' + appLabel);
+                  return <Chip key={appLabel} color="primary" label={appLabel} />;
                 })}
               </div>
               <div className={classes.controlPanel}>

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import useHttpClient from '../../../company_site/hooks/http_hook';
-import { BASE_ADDRESS } from '../../../util/values';
+import React, { useContext, useEffect } from 'react';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import TemiCollapsibleTable from './temi_table';
 import Button from '@material-ui/core/Button';
-import { getAppDataHook } from '../../hooks/data_hook';
 import CustomisedSnackBar from '../../../shared/snackbar';
+import { DataContext } from '../../shared/data_context';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -25,12 +23,22 @@ const TemiDashboard = () => {
     },
   }));
   const classes = useStyles();
-  const { temiUnits, fetchTemiUnits, isLoading, errorEncountered, clearError } =
-    getAppDataHook();
-
+  const {
+    temiUnits,
+    applicationsMap,
+    applications,
+    fetchTemiUnits,
+    isLoading,
+    errorEncountered,
+    clearError,
+  } = useContext(DataContext);
+  
   useEffect(() => {
     fetchTemiUnits();
   }, []);
+
+  console.log(applications);
+  console.log(applicationsMap);
 
   return (
     <div className={classes.root}>
@@ -44,7 +52,7 @@ const TemiDashboard = () => {
         clearError={clearError}
       />
       <div className={classes.tableRoot}>
-        <TemiCollapsibleTable units={temiUnits} />
+        <TemiCollapsibleTable units={temiUnits} applicationsMap={applicationsMap} />
         <Button variant="outlined" size="medium" color="primary">
           Add Temi Unit
         </Button>

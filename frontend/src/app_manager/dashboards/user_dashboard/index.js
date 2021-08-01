@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import UserTable from './user_table';
-import { getAppDataHook } from '../../hooks/data_hook';
 import CustomisedSnackBar from '../../../shared/snackbar';
+import { DataContext } from '../../shared/data_context';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -21,10 +21,10 @@ const UserDashboard = () => {
       color: '#fff',
     },
   }));
-  
+
   const classes = useStyles();
   const { users, fetchAppUsers, isLoading, errorEncountered, clearError } =
-    getAppDataHook();
+    useContext(DataContext);
 
   useEffect(() => {
     fetchAppUsers();

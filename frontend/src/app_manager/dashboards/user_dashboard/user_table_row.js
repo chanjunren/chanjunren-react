@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import TableRow from '@material-ui/core/TableRow';
@@ -27,7 +27,6 @@ const useRowStyles = makeStyles((theme) => ({
 
 const UserRow = (props) => {
   const { id, role, username } = props;
-  const [open, setOpen] = useState(false);
   const classes = useRowStyles();
   return (
     <TableRow className={classes.root}>
