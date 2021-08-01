@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import TemiCollapsibleTable from './temi_table';
 import Button from '@material-ui/core/Button';
+import { getAppDataHook } from '../../hooks/data_hook';
+import CustomisedSnackBar from '../../../shared/snackbar';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -23,32 +25,26 @@ const TemiDashboard = () => {
     },
   }));
   const classes = useStyles();
-
-  const { isLoading, errorEncountered, sendRequest, clearError } =
-    useHttpClient();
-  const [loadedTemis, setLoadedTemis] = useState([]);
-
-  const getTemis = async () => {
-    try {
-      const responseData = await sendRequest(`${BASE_ADDRESS}/api/temis`);
-      setLoadedTemis(responseData.Units);
-    } catch (err) {
-      console.error(err);
-      clearError();
-    }
-  };
+  const { temiUnits, fetchTemiUnits, isLoading, errorEncountered, clearError } =
+    getAppDataHook();
 
   useEffect(() => {
-    getTemis();
-  }, [sendRequest]);
+    fetchTemiUnits();
+  }, []);
 
   return (
     <div className={classes.root}>
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </Backdrop>
+      <CustomisedSnackBar
+        message={errorEncountered}
+        success={!!!errorEncountered}
+        open={!!errorEncountered}
+        clearError={clearError}
+      />
       <div className={classes.tableRoot}>
-        <TemiCollapsibleTable units={loadedTemis} />
+        <TemiCollapsibleTable units={temiUnits} />
         <Button variant="outlined" size="medium" color="primary">
           Add Temi Unit
         </Button>

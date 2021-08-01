@@ -9,6 +9,8 @@ import AppCard from './app_card';
 import { withTheme } from '../../../util/theme';
 import Button from '@material-ui/core/Button';
 import CreateAppModal from './create_app_modal';
+import { getAppDataHook } from '../../hooks/data_hook';
+import CustomisedSnackBar from '../../../shared/snackbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,10 +30,12 @@ const useStyles = makeStyles((theme) => ({
 
 const AppDashboard = (props) => {
   const classes = useStyles();
-  let applications;
-  const { isLoading, errorEncountered, sendRequest, clearError } =
-    useHttpClient();
-  const [loadedApplications, setLoadedApplications] = useState([]);
+  const { applications, fetchApplications, isLoading, errorEncountered, clearError } =
+    getAppDataHook();
+
+  useEffect(() => {
+    fetchApplications();
+  }, []);
 
   const [openModal, toggleOpenModal] = useState(false);
   const modalHandler = (event) => {
@@ -39,25 +43,18 @@ const AppDashboard = (props) => {
     toggleOpenModal(!openModal);
     console.log('OpenModal: ' + openModal);
   };
-  useEffect(() => {
-    const getApplications = async () => {
-      try {
-        let responseData = await sendRequest(`${BASE_ADDRESS}/api/apps`);
-        console.log(responseData);
-        setLoadedApplications(responseData.applications);
-      } catch (err) {
-        console.error(err);
-        clearError();
-      }
-    };
-    getApplications();
-  }, [sendRequest]);
 
   return (
     <div className={classes.root}>
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </Backdrop>
+      <CustomisedSnackBar
+        message={errorEncountered}
+        success={!!!errorEncountered}
+        open={!!errorEncountered}
+        clearError={clearError}
+      />
       <CreateAppModal openModal={openModal} modalHandler={modalHandler} />
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -70,7 +67,7 @@ const AppDashboard = (props) => {
             Add Application
           </Button>
         </Grid>
-        {loadedApplications.map((app) => {
+        {applications.map((app) => {
           return (
             <Grid key={app.name} item xs={4}>
               <AppCard key={app.name} title={app.name} />

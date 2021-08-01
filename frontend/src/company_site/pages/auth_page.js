@@ -8,7 +8,7 @@ import useForm from '../hooks/form_hook';
 import useHttpClient from '../hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 import { AuthContext } from '../components/shared/auth_context';
-import CustomisedSnackBar from './components/snackbar';
+import CustomisedSnackBar from '../../shared/snackbar';
 
 const AuthPage = () => {
   const authContext = useContext(AuthContext);

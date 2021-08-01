@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import useHttpClient from '../../../company_site/hooks/http_hook';
-import { BASE_ADDRESS } from '../../../util/values';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import UserTable from './user_table';
+import { getAppDataHook } from '../../hooks/data_hook';
+import CustomisedSnackBar from '../../../shared/snackbar';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -21,32 +21,27 @@ const UserDashboard = () => {
       color: '#fff',
     },
   }));
+  
   const classes = useStyles();
-  const [loadedUsers, setLoadedUsers] = useState([]);
-
-  const { isLoading, errorEncountered, sendRequest, clearError } =
-    useHttpClient();
-  const fetchUsers = async () => {
-    try {
-      const responseData = await sendRequest(`${BASE_ADDRESS}/api/users`);
-      setLoadedUsers(responseData.users);
-    } catch (err) {
-      console.error(err);
-      clearError();
-    }
-  };
+  const { users, fetchAppUsers, isLoading, errorEncountered, clearError } =
+    getAppDataHook();
 
   useEffect(() => {
-    fetchUsers();
-  }, [sendRequest]);
-
+    fetchAppUsers();
+  }, []);
   return (
     <div className={classes.root}>
+      <CustomisedSnackBar
+        message={errorEncountered}
+        success={!!!errorEncountered}
+        open={!!errorEncountered}
+        clearError={clearError}
+      />
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </Backdrop>
       <div className={classes.tableRoot}>
-        <UserTable users={loadedUsers}/>
+        <UserTable users={users} />
       </div>
     </div>
   );

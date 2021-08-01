@@ -11,6 +11,7 @@ import TemiDashboard from './app_manager/dashboards/temi_dashboard';
 import UserDashboard from './app_manager/dashboards/user_dashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { DataContext } from './app_manager/shared/data_context';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -59,7 +60,7 @@ function App() {
     },
     content: {
       flexGrow: 1,
-      paddingTop:'56px',
+      paddingTop: '56px',
       height: '100vh',
       overflow: 'auto',
     },
@@ -76,12 +77,22 @@ function App() {
         logout: logout,
       }}
     >
-      <BrowserRouter>
-        <div className={!!token ? classes.root : undefined}>
-          {!!token && <DashboardNav />}
-          <main className={!!token ? classes.content: undefined}>{routes}</main>
-        </div>
-      </BrowserRouter>
+      <DataContext.Provider
+        value={{
+          applications: [],
+          temiUnits: [],
+          users: [],
+        }}
+      >
+        <BrowserRouter>
+          <div className={!!token ? classes.root : undefined}>
+            {!!token && <DashboardNav />}
+            <main className={!!token ? classes.content : undefined}>
+              {routes}
+            </main>
+          </div>
+        </BrowserRouter>
+      </DataContext.Provider>
     </AuthContext.Provider>
   );
 }
