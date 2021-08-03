@@ -4,8 +4,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import UserTable from './user_table';
-import CustomisedSnackBar from '../../../shared/snackbar';
-import { DataContext } from '../../shared/data_context';
+import CustomisedSnackBar from '../../../shared/components/snackbar';
+import DataContext from '../../shared/data_context';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({

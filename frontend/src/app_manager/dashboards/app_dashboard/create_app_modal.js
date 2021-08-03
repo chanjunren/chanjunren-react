@@ -3,6 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import useForm from '../../../shared/hooks/form_hook';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MIN,
+  VALIDATOR_MINLENGTH,
+} from '../../../util/form_validators';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -11,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    backgroundColor: '#000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -21,6 +29,20 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateAppModal(props) {
   const classes = useStyles();
   const { openModal, modalHandler } = props;
+
+  const [formState, formInputHandler, formFocusHandler] = useForm({
+    nameTextField: {
+      value: '',
+      isValid: true,
+    },
+  });
+
+  console.log(formState);
+  const nameValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
+
+  const onNameInput = (event) => {
+    formInputHandler(event.target.id, event.target.value, nameValidators);
+  };
 
   return (
     <Modal
@@ -36,12 +58,30 @@ export default function CreateAppModal(props) {
       }}
     >
       <Fade in={openModal}>
-        <div className={classes.paper}>
-          <h2 id="transition-modal-title">Transition modal</h2>
-          <p id="transition-modal-description">
-            react-transition-group animates me.
-          </p>
-        </div>
+        <form>
+          <Grid className={classes.paper}>
+            <Grid item>
+              <TextField
+                error={!formState.inputs.nameTextField.isValid}
+                id="nameTextField"
+                label="App Name"
+                variant="outlined"
+                onInput={onNameInput}
+              />
+            </Grid>
+
+            <Grid item>
+              <div>
+                <Button color="secondary" onClick={modalHandler}>
+                  Cancel
+                </Button>
+                <Button color="primary" onClick={modalHandler}>
+                  Add
+                </Button>
+              </div>
+            </Grid>
+          </Grid>
+        </form>
       </Fade>
     </Modal>
   );

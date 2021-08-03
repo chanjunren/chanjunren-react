@@ -1,4 +1,5 @@
 import {useReducer, useCallback} from 'react';
+import {validate} from '../../util/form_validators';
 
 const INPUT_ACTION = 'INPUT';
 const FOCUS_ACTION = 'FOCUS';
@@ -14,9 +15,11 @@ const formReducer = (state, action) => {
           [action.inputId]: {
             ...state.inputs[action.inputId],
             value: action.value,
+            isValid: validate(action.value, action.validators),
           },
         },
       };
+      console.log(newState);
       return newState;
     }
     case `${FOCUS_ACTION}`: {
@@ -43,11 +46,12 @@ const useForm = (initialInputs) => {
     inputs: initialInputs,
   });
 
-  const formInputHandler = useCallback((id, value) => {
+  const formInputHandler = useCallback((id, value, validators) => {
     dispatch({
       type: `${INPUT_ACTION}`,
       inputId: id,
       value: value,
+      validators: validators,
     });
   }, []);
 

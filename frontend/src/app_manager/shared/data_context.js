@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import useHttpClient from '../../company_site/hooks/http_hook';
 
-export const DataContext = createContext({
+const DataContext = createContext({
   fetchData: () => {},
   fetchApplications: () => {},
   fetchTemiUnits: () => {},
@@ -14,3 +14,5 @@ export const DataContext = createContext({
   errorEncountered: null,
   clearError: () => {},
 });
+
+export default DataContext;

@@ -11,8 +11,8 @@ import TemiDashboard from './app_manager/dashboards/temi_dashboard';
 import UserDashboard from './app_manager/dashboards/user_dashboard';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { DataContext } from './app_manager/shared/data_context';
-import { getAppDataHook } from './app_manager/hooks/data_hook';
+import DataContext from './app_manager/shared/data_context';
+import getData from './app_manager/hooks/data_hook';
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -33,7 +33,7 @@ function App() {
     isLoading,
     errorEncountered,
     clearError,
-  } = getAppDataHook();
+  } = getData();
 
   let routes;
   if (!token) {

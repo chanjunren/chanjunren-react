@@ -5,8 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
 import TemiCollapsibleTable from './temi_table';
 import Button from '@material-ui/core/Button';
-import CustomisedSnackBar from '../../../shared/snackbar';
-import { DataContext } from '../../shared/data_context';
+import CustomisedSnackBar from '../../../shared/components/snackbar';
+import DataContext from '../../shared/data_context';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({

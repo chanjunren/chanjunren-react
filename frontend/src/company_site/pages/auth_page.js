@@ -4,14 +4,15 @@ import loginDisplay from '../images/sign_in_svg.svg';
 import avatar from '../images/avatar.png';
 
 import './auth_page.css';
-import useForm from '../hooks/form_hook';
+import useForm from '../../shared/hooks/form_hook';
 import useHttpClient from '../hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 import { AuthContext } from '../components/shared/auth_context';
-import CustomisedSnackBar from '../../shared/snackbar';
+import CustomisedSnackBar from '../../shared/components/snackbar';
 
 const AuthPage = () => {
   const authContext = useContext(AuthContext);
+  const formValidators = [];
   const [formState, formInputHandler, formFocusHandler] = useForm({
     usernameInput: {
       value: '',
@@ -24,7 +25,7 @@ const AuthPage = () => {
   });
 
   const pageInputHandler = useCallback((event) => {
-    formInputHandler(event.target.id, event.target.value);
+    formInputHandler(event.target.id, event.target.value, formValidators);
   }, []);
 
   const pageFocusHandler = useCallback((event) => {

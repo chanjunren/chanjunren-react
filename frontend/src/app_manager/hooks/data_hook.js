@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from 'react';
 import useHttpClient from '../../company_site/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 
-export const getAppDataHook = () => {
+const getData = () => {
   const [applications, setApplications] = useState([]);
   const [temiUnits, setTemiUnits] = useState([]);
   const [users, setUsers] = useState([]);
@@ -81,3 +81,5 @@ export const getAppDataHook = () => {
     clearError,
   };
 };
+
+export default getData;

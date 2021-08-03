@@ -7,9 +7,8 @@ import AppCard from './app_card';
 import { withTheme } from '../../../util/theme';
 import Button from '@material-ui/core/Button';
 import CreateAppModal from './create_app_modal';
-import { getAppDataHook } from '../../hooks/data_hook';
-import CustomisedSnackBar from '../../../shared/snackbar';
-import { DataContext } from '../../shared/data_context';
+import CustomisedSnackBar from '../../../shared/components/snackbar';
+import DataContext from '../../shared/data_context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
