@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import useHttpClient from '../../company_site/hooks/http_hook';
 
 const DataContext = createContext({
   fetchData: () => {},

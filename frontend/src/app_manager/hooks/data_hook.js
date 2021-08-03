@@ -12,12 +12,15 @@ const getData = () => {
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
 
-  const fetchData = () => {};
+  const fetchData = async () => {
+    await fetchApplications();
+    await fetchAppUsers();
+    await fetchTemiUnits();
+  };
 
   const fetchApplications = useCallback(async () => {
     const getApplications = async () => {
       let responseData = await sendRequest(`${BASE_ADDRESS}/api/apps`);
-      console.log(responseData);
       setApplications(responseData.applications);
     };
     try {
@@ -28,23 +31,17 @@ const getData = () => {
     }
   }, []);
 
-  useEffect(() => {
-    updateAppMap();
-  }, [applications]);
-
   const updateAppMap = () => {
     let tempMap = {};
     for (let i = 0; i < applications.length; i++) {
       tempMap[applications[i].id] = applications[i].name;
     }
-    console.log(tempMap);
     setApplicationsMap(tempMap);
   };
 
   const fetchTemiUnits = useCallback(async () => {
     const getTemiUnits = async () => {
       const responseData = await sendRequest(`${BASE_ADDRESS}/api/temis`);
-      console.log(responseData);
       setTemiUnits(responseData.Units);
     };
     try {
@@ -66,6 +63,14 @@ const getData = () => {
       console.error(err);
     }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    updateAppMap();
+  }, [applications]);
 
   return {
     fetchData,

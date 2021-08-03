@@ -19,7 +19,6 @@ const formReducer = (state, action) => {
           },
         },
       };
-      console.log(newState);
       return newState;
     }
     case `${FOCUS_ACTION}`: {
