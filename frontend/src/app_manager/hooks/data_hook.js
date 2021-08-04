@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect } from 'react';
-import useHttpClient from '../../company_site/hooks/http_hook';
+import useHttpClient from '../../shared/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 
 const getData = () => {

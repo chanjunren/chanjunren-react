@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -9,13 +9,13 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 import useForm from '../../../shared/hooks/form_hook';
+import useHttpClient from '../../../shared/hooks/http_hook';
 import {
   VALIDATOR_REQUIRE,
-  VALIDATOR_MIN,
   VALIDATOR_MINLENGTH,
 } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
-import SelectUnits from './components/select_units';
+import SelectUnits from '../shared/select_units';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -44,9 +44,9 @@ export default function CreateAppModal(props) {
       isValid: true,
     },
   });
-  const nameValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
 
   const onNameInput = (event) => {
+    const nameValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
     formInputHandler(event.target.id, event.target.value, nameValidators);
   };
 
@@ -54,24 +54,9 @@ export default function CreateAppModal(props) {
   const temiUnits = dataContext.temiUnits.map((unit) => {
     return unit.serialNumber;
   });
-  const [selectedUnits, setSelectedUnits] = React.useState([]);
+  const [selectedUnits, setSelectedUnits] = useState([]);
 
-  // const handleChange = (event) => {
-  //   setTemiUnits(event.target.value);
-  // };
-  console.log('=== SELECTED UNITS ===');
-  console.log(selectedUnits);
-
-  const handleChangeMultiple = (event) => {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setSelectedUnits(value);
-  };
+  useHttpClient();
 
   return (
     <Modal
@@ -100,7 +85,7 @@ export default function CreateAppModal(props) {
             </Grid>
             <Grid item>
               <SelectUnits
-                temiUnits={temiUnits}
+                availableUnits={temiUnits}
                 selectedUnits={selectedUnits}
                 setSelectedUnits={setSelectedUnits}
               />

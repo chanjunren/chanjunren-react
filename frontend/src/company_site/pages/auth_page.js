@@ -5,7 +5,7 @@ import avatar from '../images/avatar.png';
 
 import './auth_page.css';
 import useForm from '../../shared/hooks/form_hook';
-import useHttpClient from '../hooks/http_hook';
+import useHttpClient from '../../shared/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 import { AuthContext } from '../components/shared/auth_context';
 import CustomisedSnackBar from '../../shared/components/snackbar';

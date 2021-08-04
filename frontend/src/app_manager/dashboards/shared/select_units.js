@@ -48,10 +48,10 @@ const MenuProps = {
   },
 };
 const SelectUnits = (props) => {
-  const { temiUnits, selectedUnits, setSelectedUnits } = props;
+  const { availableUnits, selectedUnits, setSelectedUnits } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const handleChange = (event) => {
+  const onSelect = (event) => {
     setSelectedUnits(event.target.value);
   };
 
@@ -63,7 +63,7 @@ const SelectUnits = (props) => {
         id="multiple-chip"
         multiple
         value={selectedUnits}
-        onChange={handleChange}
+        onChange={onSelect}
         input={<Input id="select-multiple-chip" />}
         renderValue={(selected) => (
           <div className="chips">
@@ -74,7 +74,7 @@ const SelectUnits = (props) => {
         )}
         MenuProps={MenuProps}
       >
-        {temiUnits.map((unit) => {
+        {availableUnits.map((unit) => {
           console.log(unit);
           return <MenuItem
             key={unit}
