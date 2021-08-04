@@ -24,8 +24,7 @@ const getAllApplications = async (req, res, next) => {
 };
 
 const addApplication = async (req, res, next) => {
-  const { name } = req.body;
-
+  const { name, units } = req.body;
   let existingApp;
   try {
     existingApp = await Application.findOne({ name: name });
@@ -48,7 +47,7 @@ const addApplication = async (req, res, next) => {
 
   const newApp = new Application({
     name: name,
-    units: [],
+    units: units,
   });
 
   try {

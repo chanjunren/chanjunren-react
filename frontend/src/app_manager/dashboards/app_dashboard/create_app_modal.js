@@ -16,6 +16,7 @@ import {
 } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
+import { BASE_ADDRESS } from '../../../util/values';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -51,12 +52,46 @@ export default function CreateAppModal(props) {
   };
 
   const dataContext = useContext(DataContext);
-  const temiUnits = dataContext.temiUnits.map((unit) => {
-    return unit.serialNumber;
+  const temiUnits = [];
+  const temiUnitsMap = {};
+
+  dataContext.temiUnits.forEach((unit) => {
+    temiUnits.push(unit.serialNumber);
+    temiUnitsMap[unit.serialNumber] = unit.id;
   });
+
   const [selectedUnits, setSelectedUnits] = useState([]);
 
-  useHttpClient();
+  const { isLoading, errorEncountered, sendRequest, clearError } =
+    useHttpClient();
+
+  const addNewUnit = async () => {
+    if (formState.isValid) {
+      const selectedIds = selectedUnits.map((serialNumber) => {
+        return temiUnitsMap[serialNumber];
+      });
+
+      const formData = new FormData();
+      formData.append('name', formState.inputs.nameTextField.value);
+      formData.append('units', JSON.stringify(selectedUnits));
+
+      const responseData = await sendRequest(
+        `${BASE_ADDRESS}/api/apps`,
+        'POST',
+        JSON.stringify({
+          name: formState.inputs.nameTextField.value,
+          units: selectedIds,
+        }),
+        { 'Content-Type': 'application/json' },
+      );
+      console.log(responseData);
+      modalHandler();
+    }
+  };
+
+  const postRequestHandler = (error) => {
+    errorEncountered = error;
+  };
 
   return (
     <Modal
@@ -96,7 +131,7 @@ export default function CreateAppModal(props) {
                 <Button color="secondary" onClick={modalHandler}>
                   Cancel
                 </Button>
-                <Button color="primary" onClick={modalHandler}>
+                <Button color="primary" onClick={addNewUnit} >
                   Add
                 </Button>
               </div>

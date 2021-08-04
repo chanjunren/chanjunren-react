@@ -8,6 +8,7 @@ const FOCUS_ACTION = 'FOCUS';
 const formReducer = (state, action) => {
   switch (action.type) {
     case `${INPUT_ACTION}`: {
+      const isInputValid = validate(action.value, action.validators);
       const newState = {
         ...state,
         inputs: {
@@ -15,9 +16,10 @@ const formReducer = (state, action) => {
           [action.inputId]: {
             ...state.inputs[action.inputId],
             value: action.value,
-            isValid: validate(action.value, action.validators),
+            isValid: isInputValid,
           },
         },
+        isValid: true,
       };
       return newState;
     }

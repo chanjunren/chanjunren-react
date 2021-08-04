@@ -37,9 +37,7 @@ const AppDashboard = (props) => {
 
   const [openModal, toggleOpenModal] = useState(false);
   const modalHandler = (event) => {
-    console.log('Hi im getting clicked');
     toggleOpenModal(!openModal);
-    console.log('OpenModal: ' + openModal);
   };
 
   return (
