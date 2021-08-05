@@ -7,7 +7,6 @@ const getData = () => {
   const [temiUnits, setTemiUnits] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const [applicationsMap, setApplicationsMap] = useState({});
 
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
@@ -25,19 +24,12 @@ const getData = () => {
     };
     try {
       await getApplications();
-      updateAppMap();
     } catch (err) {
       console.error(err);
     }
   }, []);
 
-  const updateAppMap = () => {
-    let tempMap = {};
-    for (let i = 0; i < applications.length; i++) {
-      tempMap[applications[i].id] = applications[i].name;
-    }
-    setApplicationsMap(tempMap);
-  };
+  
 
   const fetchTemiUnits = useCallback(async () => {
     const getTemiUnits = async () => {
@@ -68,17 +60,12 @@ const getData = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    updateAppMap();
-  }, [applications]);
-
   return {
     fetchData,
     fetchApplications,
     fetchTemiUnits,
     fetchAppUsers,
     applications,
-    applicationsMap,
     temiUnits,
     users,
     isLoading,

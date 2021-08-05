@@ -61,7 +61,6 @@ const TemiRow = (props) => {
               <div className={classes.applicationsRoot}>
                 {applications.map((application) => {
                   let appLabel = appMap[application];
-                  console.log('AppLabel: ' + appLabel);
                   return <Chip key={appLabel} color="primary" label={appLabel} />;
                 })}
               </div>

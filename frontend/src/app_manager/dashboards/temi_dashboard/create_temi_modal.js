@@ -36,51 +36,58 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreateAppModal(props) {
+export default function CreateTemiModal(props) {
   const classes = useStyles();
-  const { openModal, modalHandler } = props;
+  const { openModal, modalHandler, appNameToIdMap, applications } = props;
   const [formState, formInputHandler, formFocusHandler] = useForm({
-    nameTextField: {
+    ownerTextField: {
+      value: '',
+      isValid: true,
+    },
+    serialNumberTextField: {
       value: '',
       isValid: true,
     },
   });
 
-  const onNameInput = (event) => {
-    const nameValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
-    formInputHandler(event.target.id, event.target.value, nameValidators);
+  const onOwnerInput = (event) => {
+    const ownerValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
+    formInputHandler(event.target.id, event.target.value, ownerValidators);
+  };
+
+  const onSerialNumberInput = (event) => {
+    const serialNumberValidators = [
+      VALIDATOR_REQUIRE(),
+      VALIDATOR_MINLENGTH(5),
+    ];
+    formInputHandler(
+      event.target.id,
+      event.target.value,
+      serialNumberValidators,
+    );
   };
 
   const dataContext = useContext(DataContext);
-  const temiUnits = [];
-  const temiUnitsMap = {};
-
-  dataContext.temiUnits.forEach((unit) => {
-    temiUnits.push(unit.serialNumber);
-    temiUnitsMap[unit.serialNumber] = unit.id;
-  });
 
   const [selectedUnits, setSelectedUnits] = useState([]);
 
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
+  console.log(appNameToIdMap);
 
   const addNewUnit = async () => {
     if (formState.isValid) {
-      const selectedIds = selectedUnits.map((serialNumber) => {
-        return temiUnitsMap[serialNumber];
+      const selectedIds = selectedUnits.map((appName) => {
+        return appNameToIdMap[appName];
       });
 
-      const formData = new FormData();
-      formData.append('name', formState.inputs.nameTextField.value);
-      formData.append('units', JSON.stringify(selectedUnits));
-
       const responseData = await sendRequest(
-        `${BASE_ADDRESS}/api/apps`,
+        `${BASE_ADDRESS}/api/temis`,
         'POST',
         JSON.stringify({
-          name: formState.inputs.nameTextField.value,
-          units: selectedIds,
+          owner: formState.inputs.ownerTextField.value,
+          serialNumber: formState.inputs.serialNumberTextField.value,
+          applications: selectedIds,
         }),
         { 'Content-Type': 'application/json' },
       );
@@ -88,7 +95,7 @@ export default function CreateAppModal(props) {
       modalHandler();
 
       // To update the page
-      dataContext.fetchApplications();
+      dataContext.fetchTemiUnits();
     }
   };
 
@@ -110,16 +117,25 @@ export default function CreateAppModal(props) {
           <Grid className={classes.paper}>
             <Grid item>
               <TextField
-                error={!formState.inputs.nameTextField.isValid}
-                id="nameTextField"
-                label="App Name"
+                error={!formState.inputs.ownerTextField.isValid}
+                id="ownerTextField"
+                label="Owner"
                 variant="outlined"
-                onInput={onNameInput}
+                onInput={onOwnerInput}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                error={!formState.inputs.serialNumberTextField.isValid}
+                id="serialNumberTextField"
+                label="Serial Number"
+                variant="outlined"
+                onInput={onSerialNumberInput}
               />
             </Grid>
             <Grid item>
               <SelectUnits
-                availableUnits={temiUnits}
+                availableUnits={applications}
                 selectedUnits={selectedUnits}
                 setSelectedUnits={setSelectedUnits}
               />
@@ -130,7 +146,7 @@ export default function CreateAppModal(props) {
                 <Button color="secondary" onClick={modalHandler}>
                   Cancel
                 </Button>
-                <Button color="primary" onClick={addNewUnit} >
+                <Button color="primary" onClick={addNewUnit}>
                   Add
                 </Button>
               </div>
