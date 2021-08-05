@@ -86,11 +86,8 @@ export default function CreateAppModal(props) {
       );
       console.log(responseData);
       modalHandler();
+      dataContext.fetchApplications();
     }
-  };
-
-  const postRequestHandler = (error) => {
-    errorEncountered = error;
   };
 
   return (
