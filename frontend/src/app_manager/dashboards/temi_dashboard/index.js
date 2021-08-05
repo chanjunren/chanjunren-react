@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import CreateTemiModal from './create_temi_modal';
+import DeleteModal from '../shared/delete_modal';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -52,12 +53,21 @@ const TemiDashboard = () => {
     setAppNameToIdMap(tempNameToIdMap);
   }, [applications]);
 
-  console.log(appIdToNameMap);
-
-  const [openModal, toggleOpenModal] = useState(false);
-  const modalHandler = (event) => {
-    toggleOpenModal(!openModal);
+  const [openCreateModal, toggleCreateModal] = useState(false);
+  const createModalHandler = (event) => {
+    toggleCreateModal(!openCreateModal);
   };
+
+  const [openDeleteModal, toggleDeleteModal] = useState(false);
+  const [unitToDelete, setUnitToDelete] = useState()
+  const showDeleteModal = (temiId) => {
+    toggleDeleteModal(true);
+    setUnitToDelete(temiId);
+  };
+
+  const hideDeleteModal = (event) => {
+    toggleDeleteModal(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -71,21 +81,29 @@ const TemiDashboard = () => {
         clearError={clearError}
       />
       <CreateTemiModal
-        openModal={openModal}
-        modalHandler={modalHandler}
+        openModal={openCreateModal}
+        modalHandler={createModalHandler}
         appNameToIdMap={appNameToIdMap}
         applications={applications.map((app) => app.name)}
+      />
+      <DeleteModal
+        openModal={openDeleteModal}
+        hideDeleteModal={hideDeleteModal}
+        unitToDelete={unitToDelete}
+        deleteMessage="Are you sure you want to delete this unit?"
+        deleteTemiUnit
       />
       <div className={classes.tableRoot}>
         <TemiCollapsibleTable
           units={temiUnits}
           applicationsMap={appIdToNameMap}
+          showDeleteModal={showDeleteModal}
         />
         <Button
           variant="outlined"
           size="medium"
           color="primary"
-          onClick={modalHandler}
+          onClick={createModalHandler}
         >
           Add Temi Unit
         </Button>

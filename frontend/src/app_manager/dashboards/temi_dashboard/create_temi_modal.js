@@ -73,7 +73,6 @@ export default function CreateTemiModal(props) {
 
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
-  console.log(appNameToIdMap);
 
   const addNewUnit = async () => {
     if (formState.isValid) {

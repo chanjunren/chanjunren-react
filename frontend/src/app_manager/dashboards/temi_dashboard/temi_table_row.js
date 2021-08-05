@@ -28,11 +28,12 @@ const useRowStyles = makeStyles((theme) => ({
   controlPanel: {
     float: 'right',
     padding: '0.2rem',
-  }
+  },
 }));
 
 const TemiRow = (props) => {
-  const { owner, serialNumber, applications, appMap } = props;
+  const { owner, serialNumber, id, applications, appMap, showDeleteModal } =
+    props;
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
   return (
@@ -61,12 +62,16 @@ const TemiRow = (props) => {
               <div className={classes.applicationsRoot}>
                 {applications.map((application) => {
                   let appLabel = appMap[application];
-                  return <Chip key={appLabel} color="primary" label={appLabel} />;
+                  return (
+                    <Chip key={appLabel} color="primary" label={appLabel} />
+                  );
                 })}
               </div>
               <div className={classes.controlPanel}>
                 <Button color="primary">Edit</Button>
-                <Button color="secondary">Delete</Button>
+                <Button color="secondary" onClick={() => showDeleteModal(id)}>
+                  Delete
+                </Button>
               </div>
               {/* <Chips/> */}
             </Box>
