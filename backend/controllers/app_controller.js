@@ -51,14 +51,22 @@ const addApplication = async (req, res, next) => {
   });
 
   try {
-    await newApp.save();
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    for (var temiId of newApp.units) {
+      temiUnit = await TemiUnit.findById(temiId);
+      temiUnit.applications.push(newApp);
+      await temiUnit.save({ session: session });
+    }
+    await newApp.save({ session: session });
+    await session.commitTransaction();
+    res.status(201).json({ message: 'Application saved!' });  
   } catch (err) {
+    console.error(err);
     return next(
       new HttpError('An error occured while saving this application! D:', 500),
     );
   }
-
-  res.status(201).json({ message: 'Application saved!' });
 };
 
 const deleteApplicationByAid = async (req, res, next) => {
@@ -82,22 +90,22 @@ const deleteApplicationByAid = async (req, res, next) => {
     for (var temiId of app.units) {
       temiUnit = await TemiUnit.findById(temiId);
       temiUnit.applications.pull(app);
-      await temiUnit.save({session: session});
+      await temiUnit.save({ session: session });
     }
-    await app.remove({session: session});
+    await app.remove({ session: session });
     await session.commitTransaction();
     res.status(200).json({ 'This item has been deleted! :D': app });
   } catch (err) {
     console.error(err);
     return next(
       new HttpError(
-        'Something went wrong when trying to create this unit! D:',
+        'Something went wrong when trying to delete this unit! D:',
         500,
       ),
     );
   }
 
-  // TO DO 
+  // TO DO
 };
 
 const updateApplicationByAid = (req, res, next) => {};
