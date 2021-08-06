@@ -59,10 +59,10 @@ const TemiDashboard = () => {
   };
 
   const [openDeleteModal, toggleDeleteModal] = useState(false);
-  const [unitToDelete, setUnitToDelete] = useState()
-  const showDeleteModal = (temiId) => {
+  const [deleteEndpoint, setDeleteEndpoint] = useState()
+  const showDeleteModal = (link) => {
     toggleDeleteModal(true);
-    setUnitToDelete(temiId);
+    setDeleteEndpoint(link);
   };
 
   const hideDeleteModal = (event) => {
@@ -89,7 +89,7 @@ const TemiDashboard = () => {
       <DeleteModal
         openModal={openDeleteModal}
         hideDeleteModal={hideDeleteModal}
-        unitToDelete={unitToDelete}
+        deleteEndpoint={deleteEndpoint}
         deleteMessage="Are you sure you want to delete this unit?"
         deleteTemiUnit
       />
