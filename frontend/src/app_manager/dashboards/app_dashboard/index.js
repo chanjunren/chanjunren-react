@@ -73,9 +73,9 @@ const AppDashboard = (props) => {
         openModal={openDeleteModal}
         hideDeleteModal={hideDeleteModal}
         deleteEndpoint={deleteEndpoint}
-        deleteMessage="Are you sure you want to delete this unit?"
-        deleteTemiUnit
-      />{' '}
+        deleteMessage="Are you sure you want to delete this application?"
+        
+      />
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Button

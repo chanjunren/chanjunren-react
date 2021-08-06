@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Button from '@material-ui/core/Button';
+import { BASE_ADDRESS } from '../../../util/values';
 
 const useRowStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,8 @@ const useRowStyles = makeStyles((theme) => ({
 }));
 
 const UserRow = (props) => {
-  const { id, role, username } = props;
+  const { id, role, username, showDeleteModal } = props;
+  const deleteEndpoint = `${BASE_ADDRESS}/api/users/${id}`;
   const classes = useRowStyles();
   return (
     <TableRow className={classes.root}>
@@ -37,7 +39,12 @@ const UserRow = (props) => {
       <TableCell>
         <div className={classes.controlPanel}>
           <Button color="primary">Edit</Button>
-          <Button color="secondary">Delete</Button>
+          <Button
+            color="secondary"
+            onClick={() => showDeleteModal(deleteEndpoint)}
+          >
+            Delete
+          </Button>
         </div>
       </TableCell>
     </TableRow>

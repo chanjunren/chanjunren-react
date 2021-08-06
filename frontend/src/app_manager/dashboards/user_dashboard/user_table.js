@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import UserRow from './user_table_row';
 
 const UserTable = (props) => {
-  const { users } = props;
+  const { users, showDeleteModal } = props;
   const [page, setPage] = React.useState(0);
   const [usersPerPage, setUsersPerPage] = React.useState(5);
 
@@ -36,9 +36,17 @@ const UserTable = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.slice(page * usersPerPage, page * usersPerPage + usersPerPage).map((user) => {
-              return <UserRow key={user.id} {...user}/>
-            })}
+            {users
+              .slice(page * usersPerPage, page * usersPerPage + usersPerPage)
+              .map((user) => {
+                return (
+                  <UserRow
+                    key={user.id}
+                    {...user}
+                    showDeleteModal={showDeleteModal}
+                  />
+                );
+              })}
           </TableBody>
         </Table>
       </TableContainer>

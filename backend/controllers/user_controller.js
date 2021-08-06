@@ -130,6 +130,27 @@ const loginUser = async (req, res, next) => {
   }
 };
 
+const deleteUserById = async (req, res, next) => {
+  let userId = req.params.userId;
+  let userSpecified;
+
+  try {
+    userSpecified = await User.findById(userId);
+    await userSpecified.remove();
+    res.status(200).json({ 'This user has been deleted! :D': userSpecified });
+
+  } catch (err) {
+    console.error(err);
+    return next(
+      new HttpError(
+        'Something went wrong when looking for the user to be deleted D:',
+        500,
+      ),
+    );
+  }
+};
+
 exports.getAllUsers = getAllUsers;
 exports.createUser = createUser;
 exports.loginUser = loginUser;
+exports.deleteUserById = deleteUserById;
