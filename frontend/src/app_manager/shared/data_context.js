@@ -5,6 +5,7 @@ const DataContext = createContext({
   fetchApplications: () => {},
   fetchTemiUnits: () => {},
   fetchAppUsers: () => {},
+  sendRequest: () => {},
   applications: [],
   applicationsMap: {},
   temiUnits: [],

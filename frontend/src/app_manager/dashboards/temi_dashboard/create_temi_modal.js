@@ -48,6 +48,10 @@ export default function CreateTemiModal(props) {
       value: '',
       isValid: true,
     },
+    applications: {
+      value: [],
+      isValid: true,
+    },
   });
 
   const onOwnerInput = (event) => {
@@ -67,16 +71,18 @@ export default function CreateTemiModal(props) {
     );
   };
 
+  const setSelectedUnits = (selectedUnits) => {
+    console.log(selectedUnits);
+    console.log(formState);
+    formInputHandler('applications', selectedUnits, []);
+  };
+
   const dataContext = useContext(DataContext);
-
-  const [selectedUnits, setSelectedUnits] = useState([]);
-
-  const { isLoading, errorEncountered, sendRequest, clearError } =
-    useHttpClient();
+  const { sendRequest } = dataContext;
 
   const addNewUnit = async () => {
     if (formState.isValid) {
-      const selectedIds = selectedUnits.map((appName) => {
+      const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
 
@@ -135,8 +141,9 @@ export default function CreateTemiModal(props) {
             <Grid item>
               <SelectUnits
                 availableUnits={applications}
-                selectedUnits={selectedUnits}
+                selectedUnits={formState.inputs.applications.value}
                 setSelectedUnits={setSelectedUnits}
+                selectApps
               />
             </Grid>
 

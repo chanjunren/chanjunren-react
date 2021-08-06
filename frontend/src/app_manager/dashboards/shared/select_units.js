@@ -48,16 +48,19 @@ const MenuProps = {
   },
 };
 const SelectUnits = (props) => {
-  const { availableUnits, selectedUnits, setSelectedUnits } = props;
+  const { availableUnits, selectedUnits, setSelectedUnits, selectApps } = props;
   const classes = useStyles();
   const theme = useTheme();
+
   const onSelect = (event) => {
     setSelectedUnits(event.target.value);
   };
 
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel id="chip-label">Temi Units</InputLabel>
+      <InputLabel id="chip-label">
+        {selectApps ? 'Applications' : 'Temi Units'}
+      </InputLabel>
       <Select
         labelId="multiple-chip-label"
         id="multiple-chip"
@@ -75,15 +78,16 @@ const SelectUnits = (props) => {
         MenuProps={MenuProps}
       >
         {availableUnits.map((unit) => {
-          console.log(unit);
-          return <MenuItem
-            key={unit}
-            value={unit}
-            style={getStyles(unit, selectedUnits, theme)}
-          >
-            <Checkbox checked={selectedUnits.indexOf(unit) > -1} />
-            <ListItemText primary={unit} />
-          </MenuItem>;
+          return (
+            <MenuItem
+              key={unit}
+              value={unit}
+              style={getStyles(unit, selectedUnits, theme)}
+            >
+              <Checkbox checked={selectedUnits.indexOf(unit) > -1} />
+              <ListItemText primary={unit} />
+            </MenuItem>
+          );
         })}
       </Select>
     </FormControl>

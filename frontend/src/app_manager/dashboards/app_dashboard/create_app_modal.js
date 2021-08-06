@@ -44,11 +44,20 @@ export default function CreateAppModal(props) {
       value: '',
       isValid: true,
     },
+    temiUnits: {
+      value: [],
+      isValid: true,
+    },
   });
 
   const onNameInput = (event) => {
     const nameValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
     formInputHandler(event.target.id, event.target.value, nameValidators);
+  };
+
+  const setSelectedUnits = (selectedUnits) => {
+    console.log(formState);
+    formInputHandler('temiUnits', selectedUnits, []);
   };
 
   const dataContext = useContext(DataContext);
@@ -60,20 +69,15 @@ export default function CreateAppModal(props) {
     temiUnitsMap[unit.serialNumber] = unit.id;
   });
 
-  const [selectedUnits, setSelectedUnits] = useState([]);
-
-  const { isLoading, errorEncountered, sendRequest, clearError } =
-    useHttpClient();
+  const { sendRequest } = dataContext;
 
   const addNewUnit = async () => {
     if (formState.isValid) {
-      const selectedIds = selectedUnits.map((serialNumber) => {
-        return temiUnitsMap[serialNumber];
-      });
-
-      const formData = new FormData();
-      formData.append('name', formState.inputs.nameTextField.value);
-      formData.append('units', JSON.stringify(selectedUnits));
+      const selectedIds = formState.inputs.temiUnits.value.map(
+        (serialNumber) => {
+          return temiUnitsMap[serialNumber];
+        },
+      );
 
       const responseData = await sendRequest(
         `${BASE_ADDRESS}/api/apps`,
@@ -120,7 +124,7 @@ export default function CreateAppModal(props) {
             <Grid item>
               <SelectUnits
                 availableUnits={temiUnits}
-                selectedUnits={selectedUnits}
+                selectedUnits={formState.inputs.temiUnits.value}
                 setSelectedUnits={setSelectedUnits}
               />
             </Grid>
@@ -130,7 +134,7 @@ export default function CreateAppModal(props) {
                 <Button color="secondary" onClick={modalHandler}>
                   Cancel
                 </Button>
-                <Button color="primary" onClick={addNewUnit} >
+                <Button color="primary" onClick={addNewUnit}>
                   Add
                 </Button>
               </div>

@@ -68,6 +68,7 @@ const getData = () => {
     applications,
     temiUnits,
     users,
+    sendRequest,
     isLoading,
     errorEncountered,
     clearError,
