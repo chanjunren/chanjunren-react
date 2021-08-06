@@ -42,11 +42,11 @@ export default function CreateTemiModal(props) {
   const [formState, formInputHandler, formFocusHandler] = useForm({
     ownerTextField: {
       value: '',
-      isValid: true,
+      isValid: false,
     },
     serialNumberTextField: {
       value: '',
-      isValid: true,
+      isValid: false,
     },
     applications: {
       value: [],
@@ -55,15 +55,12 @@ export default function CreateTemiModal(props) {
   });
 
   const onOwnerInput = (event) => {
-    const ownerValidators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)];
+    const ownerValidators = [VALIDATOR_REQUIRE()];
     formInputHandler(event.target.id, event.target.value, ownerValidators);
   };
 
   const onSerialNumberInput = (event) => {
-    const serialNumberValidators = [
-      VALIDATOR_REQUIRE(),
-      VALIDATOR_MINLENGTH(5),
-    ];
+    const serialNumberValidators = [VALIDATOR_REQUIRE()];
     formInputHandler(
       event.target.id,
       event.target.value,
@@ -81,7 +78,7 @@ export default function CreateTemiModal(props) {
   const { sendRequest } = dataContext;
 
   const addNewUnit = async () => {
-    if (formState.isValid) {
+    if (formState.isFormValid) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
@@ -152,7 +149,11 @@ export default function CreateTemiModal(props) {
                 <Button color="secondary" onClick={modalHandler}>
                   Cancel
                 </Button>
-                <Button color="primary" onClick={addNewUnit}>
+                <Button
+                  color="primary"
+                  onClick={addNewUnit}
+                  disabled={!formState.isFormValid}
+                >
                   Add
                 </Button>
               </div>

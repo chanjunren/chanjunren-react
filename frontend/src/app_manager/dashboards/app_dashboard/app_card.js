@@ -9,12 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded';
 import { BASE_ADDRESS } from '../../../util/values';
 
-const useStyles = makeStyles((theme) => ({
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 const AppCard = (props) => {
   const classes = useStyles();
-  const {title, id, showDeleteModal} = props;
+  const { title, id, showDeleteModal } = props;
   const deleteEndpoint = `${BASE_ADDRESS}/api/apps/${id}`;
 
   return (
@@ -25,8 +24,12 @@ const AppCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton color="secondary" aria-label="add an alarm">
-          <DeleteIcon onClick={() => showDeleteModal(deleteEndpoint)}/>
+        <IconButton
+          color="secondary"
+          aria-label="add an alarm"
+          onClick={() => showDeleteModal(deleteEndpoint)}
+        >
+          <DeleteIcon />
         </IconButton>
         <IconButton aria-label="add an alarm">
           <AndroidRoundedIcon />

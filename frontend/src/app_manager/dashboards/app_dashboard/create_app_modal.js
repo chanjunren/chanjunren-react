@@ -68,11 +68,11 @@ export default function CreateAppModal(props) {
     temiUnits.push(unit.serialNumber);
     temiUnitsMap[unit.serialNumber] = unit.id;
   });
-
+  console.log(formState);
   const { sendRequest } = dataContext;
 
   const addNewUnit = async () => {
-    if (formState.isValid) {
+    if (formState.isFormValid) {
       const selectedIds = formState.inputs.temiUnits.value.map(
         (serialNumber) => {
           return temiUnitsMap[serialNumber];
@@ -114,7 +114,7 @@ export default function CreateAppModal(props) {
           <Grid className={classes.paper}>
             <Grid item>
               <TextField
-                error={!formState.inputs.nameTextField.isValid}
+                error={!  formState.inputs.nameTextField.isValid}
                 id="nameTextField"
                 label="App Name"
                 variant="outlined"
@@ -134,7 +134,11 @@ export default function CreateAppModal(props) {
                 <Button color="secondary" onClick={modalHandler}>
                   Cancel
                 </Button>
-                <Button color="primary" onClick={addNewUnit}>
+                <Button
+                  color="primary"
+                  onClick={addNewUnit}
+                  disabled={!formState.isFormValid}
+                >
                   Add
                 </Button>
               </div>

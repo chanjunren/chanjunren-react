@@ -1,5 +1,5 @@
-import {useReducer, useCallback} from 'react';
-import {validate} from '../../util/form_validators';
+import { useReducer, useCallback } from 'react';
+import { validate } from '../../util/form_validators';
 
 const INPUT_ACTION = 'INPUT';
 const FOCUS_ACTION = 'FOCUS';
@@ -9,6 +9,7 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case `${INPUT_ACTION}`: {
       const isInputValid = validate(action.value, action.validators);
+
       const newState = {
         ...state,
         inputs: {
@@ -19,8 +20,12 @@ const formReducer = (state, action) => {
             isValid: isInputValid,
           },
         },
-        isValid: true,
       };
+      let isFormValid = true;
+      for (let input in state.inputs) {
+        isFormValid = isFormValid && newState.inputs[input].isValid;
+      }
+      newState.isFormValid = isFormValid;
       return newState;
     }
     case `${FOCUS_ACTION}`: {
@@ -34,6 +39,7 @@ const formReducer = (state, action) => {
           },
         },
       };
+
       return newState;
     }
     default: {
@@ -45,6 +51,7 @@ const formReducer = (state, action) => {
 const useForm = (initialInputs) => {
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: initialInputs,
+    isFormValid: false,
   });
 
   const formInputHandler = useCallback((id, value, validators) => {
