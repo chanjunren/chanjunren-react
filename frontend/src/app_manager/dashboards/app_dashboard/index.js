@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import CreateAppModal from './create_app_modal';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
+import DeleteModal from '../shared/delete_modal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,9 +29,14 @@ const useStyles = makeStyles((theme) => ({
 
 const AppDashboard = (props) => {
   const classes = useStyles();
-  const { applications, fetchApplications, isLoading, errorEncountered, clearError } =
-    useContext(DataContext);
-  
+  const {
+    applications,
+    fetchApplications,
+    isLoading,
+    errorEncountered,
+    clearError,
+  } = useContext(DataContext);
+
   useEffect(() => {
     fetchApplications();
   }, []);
@@ -38,6 +44,17 @@ const AppDashboard = (props) => {
   const [openModal, toggleOpenModal] = useState(false);
   const modalHandler = (event) => {
     toggleOpenModal(!openModal);
+  };
+
+  const [openDeleteModal, toggleDeleteModal] = useState(false);
+  const [deleteEndpoint, setDeleteEndpoint] = useState();
+  const showDeleteModal = (link) => {
+    toggleDeleteModal(true);
+    setDeleteEndpoint(link);
+  };
+
+  const hideDeleteModal = (event) => {
+    toggleDeleteModal(false);
   };
 
   return (
@@ -52,6 +69,13 @@ const AppDashboard = (props) => {
         clearError={clearError}
       />
       <CreateAppModal openModal={openModal} modalHandler={modalHandler} />
+      <DeleteModal
+        openModal={openDeleteModal}
+        hideDeleteModal={hideDeleteModal}
+        deleteEndpoint={deleteEndpoint}
+        deleteMessage="Are you sure you want to delete this unit?"
+        deleteTemiUnit
+      />{' '}
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Button
@@ -66,7 +90,12 @@ const AppDashboard = (props) => {
         {applications.map((app) => {
           return (
             <Grid key={app.name} item xs={4}>
-              <AppCard key={app.name} title={app.name} />
+              <AppCard
+                key={app.name}
+                title={app.name}
+                id={app.id}
+                showDeleteModal={showDeleteModal}
+              />
             </Grid>
           );
         })}
