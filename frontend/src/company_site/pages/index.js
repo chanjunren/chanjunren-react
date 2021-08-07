@@ -4,13 +4,14 @@ import NavBar from '../components/navbar';
 import SideBar from '../components/sidebar';
 import HeroSection from '../components/hero_section';
 import InfoSection from '../components/info_section';
-import AppsSection from '../components/rs_applications';
+import AppsSection from '../components/app_section';
 import {
   aboutSectionObj,
   contactUsSectionObj,
   gallerySectionObj,
 } from '../components/info_section/data';
 import Footer from '../components/footer';
+import AboutSection from '../components/about_section';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const Home = () => {
       <NavBar toggle={toggle}/>
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <HeroSection/>
-      <InfoSection {...aboutSectionObj}/>
+      <AboutSection/>
       <InfoSection {...gallerySectionObj}/>
       <AppsSection/>
       <InfoSection {...contactUsSectionObj}/>

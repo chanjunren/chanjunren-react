@@ -3,8 +3,10 @@ import {FaRobot} from 'react-icons/fa';
 import {Link as LinkR} from 'react-router-dom';
 import {Link as LinkS} from 'react-scroll';
 import {animateScroll as scroll} from 'react-scroll';
+import Button from '@material-ui/core/Button';
 
 import './navbar.css';
+import { withTheme } from '../../../util/theme';
 
 const NavBar = ({toggle}) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -47,6 +49,15 @@ const NavBar = ({toggle}) => {
             </li>
             <li className="nav-item">
               <LinkS className="nav-link"
+                to="products"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}>Products</LinkS>
+            </li>
+            <li className="nav-item">
+              <LinkS className="nav-link"
                 to="gallery"
                 smooth={true}
                 duration={500}
@@ -56,12 +67,21 @@ const NavBar = ({toggle}) => {
             </li>
             <li className="nav-item">
               <LinkS className="nav-link"
-                to="applications"
+                to="apps"
                 smooth={true}
                 duration={500}
                 spy={true}
                 exact='true'
-                offset={-80}>Applications</LinkS>
+                offset={-80}>Apps</LinkS>
+            </li>
+            <li className="nav-item">
+              <LinkS className="nav-link"
+                to="press"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}>Press</LinkS>
             </li>
             <li className="nav-item">
               <LinkS className="nav-link"
@@ -74,7 +94,8 @@ const NavBar = ({toggle}) => {
             </li>
           </ul>
           <nav className="nav-btn">
-            <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR>
+            <Button className="nav-btn-link" href="/signin">Sign In</Button>
+            {/* <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR> */}
           </nav>
         </div>
       </nav>
@@ -82,4 +103,4 @@ const NavBar = ({toggle}) => {
   );
 };
 
-export default NavBar;
+export default withTheme(NavBar);

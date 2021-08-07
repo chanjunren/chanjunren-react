@@ -33,7 +33,7 @@ const HeroSection = () => {
           src={Video}
           type='video/mp4'/>
       </HeroBg>
-      <HeroContent>
+      {/* <HeroContent>
         <HeroH1>Your Personal Robot Assistant</HeroH1>
         <HeroP>Exclusive Reseller in Singapore / Malaysia :D</HeroP>
         <HeroBtnWrapper>
@@ -44,7 +44,7 @@ const HeroSection = () => {
               Get Started {hover ? <ArrowForward/> : <ArrowRight/>}
           </Button>
         </HeroBtnWrapper>
-      </HeroContent>
+      </HeroContent> */}
     </HeroContainer>
   );
 };

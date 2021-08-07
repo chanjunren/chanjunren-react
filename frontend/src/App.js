@@ -44,7 +44,6 @@ function App() {
           <Home />
         </Route>
         <Route path="/signIn">
-          {/* TO DO */}
           <AuthPage />
         </Route>
         <Redirect to="/" />
