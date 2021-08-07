@@ -14,33 +14,20 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from './info_elements';
+} from './gallery_elements';
 
-const InfoSection = ({
-  id,
-  lightBg,
-  imgStart,
-  topLine,
-  lightText,
-  lightTextDesc,
-  headline,
-  description,
-  buttonLabel,
-  img,
-  alt,
-  primary,
-  dark,
-  dark2,
-}) => {
+const GallerySection = () => {
   return (
-    <InfoContainer id={id} lightBg={lightBg}>
+    <InfoContainer id="gallery" lightBg={false}>
       <InfoWrapper>
-        <InfoRow imgStart={imgStart}>
+        <InfoRow imgStart={false}>
           <Column1>
             <TextWrapper>
-              <TopLine>{topLine}</TopLine>
-              <Heading lightText={lightText}>{headline}</Heading>
-              <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
+              <TopLine>Gallery</TopLine>
+              <Heading lightText={true}>Want to see more?</Heading>
+              <Subtitle lightTextDesc={true}>
+                Here is a collage of Temi and our applications in action!
+              </Subtitle>
               <BtnWrap>
                 <Button
                   to="home"
@@ -49,18 +36,20 @@ const InfoSection = ({
                   spy={true}
                   exact="true"
                   offset={-80}
-                  primary={primary ? 1 : 0}
-                  dark={dark ? 1 : 0}
-                  dark2={dark2 ? 1 : 0}
+                  primary={true}
+                  dark={true}
                 >
-                  {buttonLabel}
+                  Gallery
                 </Button>
               </BtnWrap>
             </TextWrapper>
           </Column1>
           <Column2>
             <ImgWrap>
-              <Img src={img} alt={alt} />
+              <Img
+                src={require('../../images/gallery.svg')}
+                alt="Gallery Svg"
+              />
             </ImgWrap>
           </Column2>
         </InfoRow>
@@ -69,4 +58,4 @@ const InfoSection = ({
   );
 };
 
-export default InfoSection;
+export default GallerySection;

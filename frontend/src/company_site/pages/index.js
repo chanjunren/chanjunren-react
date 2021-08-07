@@ -12,6 +12,9 @@ import {
 } from '../components/info_section/data';
 import Footer from '../components/footer';
 import AboutSection from '../components/about_section';
+import ProductsSection from '../components/products_section';
+import GallerySection from '../components/gallery_section';
+import PressSection from '../components/press_section';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +29,10 @@ const Home = () => {
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <HeroSection/>
       <AboutSection/>
-      <InfoSection {...gallerySectionObj}/>
+      <ProductsSection/>
+      <GallerySection/>
       <AppsSection/>
+      <PressSection/>
       <InfoSection {...contactUsSectionObj}/>
       <Footer/>
     </React.Fragment>

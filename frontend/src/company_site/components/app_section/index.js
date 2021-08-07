@@ -44,8 +44,8 @@ const AppsSection = () => {
   // });
 
   return (
-    <div className="apps-container" id="applications">
-      <h1 id="apps-h1">Our Applications</h1>
+    <div className="apps-container" id="apps">
+      <h1 id="apps-h1">Custom Applications</h1>
       <div id="apps-wrapper">
         <Swiper id="main"
           tag="section"

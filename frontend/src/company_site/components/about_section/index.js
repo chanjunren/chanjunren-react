@@ -14,24 +14,9 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from './info_elements';
+} from './about_us_elements';
 
-const AboutSection = ({
-  id,
-  lightBg,
-  imgStart,
-  topLine,
-  lightText,
-  lightTextDesc,
-  headline,
-  description,
-  buttonLabel,
-  img,
-  alt,
-  primary,
-  dark,
-  dark2,
-}) => {
+const AboutSection = () => {
   return (
     <InfoContainer id="about" lightBg={false}>
       <InfoWrapper>
