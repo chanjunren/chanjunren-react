@@ -29,20 +29,6 @@ const AboutSection = () => {
                 Indonesia
               </Heading>
               <Subtitle lightTextDesc={true}>TO BE FILLED</Subtitle>
-              <BtnWrap>
-                <Button
-                  to="home"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                  primary={true}
-                  dark={true}
-                >
-                  Get Started
-                </Button>
-              </BtnWrap>
             </TextWrapper>
           </Column1>
           <Column2>

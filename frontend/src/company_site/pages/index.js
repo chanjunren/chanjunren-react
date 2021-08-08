@@ -15,6 +15,7 @@ import AboutSection from '../components/about_section';
 import ProductsSection from '../components/products_section';
 import GallerySection from '../components/gallery_section';
 import PressSection from '../components/press_section';
+import { withTheme } from '../../util/theme';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withTheme(Home);

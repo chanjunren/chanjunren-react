@@ -50,6 +50,9 @@ function App() {
       </Switch>
     );
   } else {
+    useEffect(() => {
+      fetchData();
+    }, []);
     routes = (
       <Switch>
         <Route path="/applications" exact>

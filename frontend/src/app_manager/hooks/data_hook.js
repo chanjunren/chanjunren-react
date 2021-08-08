@@ -56,10 +56,6 @@ const getData = () => {
     }
   }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return {
     fetchData,
     fetchApplications,
