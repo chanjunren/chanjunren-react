@@ -1,9 +1,20 @@
 import React from 'react';
 import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
 
 let theme = createTheme({
   palette: {
     type: 'dark',
+    primary: {
+      light: '#CCD3D9',
+      main: '#1B2026',
+      dark: '#070A0D',
+      contrastText: '#FFF',
+    },
+    secondary: {
+      main: '#01bf71',
+      contrastText: '#fff',
+    }
   },
   props: {
     MuiButtonBase: {
