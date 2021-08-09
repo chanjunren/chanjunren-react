@@ -5,24 +5,21 @@ const psStyle = makeStyles((theme) => ({
     padding: 20,
     height: '100vh',
     background: theme.palette.primary.light,
-    display: 'flex',
-    alignItems: 'center'
+    flexGrow: 1,
   },
   productCard: {
     display: 'inline-grid',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    alignItems: 'center'
   },
   productImg: {
     height: "40vh"
   },
   cardTitle: {},
   cardDescription: {},
-  swiperSlide: {
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    maxWidth: '300px',
-    maxHeight: '500px'
-  },
+  currentItem: {},
+  itemTitle: {},
+  itemDescription: {},
 }));
 
 export default psStyle;

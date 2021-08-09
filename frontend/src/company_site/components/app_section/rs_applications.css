@@ -44,8 +44,11 @@
   }
 
   #apps-wrapper {
-    max-width: 500px;
+    max-width: 400px;
     border: 20px;
+  }
+  .swiper-slide {
+    max-width: 200px;
   }
 }
 
