@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import productsData from './products_data';
 import psStyle from './ps_style';
 
@@ -25,6 +25,12 @@ const ProductsSection = () => {
       return '<span class="' + className + '">' + (index + 1) + '</span>';
     },
   };
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const slideChangeHandler = (event) => {
+    setCurrentIndex(event.activeIndex);
+  }
   const productCards = productsData.map((product, index) => (
     <SwiperSlide
       tag="li"
@@ -59,6 +65,7 @@ const ProductsSection = () => {
               modifier: 1,
               slideShadows: false,
             }}
+            onSlideChange={slideChangeHandler}
             // pagination={pagination}
           >
             {productCards}
@@ -67,16 +74,10 @@ const ProductsSection = () => {
         <Grid item xs={12} sm={6}>
           <div className={psClasses.currentItem}>
             <Typography variant="h2" className={psClasses.itemTitle}>
-              Item Title
+              {productsData[currentIndex].title}
             </Typography>
             <Typography variant="body1" className={psClasses.itemDescription}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {productsData[currentIndex].description}
             </Typography>
           </div>
         </Grid>
