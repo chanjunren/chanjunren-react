@@ -13,7 +13,8 @@ const psStyle = makeStyles((theme) => ({
     alignItems: 'center'
   },
   productImg: {
-    height: "40vh"
+    // width: '100vh',
+    height: '60vh',
   },
   cardTitle: {},
   cardDescription: {},
