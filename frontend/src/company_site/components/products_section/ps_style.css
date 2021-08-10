@@ -31,4 +31,6 @@
 .swiper-slide img {
   display: block;
   align-items: center;
+  max-width: '200px';
+  max-height: '400px';  
 }

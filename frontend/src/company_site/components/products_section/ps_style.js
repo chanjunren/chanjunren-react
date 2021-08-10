@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 const psStyle = makeStyles((theme) => ({
   root: {
@@ -13,8 +13,10 @@ const psStyle = makeStyles((theme) => ({
     alignItems: 'center'
   },
   productImg: {
-    // width: '100vh',
-    height: '60vh',
+    display: 'block',
+    alignItems: 'center',
+    maxWidth: '200px',
+    maxHeight: '400px',
   },
   cardTitle: {},
   cardDescription: {},

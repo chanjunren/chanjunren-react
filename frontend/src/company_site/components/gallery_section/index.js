@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '../shared/button';
 
 import {
   InfoContainer,
@@ -11,12 +10,15 @@ import {
   TopLine,
   Heading,
   Subtitle,
-  BtnWrap,
   ImgWrap,
   Img,
 } from './gallery_elements';
 
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import GalleryStyles from './gallery_style';
 const GallerySection = () => {
+  const galleryClasses = GalleryStyles();
   return (
     <InfoContainer id="gallery" lightBg={false}>
       <InfoWrapper>
@@ -24,24 +26,19 @@ const GallerySection = () => {
           <Column1>
             <TextWrapper>
               <TopLine>Gallery</TopLine>
-              <Heading lightText={true}>Want to see more?</Heading>
-              <Subtitle lightTextDesc={true}>
+              {/* <Typography className={galleryClasses.heading} variant="h4">
+                Want to see more?
+              </Typography> */}
+              <Typography className={galleryClasses.subtitle} variant="body1">
                 Here is a collage of Temi and our applications in action!
-              </Subtitle>
-              <BtnWrap>
-                <Button
-                  to="home"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                  primary={true}
-                  dark={true}
-                >
-                  Gallery
-                </Button>
-              </BtnWrap>
+              </Typography>
+              <Button
+                className={galleryClasses.galleryButton}
+                variant="outlined"
+                color="secondary"
+              >
+                View Gallery
+              </Button>
             </TextWrapper>
           </Column1>
           <Column2>
