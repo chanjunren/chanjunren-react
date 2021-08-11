@@ -17,6 +17,7 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import StoreIcon from '@material-ui/icons/Store';
 
 import './ps_style.css';
+import ProductButtons from './product_buttons';
 
 SwiperCore.use([EffectCoverflow]);
 
@@ -51,7 +52,8 @@ const ProductsSection = () => {
   ));
   return (
     <div id="products" className={psClasses.root}>
-      <Grid container direction="row-reverse">
+      <ProductButtons/>
+      {/* <Grid container direction="row-reverse">
         <Grid item xs={12} sm={6}>
           <Swiper
             id="swiper-list"
@@ -85,7 +87,7 @@ const ProductsSection = () => {
             </Typography>
           </div>
         </Grid>
-      </Grid>
+      </Grid> */}
     </div>
   );
 };

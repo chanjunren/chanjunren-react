@@ -4,7 +4,7 @@ const psStyle = makeStyles((theme) => ({
   root: {
     padding: 20,
     height: '100vh',
-    background: theme.palette.primary.light,
+    // background: theme.palette.primary.light,
     flexGrow: 1,
   },
   productCard: {
