@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/styles';
 
 const useContactStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: 'auto',
+    padding: '50px'
   },
   mapContainer: {
     display: 'grid',
@@ -12,13 +13,16 @@ const useContactStyles = makeStyles((theme) => ({
   infoContainer: {
     display: 'grid',
     alignContent: 'center',
+    justifyContent: 'center'
+  },
+  headerBlock: {
+    display: 'flex',
+    marginTop: '20px',
   },
   infoHeader: {
-    fontStyle: 'italic',
+    marginLeft: '10px',
   },
   infoBody: {
-    fontStyle: 'italic',
-    marginBottom: '10px',
   },
 }));
 

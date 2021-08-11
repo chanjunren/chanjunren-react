@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InfoContainer, InfoWrapper } from '../contact_us_section/info_elements';
+import { InfoContainer, InfoWrapper } from './info_elements';
 
 const PressSection = () => {
   return (

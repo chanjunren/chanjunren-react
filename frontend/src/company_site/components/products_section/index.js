@@ -12,6 +12,10 @@ import Grid from '@material-ui/core/Grid';
 import { SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow } from 'swiper/core';
 
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import StorefrontIcon from '@material-ui/icons/Storefront';
+import StoreIcon from '@material-ui/icons/Store';
+
 import './ps_style.css';
 
 SwiperCore.use([EffectCoverflow]);
