@@ -4,7 +4,7 @@ import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 import { animateScroll as scroll } from 'react-scroll';
 import Button from '@material-ui/core/Button';
-
+import RsAppLogo from '../../images/rsLogo.png';
 import './navbar.css';
 import { withTheme } from '../../../util/theme';
 
@@ -32,7 +32,11 @@ const NavBar = ({ toggle }) => {
       <nav className={`main-nav ${scrollNav && `main-nav-scrollNav`}`}>
         <div id="nav-bar-container">
           <LinkR id="nav-logo" to="/" onClick={scrollToTopListener}>
-            Robosolutions
+            <img
+              id="rs-logo"
+              src={RsAppLogo}
+            />
+        
           </LinkR>
           <div id="mobile-icon" onClick={toggle}>
             <FaRobot />
