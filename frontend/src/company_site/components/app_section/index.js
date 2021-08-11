@@ -42,11 +42,11 @@ const AppsSection = () => {
       </SwiperSlide>
     );
   });
-
+  const headerTitle = '</> Customised Applications';
   return (
     <div id="apps" className={sectionClasses.root}>
       <Typography className={sectionClasses.header} variant="body1">
-        Customised Applications
+        {headerTitle}
       </Typography>
       <Swiper
         id="swiper-list"
