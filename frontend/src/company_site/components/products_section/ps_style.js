@@ -4,13 +4,16 @@ const psStyle = makeStyles((theme) => ({
   root: {
     padding: 20,
     height: '100vh',
+    display: 'grid',
+    justifyItems: 'center',
+    alignItems: 'center',
     // background: theme.palette.primary.light,
     flexGrow: 1,
   },
   productCard: {
     display: 'inline-grid',
     justifyItems: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   productImg: {
     display: 'block',

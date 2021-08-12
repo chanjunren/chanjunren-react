@@ -30,7 +30,7 @@ const AppsSection = () => {
       <SwiperSlide tag="li" key={`slider-slide-${idx}`}>
         <Card className={cardClasses.root}>
           <CardHeader
-            avatar={<Avatar rounded className={cardClasses.avatar} src={app.imageSrc}/>}
+            avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
             title={app.title}
           />
           <CardContent>{app.description}</CardContent>

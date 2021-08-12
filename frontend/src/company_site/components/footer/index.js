@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './footer.css';
-import { Link as LinkS } from 'react-router-dom';
+import { Link as LinkS } from 'react-scroll';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
               <LinkS
                 className="footer-link"
                 to="about"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -42,9 +42,35 @@ const Footer = () => {
               <h1 className="footer-link-title">Temi</h1>
               <a
                 className="footer-link"
-                href="https://www.instagram.com/roadtomagician/"
+                href="https://www.robotemi.com/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Official Website{' '}
+                Official Website
+              </a>
+              <a
+                className="footer-link"
+                href="https://github.com/temistore/usermanual/raw/master/temi_User_Manual.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                User Manual
+              </a>
+              <a
+                className="footer-link"
+                href="https://center.robotemi.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Temi Center
+              </a>
+              <a
+                className="footer-link"
+                href="https://www.robotemi.com/specs/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Specifications
               </a>
             </div>
           </div>

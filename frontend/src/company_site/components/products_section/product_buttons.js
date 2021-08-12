@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     position: 'relative',
-    height: 200,
+    height: 350,
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
       height: 100,
@@ -67,7 +67,9 @@ const useStyles = makeStyles((theme) => ({
   },
   imageTitle: {
     position: 'relative',
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${
+      theme.spacing(1) + 6
+    }px`,
   },
   imageMarked: {
     height: 3,
@@ -82,17 +84,17 @@ const useStyles = makeStyles((theme) => ({
 
 const products = [
   {
-    url: '../../images/products/temi_robot_product.jpg',
+    url: TemiRobotImage,
     title: 'Temi Robot',
     width: '34%',
   },
   {
-    url: '../../images/products/steami_product.png',
+    url: AccessoryImage,
     title: 'Accessories',
     width: '33%',
   },
   {
-    url: '../../images/products/temi_robot_product.jpg',
+    url: TemiRobotImage,
     title: 'Tray Return System',
     width: '33%',
   },
@@ -126,7 +128,8 @@ export default function ProductButtons() {
                 component="span"
                 variant="subtitle1"
                 color="inherit"
-                className={classes.imageTitle}>
+                className={classes.imageTitle}
+              >
                 {product.title}
                 <span className={classes.imageMarked} />
               </Typography>

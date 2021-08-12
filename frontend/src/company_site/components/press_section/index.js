@@ -4,7 +4,7 @@ import { InfoContainer, InfoWrapper } from './info_elements';
 
 const PressSection = () => {
   return (
-    <InfoContainer id='press' lightBg={false}>
+    <InfoContainer id='press' lightBg={0}>
       <InfoWrapper>
       </InfoWrapper>
     </InfoContainer>

@@ -46,7 +46,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="about"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -59,7 +59,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="products"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -72,7 +72,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="gallery"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -85,7 +85,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="apps"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -98,7 +98,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="press"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -111,7 +111,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="contactUs"
-                smooth={true}
+                smooth={1}
                 duration={500}
                 spy={true}
                 exact="true"
