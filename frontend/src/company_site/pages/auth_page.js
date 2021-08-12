@@ -1,14 +1,19 @@
 import React, { useCallback, useContext } from 'react';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
-import loginDisplay from '../images/sign_in_svg.svg';
-import avatar from '../images/avatar.png';
+import RsLogo from '../images/rsLogo.png';
 
-import './auth_page.css';
 import useForm from '../../shared/hooks/form_hook';
 import useHttpClient from '../../shared/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 import { AuthContext } from '../components/shared/auth_context';
 import CustomisedSnackBar from '../../shared/components/snackbar';
+
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import AuthStyles from './auth_style';
+import { withTheme } from '../../util/theme';
 
 const AuthPage = () => {
   const authContext = useContext(AuthContext);
@@ -16,11 +21,11 @@ const AuthPage = () => {
   const [formState, formInputHandler, formFocusHandler] = useForm({
     usernameInput: {
       value: '',
-      isFocused: false,
+      isValid: true,
     },
     passwordInput: {
       value: '',
-      isFocused: false,
+      isValid: true,
     },
   });
 
@@ -58,61 +63,64 @@ const AuthPage = () => {
       console.error(err);
     }
   };
+
+  const classes = AuthStyles();
+
   return (
-    <div className="container">
-      <img id="login-display" src={loginDisplay} alt="login-display" />
-      <CustomisedSnackBar 
+    <React.Fragment>
+      <CustomisedSnackBar
         message={errorEncountered}
-        success={!!!errorEncountered} 
+        success={!!!errorEncountered}
         open={!!errorEncountered}
-        clearError={clearError}/>
-      <div className="login-content">
-        <form onSubmit={onLoginHandler}>
-          <img src={avatar} alt="login-avatar" />
-          <h2 className="title">Welcome</h2>
-          <div
-            className={`input-div one ${
-              formState.inputs.usernameInput.isFocused && 'focus'
-            }`}
-          >
-            <div className="icon-holder">
-              <FaUserAlt className="fas fa-user" />
+        clearError={clearError}
+      />
+      <Grid className={classes.root} container>
+        <Grid item className={classes.header} xs={12}>
+          <span
+            className={classes.logo}
+            style={{
+              backgroundImage: `url(${RsLogo})`,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} className={classes.body}>
+          <form onSubmit={onLoginHandler}>
+            <TextField
+              error={!formState.inputs.usernameInput.isValid}
+              id="usernameInput"
+              className={classes.textField}
+              label="Username"
+              type="text"
+              variant="outlined"
+              onInput={pageInputHandler}
+              color="secondary"
+            />
+            <TextField
+              error={!formState.inputs.passwordInput.isValid}
+              id="passwordInput"
+              className={classes.textField}
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="outlined"
+              onInput={pageInputHandler}
+              color="secondary"
+            />
+            <div className={classes.controlPanel}>
+              <Button
+                className={classes.signInButton}
+                variant="outlined"
+                color="secondary"
+                type="submit"
+              >
+                Sign In
+              </Button>
             </div>
-            <div className="div">
-              <h5>Username</h5>
-              <input
-                id="usernameInput"
-                type="text"
-                className="input"
-                onFocus={pageFocusHandler}
-                onInput={pageInputHandler}
-              />
-            </div>
-          </div>
-          <div
-            className={`input-div pass ${
-              formState.inputs.passwordInput.isFocused && 'focus'
-            }`}
-          >
-            <div className="icon-holder">
-              <FaLock className="fas fa-lock" />
-            </div>
-            <div className="div">
-              <h5>Password</h5>
-              <input
-                id="passwordInput"
-                type="password"
-                className="input"
-                onFocus={pageFocusHandler}
-                onInput={pageInputHandler}
-              />
-            </div>
-          </div>
-          <input type="submit" className="btn" value="Login" />
-        </form>
-      </div>
-    </div>
+          </form>
+        </Grid>
+      </Grid>
+    </React.Fragment>
   );
 };
 
-export default AuthPage;
+export default withTheme(AuthPage);

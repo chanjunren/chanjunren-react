@@ -36,6 +36,10 @@ function App() {
     clearError,
   } = getData();
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   let routes;
   if (!token) {
     routes = (
@@ -50,9 +54,6 @@ function App() {
       </Switch>
     );
   } else {
-    useEffect(() => {
-      fetchData();
-    }, []);
     routes = (
       <Switch>
         <Route path="/applications" exact>
