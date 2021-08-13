@@ -128,7 +128,7 @@ const NavBar = ({ toggle }) => {
               color="secondary"
               variant="contained"
             >
-              Sign In
+              Company Portal
             </Button>
             {/* <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR> */}
           </nav>

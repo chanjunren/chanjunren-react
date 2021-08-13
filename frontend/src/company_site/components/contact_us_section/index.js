@@ -12,10 +12,10 @@ const ContactUsSection = (props) => {
   const classes = useContactStyles();
   return (
     <Grid id="contactUs" container className={classes.root}>
-      <Grid item className={classes.mapContainer} xs={12} sm={6}>
+      <Grid item className={classes.mapContainer} sm={12} md={6}>
         <Map zoom={19} center={{ lat: 1.3265126, lng: 103.8940942 }} />
       </Grid>
-      <Grid item xs={12} sm={6} className={classes.infoContainer}>
+      <Grid item sm={12} md={6} className={classes.infoContainer}>
         <div className={classes.headerBlock}>
           <PlaceIcon />
           <Typography className={classes.infoHeader} variant="h5">
@@ -23,7 +23,7 @@ const ContactUsSection = (props) => {
           </Typography>
         </div>
         <Typography className={classes.infoBody} variant="body1">
-          10 Ubi Crescent #07-50 Ubi TechPark
+          10 Ubi Crescent #07-50 Ubi TechPark (Lobby C) Singapore 408564
         </Typography>
 
         <div className={classes.headerBlock}>
@@ -33,7 +33,7 @@ const ContactUsSection = (props) => {
           </Typography>
         </div>
         <Typography className={classes.infoBody} variant="body1">
-          robosolutions@gmail.com
+          enquiries@robosolutions.sg
         </Typography>
         <div className={classes.headerBlock}>
           <LocalPhoneIcon />
@@ -43,7 +43,7 @@ const ContactUsSection = (props) => {
         </div>
 
         <Typography className={classes.infoBody} variant="body1">
-          +65 9230 1048
+          +(65) 8303 2264
         </Typography>
       </Grid>
     </Grid>
