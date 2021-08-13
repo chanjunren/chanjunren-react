@@ -100,15 +100,18 @@ const products = [
   },
 ];
 
-export default function ProductButtons() {
+export default function ProductButtons(props) {
   const classes = useStyles();
+  const {openProductModal} = props;
+
 
   return (
     <div className={classes.root}>
-      {products.map((product) => {
+      {products.map((product, index) => {
         return (
           <ButtonBase
             focusRipple
+            onClick={() => openProductModal(index)}
             key={product.title}
             className={classes.image}
             focusVisibleClassName={classes.focusVisible}
