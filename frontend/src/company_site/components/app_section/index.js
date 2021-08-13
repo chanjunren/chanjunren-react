@@ -19,8 +19,8 @@ import Collapse from '@material-ui/core/Collapse';
 import Button from '@material-ui/core/Button';
 
 import { AppSectionStyles, AppCardStyles } from './app_section_style';
-import SwiperCore, { Pagination, EffectCoverflow } from 'swiper/core';
-SwiperCore.use([Pagination, EffectCoverflow]);
+import SwiperCore, { Pagination, EffectCoverflow, Navigation } from 'swiper/core';
+SwiperCore.use([Pagination, Navigation, EffectCoverflow]);
 
 const AppsSection = () => {
   const sectionClasses = AppSectionStyles();
@@ -52,6 +52,7 @@ const AppsSection = () => {
         id="swiper-list"
         tag="section"
         wrapperTag="ul"
+        navigation={true}
         centeredSlides={true}
         effect={'coverflow'}
         grabCursor={true}
