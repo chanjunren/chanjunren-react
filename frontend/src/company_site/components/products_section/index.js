@@ -8,6 +8,7 @@ import StoreIcon from '@material-ui/icons/Store';
 import './ps_style.css';
 import ProductButtons from './product_buttons';
 import ProductModal from './product_modal';
+import steami_data from './products_data/steami_data';
 
 const ProductsSection = () => {
   const psClasses = psStyle();
@@ -16,17 +17,23 @@ const ProductsSection = () => {
   const modalHandler = (event) => {
     toggleOpenModal(!openModal);
   };
-  const allSlides = [1, 2, 3];
-  const [slides, setSlides] = useState([]);
 
+  const [selectedProduct, setProductIdx] = useState([]);
+  const resourceMap = {};
+  resourceMap[1] = steami_data;
+  resourceMap[2] = null;
   const openProductModal = (index) => {
     toggleOpenModal(true);
-    console.log(allSlides[index]);
+    setProductIdx(index);
   };
 
   return (
     <div id="products" className={psClasses.root}>
-      <ProductModal modalHandler={modalHandler} openModal={openModal} />
+      <ProductModal
+        resourceData={resourceMap[selectedProduct]}
+        modalHandler={modalHandler}
+        openModal={openModal}
+      />
       <ProductButtons openProductModal={openProductModal} />
     </div>
   );

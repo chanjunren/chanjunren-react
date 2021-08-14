@@ -4,19 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/swiper.min.css';
-import 'swiper/components/pagination/pagination.min.css';
-import 'swiper/components/navigation/navigation.min.css';
-
-import './modal_style.css';
-
-// import Swiper core and required modules
-import SwiperCore, { Pagination, Navigation } from 'swiper/core';
-SwiperCore.use([Pagination, Navigation]);
+import ResourceSlider from './resource_slider';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -53,26 +41,7 @@ export default function ProductModal(props) {
       }}
     >
       <Fade in={openModal}>
-        <div>
-          <Swiper
-            pagination={{
-              type: 'fraction',
-            }}
-            navigation={true}
-            spaceBetween={30}
-            className="mySwiper2"
-          >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
-          </Swiper>
-        </div>
+        <ResourceSlider modalHandler={modalHandler} resourceData={props.resourceData}/>
       </Fade>
     </Modal>
   );

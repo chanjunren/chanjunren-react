@@ -1,0 +1,33 @@
+.resource-slider-container {
+  position: relative;
+  height: 100vh;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 600px;
+}
+
+.resource {
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
