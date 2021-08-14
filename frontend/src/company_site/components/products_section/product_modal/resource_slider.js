@@ -28,7 +28,6 @@ const ResourceSlider = (props) => {
   return (
     <section className="resource-slider-container">
       <ArrowBackIosIcon onClick={prevSlide} className="left-arrow" />
-      <ArrowForwardIosIcon onClick={nextSlide} className="right-arrow" />
 
       {resourceData.map((resource, index) => {
         const slide =
@@ -45,6 +44,7 @@ const ResourceSlider = (props) => {
           </div>
         );
       })}
+      <ArrowForwardIosIcon onClick={nextSlide} className="right-arrow" />
     </section>
   );
 };

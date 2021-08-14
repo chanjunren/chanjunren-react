@@ -1,11 +1,12 @@
 .resource-slider-container {
   position: relative;
   height: 100vh;
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 1000px;
-  height: 600px;
+  width: 80vh;
+  height: 80vh;
 }
 
 .resource {
@@ -13,21 +14,25 @@
 }
 
 .right-arrow {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   right: 32px;
   font-size: 3rem;
-  z-index: 10;
+  z-index: 10; */
+  padding-left: 10px;
+  min-width: '20px';
   cursor: pointer;
   user-select: none;
 }
 
 .left-arrow {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 32px;
   font-size: 3rem;
-  z-index: 10;
+  z-index: 10; */
+  padding-right: 10px;
+  min-width: '20px';
   cursor: pointer;
   user-select: none;
 }

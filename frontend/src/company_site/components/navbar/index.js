@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaRobot } from 'react-icons/fa';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 import { animateScroll as scroll } from 'react-scroll';
@@ -32,14 +32,10 @@ const NavBar = ({ toggle }) => {
       <nav className={`main-nav ${scrollNav && `main-nav-scrollNav`}`}>
         <div id="nav-bar-container">
           <LinkR id="nav-logo" to="/" onClick={scrollToTopListener}>
-            <img
-              id="rs-logo"
-              src={RsAppLogo}
-            />
-        
+            <img id="rs-logo" src={RsAppLogo} />
           </LinkR>
           <div id="mobile-icon" onClick={toggle}>
-            <FaRobot />
+            <MenuIcon/>
           </div>
           <ul id="nav-menu">
             <li className="nav-item">
@@ -123,10 +119,9 @@ const NavBar = ({ toggle }) => {
           </ul>
           <nav className="nav-btn">
             <Button
-              className="nav-btn-link"
               href="/signin"
+              variant="outlined"
               color="secondary"
-              variant="contained"
             >
               Company Portal
             </Button>
