@@ -20,6 +20,7 @@ const useContactStyles = makeStyles((theme) => ({
   headerBlock: {
     display: 'flex',
     marginTop: '20px',
+    alignItems: 'center',
   },
   infoHeader: {
     marginLeft: '10px',
