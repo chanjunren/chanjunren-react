@@ -39,7 +39,10 @@ const ResourceSlider = (props) => {
             <div> ERROR </div>
           );
         return (
-          <div className={index === currentSlide ? 'slide active' : 'slide'}>
+          <div
+            className={index === currentSlide ? 'slide active' : 'slide'}
+            key={index}
+          >
             {index === currentSlide && slide}
           </div>
         );
