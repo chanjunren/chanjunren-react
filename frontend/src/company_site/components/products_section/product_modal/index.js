@@ -59,7 +59,8 @@ export default function ProductModal(props) {
               type: 'fraction',
             }}
             navigation={true}
-            className="mySwiper"
+            spaceBetween={30}
+            className="mySwiper2"
           >
             <SwiperSlide>Slide 1</SwiperSlide>
             <SwiperSlide>Slide 2</SwiperSlide>

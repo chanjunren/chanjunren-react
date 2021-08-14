@@ -8,13 +8,16 @@ const Map = props => {
   const { center, zoom } = props;
 
   useEffect(() => {
+    if (!window.google) {
+      return;
+    }
     const map = new window.google.maps.Map(mapRef.current, {
       center: center,
       zoom: zoom
     });
   
     new window.google.maps.Marker({ position: center, map: map });
-  }, [center, zoom]);  
+  }, [center, zoom, window.google]);  
 
   return (
     <div

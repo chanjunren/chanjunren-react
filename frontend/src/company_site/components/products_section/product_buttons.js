@@ -102,8 +102,7 @@ const products = [
 
 export default function ProductButtons(props) {
   const classes = useStyles();
-  const {openProductModal} = props;
-
+  const { openProductModal } = props;
 
   return (
     <div className={classes.root}>
@@ -111,7 +110,9 @@ export default function ProductButtons(props) {
         return (
           <ButtonBase
             focusRipple
-            onClick={() => openProductModal(index)}
+            onClick={index !== 0 ? () => openProductModal(index) : () => {}}
+            href={index === 0 ? "https://www.robotemi.sg/" : null }
+            target={index === 0 ? 'blank' : null}
             key={product.title}
             className={classes.image}
             focusVisibleClassName={classes.focusVisible}
