@@ -34,8 +34,9 @@ export const AppCardStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: '#fff',
-    height: '100px',
-    width: '100px',
-    objectFit: 'cover',
+    height: '70px',
+    width: '70px',
+    padding: '15px',
+    objectFit: 'contain',
   },
 }));

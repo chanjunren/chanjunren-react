@@ -5,11 +5,11 @@ const GalleryStyles = makeStyles((theme) => ({
   heading: {
     marginBottom: '24px',
     fontWeight: '600',
-    
-  }, subtitle: {
+  },
+  subtitle: {
     marginBottom: '35px',
     fontSize: '18px',
-  }
+  },
 }));
 
 export default GalleryStyles;
