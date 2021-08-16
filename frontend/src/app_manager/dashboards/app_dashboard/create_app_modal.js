@@ -118,6 +118,7 @@ export default function CreateAppModal(props) {
                 id="nameTextField"
                 label="App Name"
                 variant="outlined"
+                color="secondary"
                 onInput={onNameInput}
               />
             </Grid>

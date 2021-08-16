@@ -24,6 +24,9 @@ const useRowStyles = makeStyles((theme) => ({
     float: 'right',
     padding: '0.2rem',
   },
+  deleteButton: {
+    color: theme.palette.error.main,
+  },
 }));
 
 const UserRow = (props) => {
@@ -38,9 +41,9 @@ const UserRow = (props) => {
       <TableCell>{role}</TableCell>
       <TableCell>
         <div className={classes.controlPanel}>
-          <Button color="primary">Edit</Button>
+          <Button disabled>Edit</Button>
           <Button
-            color="secondary"
+            className={classes.deleteButton}
             onClick={() => showDeleteModal(deleteEndpoint)}
           >
             Delete

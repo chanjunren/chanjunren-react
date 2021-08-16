@@ -81,7 +81,7 @@ const AppDashboard = (props) => {
           <Button
             variant="outlined"
             size="medium"
-            color="primary"
+            color="secondary"
             onClick={modalHandler}
           >
             Add Application

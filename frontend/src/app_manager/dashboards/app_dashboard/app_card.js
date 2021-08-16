@@ -9,7 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded';
 import { BASE_ADDRESS } from '../../../util/values';
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  deleteIcon: {
+    color: theme.palette.error.main
+  }
+}));
 
 const AppCard = (props) => {
   const classes = useStyles();
@@ -25,8 +29,7 @@ const AppCard = (props) => {
       </CardContent>
       <CardActions>
         <IconButton
-          color="secondary"
-          aria-label="add an alarm"
+          className={classes.deleteIcon}
           onClick={() => showDeleteModal(deleteEndpoint)}
         >
           <DeleteIcon />

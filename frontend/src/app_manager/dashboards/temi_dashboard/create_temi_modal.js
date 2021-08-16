@@ -124,6 +124,7 @@ export default function CreateTemiModal(props) {
                 label="Owner"
                 variant="outlined"
                 onInput={onOwnerInput}
+                color="secondary"
               />
             </Grid>
             <Grid item>
@@ -133,6 +134,7 @@ export default function CreateTemiModal(props) {
                 label="Serial Number"
                 variant="outlined"
                 onInput={onSerialNumberInput}
+                color="secondary"
               />
             </Grid>
             <Grid item>

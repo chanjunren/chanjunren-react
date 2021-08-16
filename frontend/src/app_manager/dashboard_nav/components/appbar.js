@@ -55,7 +55,7 @@ const CustomAppBar = (props) => {
             <MenuIcon/>
           </IconButton>
           <Typography variant="h6" noWrap>
-            I'm a mini drawer! XD
+            Robosolutions App Manager
           </Typography>
         </Toolbar>
     </AppBar>

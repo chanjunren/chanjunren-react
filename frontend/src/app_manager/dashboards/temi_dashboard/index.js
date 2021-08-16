@@ -23,6 +23,9 @@ const TemiDashboard = () => {
       zIndex: theme.zIndex.drawer + 1,
       color: '#fff',
     },
+    addTemiButton: {
+      marginTop: '20px'
+    }
   }));
   const classes = useStyles();
   const {
@@ -100,9 +103,10 @@ const TemiDashboard = () => {
           showDeleteModal={showDeleteModal}
         />
         <Button
+        className={classes.addTemiButton}
           variant="outlined"
           size="medium"
-          color="primary"
+          color="secondary"
           onClick={createModalHandler}
         >
           Add Temi Unit

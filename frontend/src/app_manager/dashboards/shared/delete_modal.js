@@ -67,10 +67,10 @@ const DeleteModal = (props) => {
               </Grid>
               <Grid item>
                 <div>
-                  <Button color="secondary" onClick={hideDeleteModal}>
+                  <Button onClick={hideDeleteModal}>
                     No
                   </Button>
-                  <Button color="primary" onClick={onConfirmDelete}>
+                  <Button onClick={onConfirmDelete}>
                     Yes
                   </Button>
                 </div>
