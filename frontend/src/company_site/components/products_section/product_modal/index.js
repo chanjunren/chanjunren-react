@@ -8,9 +8,7 @@ import ResourceSlider from './resource_slider';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    
   },
   paper: {
     backgroundColor: '#000',

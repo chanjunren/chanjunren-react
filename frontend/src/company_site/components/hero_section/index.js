@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 
-import {Button} from '../shared/button';
-
 import Video from '../../videos/homeVideo.mp4';
 
 import {
