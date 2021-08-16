@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react';
-import { FaUserAlt, FaLock } from 'react-icons/fa';
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
 import RsLogo from '../images/rsLogo.png';
 
 import useForm from '../../shared/hooks/form_hook';
@@ -10,10 +11,11 @@ import CustomisedSnackBar from '../../shared/components/snackbar';
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import AuthStyles from './auth_style';
 import { withTheme } from '../../util/theme';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const AuthPage = () => {
   const authContext = useContext(AuthContext);
@@ -74,6 +76,9 @@ const AuthPage = () => {
         open={!!errorEncountered}
         clearError={clearError}
       />
+      <Backdrop className={classes.backdrop} open={isLoading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Grid className={classes.root} container>
         <Grid item className={classes.header} xs={12}>
           <span
@@ -85,28 +90,43 @@ const AuthPage = () => {
         </Grid>
         <Grid item xs={12} className={classes.body}>
           <form onSubmit={onLoginHandler}>
-            <TextField
-              error={!formState.inputs.usernameInput.isValid}
-              id="usernameInput"
-              className={classes.textField}
-              label="Username"
-              type="text"
-              variant="outlined"
-              onInput={pageInputHandler}
-              color="secondary"
-            />
-            <TextField
-              error={!formState.inputs.passwordInput.isValid}
-              id="passwordInput"
-              className={classes.textField}
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="outlined"
-              onInput={pageInputHandler}
-              color="secondary"
-            />
+            <div className={classes.textFieldContainer}>
+              <PersonIcon className={classes.icon} />
+              <TextField
+                error={!formState.inputs.usernameInput.isValid}
+                id="usernameInput"
+                className={classes.textField}
+                label="Username"
+                type="text"
+                variant="outlined"
+                onInput={pageInputHandler}
+                color="secondary"
+              />
+            </div>
+            <div className={classes.textFieldContainer}>
+              <LockIcon className={classes.icon} />
+              <TextField
+                error={!formState.inputs.passwordInput.isValid}
+                id="passwordInput"
+                className={classes.textField}
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="outlined"
+                onInput={pageInputHandler}
+                color="secondary"
+              />
+            </div>
+
             <div className={classes.controlPanel}>
+              <Button
+                className={classes.signInButton}
+                variant="outlined"
+                color="secondary"
+                href="/"
+              >
+                Back To Home
+              </Button>
               <Button
                 className={classes.signInButton}
                 variant="outlined"

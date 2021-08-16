@@ -28,15 +28,32 @@ const AuthStyles = makeStyles((theme) => ({
     bottom: 0,
     backgroundPosition: 'center 40%',
   },
+  textFieldContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '70vh',
+  },
   textField: {
-    width: '100%',
     marginTop: '20px',
+    marginLeft: '20px',
+    width: '100%'
   },
   controlPanel: {
     marginTop: '20px',
     display: 'grid  ',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+  icon: {
+    marginTop: '20px',
+  },
+  signInButton: {
+    marginTop: '20px'
   }
 }));
 
