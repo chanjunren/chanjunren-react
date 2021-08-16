@@ -8,32 +8,36 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    display: 'flex',
+    minWidth: '345px',
   },
+  cardMedia: {
+  }
 });
 
 const GalleryCard = (props) => {
   const classes = useStyles();
 
-  const { title, imgSrc, description } = props;
+  const { title, cardImg, description } = props;
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          className={classes.cardMedia}
           component="img"
           alt={title}
           height="140"
-          image={imgSrc}
+          image={cardImg}
           title={title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             {description}
-          </Typography> */}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

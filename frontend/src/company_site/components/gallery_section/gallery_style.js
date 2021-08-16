@@ -4,6 +4,7 @@ const GalleryStyles = makeStyles((theme) => ({
   galleryContainer: {
     background: '#1B2026',
     height: '100vh',
+    padding: '40px'
   },
   // galleryButton: {},
   // heading: {

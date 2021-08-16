@@ -6,6 +6,8 @@ import PressStyles from './press_styles';
 import PressImg1 from '../../images/press_section/press_img1.png';
 import PressImg2 from '../../images/press_section/press_img2.png';
 import PressImg3 from '../../images/press_section/press_img3.png';
+import PressImg4 from '../../images/press_section/press_img4.jpg';
+import PressImg5 from '../../images/press_section/press_img5.jpg';
 
 const PressSection = () => {
   const classes = PressStyles();
@@ -19,6 +21,12 @@ const PressSection = () => {
     },
     {
       src: PressImg3,
+    },
+    {
+      src: PressImg4,
+    },
+    {
+      src: PressImg5,
     },
   ];
 
