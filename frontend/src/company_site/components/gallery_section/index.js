@@ -11,10 +11,15 @@ const GallerySection = () => {
   const galleryClasses = GalleryStyles();
 
   return (
-    <Grid container spacing={3} id="gallery" className={galleryClasses.galleryContainer}>
+    <Grid
+      container
+      spacing={3}
+      id="gallery"
+      className={galleryClasses.galleryContainer}
+    >
       {galleryData.map((item, index) => {
         return (
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <GalleryCard
               cardImg={item.cardImg}
               title={item.title}
