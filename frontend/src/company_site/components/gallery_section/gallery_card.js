@@ -17,10 +17,10 @@ const useStyles = makeStyles({
 const GalleryCard = (props) => {
   const classes = useStyles();
 
-  const { title, cardImg, description } = props;
+  const { title, cardImg, description, onCardClick } = props;
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={onCardClick}>
       <CardActionArea>
         <CardMedia
           className={classes.cardMedia}

@@ -27,7 +27,7 @@ const galleryData = [
     title: 'Temi',
     description: 'More about Temi, the Service Robot',
     cardImg: TemiCard,
-    galleryImages: [
+    gallery: [
       {
         src: TemiRes1,
         type: IMG_TYPE,
@@ -58,7 +58,7 @@ const galleryData = [
     title: 'Autonomous Guide',
     description: 'Temi in action at the National Gallery Concierge!',
     cardImg: GuideCard,
-    galleryImages: [
+    gallery: [
       {
         src: GuideRes1,
         type: VID_TYPE,
@@ -69,7 +69,7 @@ const galleryData = [
     title: 'Education',
     description: 'Temi in schools!',
     cardImg: EduCard,
-    galleryImages: [
+    gallery: [
       {
         src: EduRes1,
         type: VID_TYPE,
@@ -80,7 +80,7 @@ const galleryData = [
     title: 'Healthcare',
     description: 'Temi in the healthcare industry!',
     cardImg: HealthCard,
-    galleryImages: [
+    gallery: [
       {
         src: HealthRes1,
         type: VID_TYPE,
@@ -95,7 +95,7 @@ const galleryData = [
     title: 'Others',
     description: 'Temi in action elsewhere!',
     cardImg: OtherCard,
-    galleryImages: [
+    gallery: [
       {
         src: OtherRes1,
         type: VID_TYPE,

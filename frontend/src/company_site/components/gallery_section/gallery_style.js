@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const GalleryStyles = makeStyles((theme) => ({
   galleryContainer: {
     background: '#1B2026',
-    height: 'auto',
+    minHeight: '100vh',
     width: 'auto',
-    padding: '40px'
+    padding: '40px',
+    alignContent: 'center',
+    justifyContent: 'center'
   },
   // galleryButton: {},
   // heading: {
