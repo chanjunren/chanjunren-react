@@ -4,25 +4,70 @@ import { IMG_TYPE, VID_TYPE } from '../../../../util/values';
 
 import { makeStyles } from '@material-ui/core';
 
+import Grid from '@material-ui/core/Grid';
+
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-import './resource_slider.css';
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 
 const SliderStyles = makeStyles((theme) => ({
+  productSliderContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+  },
+  slidesContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    height: '80vh',
+    width: '100%',
+  },
   rightArrow: {
     zIndex: 10,
-    paddingLeft: '30px',
     cursor: 'pointer',
     userSelect: 'none',
-    fontSize: '60px',
+    fontSize: '80px',
   },
   leftArrow: {
     zIndex: 10,
-    paddingRight: '30px',
     cursor: 'pointer',
     userSelect: 'none',
+    fontSize: '80px',
+  },
+  closeIcon: {
     fontSize: '60px',
+    cursor: 'pointer',
+    float: 'right',
+    marginRight: '10vh',
+    marginTop: '10vh'
+  },
+  leftControlPanel: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  rightControlPanel: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  slide: {
+    opacity: 0,
+    transitionDuration: '1s ease',
+    maxWidth: '100%',
+  },
+  active: {
+    opacity: 1,
+    transitionDuration: '1s',
+    transform: 'scale(1.08)',
+    maxWidth: '100%',
+  },
+  resource: {
+    borderRadius: '10px',
+    maxWidth: '100%',
   },
 }));
 
@@ -47,29 +92,54 @@ const ResourceSlider = (props) => {
   };
 
   return (
-    <section className="resource-slider-container">
-      <ArrowBackIosIcon onClick={prevSlide} className={classes.leftArrow} />
-
-      {resourceData.map((resource, index) => {
-        const slide =
-          resource.type === IMG_TYPE ? (
-            <img className="resource" src={resource.src} />
-          ) : resource.type === VID_TYPE ? (
-            <ReactPlayer className="resource" controls url={resource.src} />
-          ) : (
-            <div> ERROR </div>
+    <Grid container className={classes.productSliderContainer}>
+      <Grid item xs={12} className={classes.closePanel}>
+        <CancelPresentationIcon
+          onClick={modalHandler}
+          className={classes.closeIcon}
+        />
+      </Grid>
+      <Grid item xs={3} className={classes.leftControlPanel}>
+        <ArrowBackIosIcon onClick={prevSlide} className={classes.leftArrow} />
+      </Grid>
+      <Grid item xs={6} className={classes.slidesContainer}>
+        {resourceData.map((resource, index) => {
+          const slide =
+            resource.type === IMG_TYPE ? (
+              <img className={classes.resource} src={resource.src} />
+            ) : resource.type === VID_TYPE ? (
+              <ReactPlayer
+                className={classes.resource}
+                controls
+                url={resource.src}
+              />
+            ) : (
+              <div> ERROR </div>
+            );
+          return (
+            <div
+              className={
+                index === currentSlide
+                  ? `${classes.slide} ${classes.active}`
+                  : `${classes.slide}`
+              }
+              key={index}
+            >
+              {index === currentSlide && slide}
+            </div>
           );
-        return (
-          <div
-            className={index === currentSlide ? 'slide active' : 'slide'}
-            key={index}
-          >
-            {index === currentSlide && slide}
-          </div>
-        );
-      })}
-      <ArrowForwardIosIcon onClick={nextSlide} className={classes.rightArrow} />
-    </section>
+        })}
+      </Grid>
+      <Grid item xs={3} className={classes.rightControlPanel}>
+        <ArrowForwardIosIcon
+          onClick={nextSlide}
+          className={classes.rightArrow}
+        />
+      </Grid>
+    </Grid>
+    // <section className="resource-slider-container">
+
+    // </section>
   );
 };
 

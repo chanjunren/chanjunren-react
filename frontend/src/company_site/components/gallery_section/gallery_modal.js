@@ -46,6 +46,8 @@ const GalleryModalStyle = makeStyles((theme) => ({
     maxWidth: '100%',
     cursor: 'pointer',
     objectFit: 'scale-down',
+    border: '5px solid #01bf71',
+    padding: '5px',
   },
 }));
 

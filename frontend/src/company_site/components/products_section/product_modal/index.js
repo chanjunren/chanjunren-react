@@ -8,7 +8,7 @@ import ResourceSlider from './resource_slider';
 
 const useStyles = makeStyles((theme) => ({
   productModal: {
-    
+    display: 'flex'
   },
   paper: {
     backgroundColor: '#000',
