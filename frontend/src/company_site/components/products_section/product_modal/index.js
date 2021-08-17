@@ -7,7 +7,7 @@ import Fade from '@material-ui/core/Fade';
 import ResourceSlider from './resource_slider';
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
+  productModal: {
     
   },
   paper: {
@@ -29,7 +29,7 @@ export default function ProductModal(props) {
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
-      className={classes.modal}
+      className={classes.productModal}
       open={openModal}
       onClose={modalHandler}
       closeAfterTransition

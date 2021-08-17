@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 
 const psStyle = makeStyles((theme) => ({
-  root: {
+  productRoot: {
     padding: 20,
     height: '100vh',
     display: 'grid',

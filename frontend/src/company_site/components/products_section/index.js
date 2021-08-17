@@ -28,7 +28,7 @@ const ProductsSection = () => {
   };
 
   return (
-    <div id="products" className={psClasses.root}>
+    <div id="products" className={psClasses.productRoot}>
       <ProductModal
         resourceData={resourceMap[selectedProduct]}
         modalHandler={modalHandler}
