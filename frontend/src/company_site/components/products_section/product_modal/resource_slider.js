@@ -38,8 +38,8 @@ const SliderStyles = makeStyles((theme) => ({
     fontSize: '60px',
     cursor: 'pointer',
     float: 'right',
-    marginRight: '10vh',
-    marginTop: '10vh'
+    marginRight: '5vh',
+    marginTop: '5vh'
   },
   leftControlPanel: {
     height: '100%',
