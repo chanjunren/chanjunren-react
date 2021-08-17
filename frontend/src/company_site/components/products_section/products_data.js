@@ -8,12 +8,12 @@ const productsData = [
   },
   {
     imageSrc: temiRobotProduct,
-    title: 'Tray Return System',
+    title: 'TRS',
     description: 'Tray return blalblabla',
   },
   {
     imageSrc: temiRobotProduct,
-    title: 'Accessories',
+    title: 'Temi Add Ons',
     description:
       'Additional equipment that can be used together with custom applications',
   },

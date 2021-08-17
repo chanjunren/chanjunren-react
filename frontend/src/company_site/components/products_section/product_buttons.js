@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AccessoryImage from '../../images/products/steami_product.png';
 import TemiRobotImage from '../../images/products/temi_robot_product.jpg';
+import TrsImage from '../../images/products/trsData/trs_img1.jpg';
 
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
@@ -90,12 +91,12 @@ const products = [
   },
   {
     url: AccessoryImage,
-    title: 'Accessories',
+    title: 'Temi Add Ons',
     width: '33%',
   },
   {
-    url: TemiRobotImage,
-    title: 'Tray Return System',
+    url: TrsImage,
+    title: 'TRS',
     width: '33%',
   },
 ];

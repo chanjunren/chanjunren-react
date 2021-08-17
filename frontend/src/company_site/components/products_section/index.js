@@ -9,6 +9,7 @@ import './ps_style.css';
 import ProductButtons from './product_buttons';
 import ProductModal from './product_modal';
 import steami_data from './products_data/steami_data';
+import trs_data from './products_data/trs_data';
 
 const ProductsSection = () => {
   const psClasses = psStyle();
@@ -21,7 +22,7 @@ const ProductsSection = () => {
   const [selectedProduct, setProductIdx] = useState([]);
   const resourceMap = {};
   resourceMap[1] = steami_data;
-  resourceMap[2] = null;
+  resourceMap[2] = trs_data;
   const openProductModal = (index) => {
     toggleOpenModal(true);
     setProductIdx(index);
