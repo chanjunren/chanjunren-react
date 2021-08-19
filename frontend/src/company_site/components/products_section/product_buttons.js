@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import AccessoryImage from '../../images/products/steami_product.png';
-import TemiRobotImage from '../../images/products/temi_robot_product.jpg';
+import TemiRobotImage from '../../images/products/temi_robot_product.png';
 import TrsImage from '../../images/products/trsData/trs_img1.jpg';
 
 import ButtonBase from '@material-ui/core/ButtonBase';

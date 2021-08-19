@@ -6,8 +6,9 @@ const GalleryStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     width: 'auto',
     padding: '40px',
-    // alignContent: 'center',
-    // justifyContent: 'center'
+    display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center'
   },
   // galleryButton: {},
   // heading: {
