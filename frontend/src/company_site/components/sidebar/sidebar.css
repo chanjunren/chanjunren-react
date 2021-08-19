@@ -1,0 +1,18 @@
+#sidebar-social-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.sidebar-social-icon-link {
+  color:#fff;
+  font-size: 30px;
+}
+
+.sidebar-social-icon-link:hover {
+  color: #01bf71;
+  transition: 0.3s ease-out;
+}

@@ -8,24 +8,11 @@ import {
   SidebarLink,
 } from './sidebar_elements.js';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import './sidebar.css';
 
-const useStyles = makeStyles((theme) => ({
-  signInButton: {
-    fontSize: '20px',
-    borderRadius: '25px',
-    padding: '20px',
-  },
-  buttonWrapper: {
-    paddingTop: '15px',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-}));
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const SideBar = ({ toggle, isOpen }) => {
-  const classes = useStyles();
   return (
     <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>
@@ -52,14 +39,34 @@ const SideBar = ({ toggle, isOpen }) => {
             Contact Us
           </SidebarLink>
         </SidebarMenu>
-        <div className={classes.buttonWrapper}>
-          <Button
-            className={classes.signInButton}
-            href="/signin"
-            color="secondary"
+        <div id="sidebar-social-icons">
+          <a
+            className="sidebar-social-icon-link"
+            href="https://www.facebook.com/Temirobosolutions"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
           >
-            Sign In
-          </Button>
+            <FaFacebook />
+          </a>
+          <a
+            className="sidebar-social-icon-link"
+            href="https://www.instagram.com/temi_singapore/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            className="sidebar-social-icon-link"
+            href="https://www.linkedin.com/in/wenchyi-lim-a228637/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
         </div>
       </SidebarWrapper>
     </SidebarContainer>
