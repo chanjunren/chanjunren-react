@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 import useHttpClient from '../../shared/hooks/http_hook';
 import { BASE_ADDRESS } from '../../util/values';
 

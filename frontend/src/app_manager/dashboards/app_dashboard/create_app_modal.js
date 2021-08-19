@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 import useForm from '../../../shared/hooks/form_hook';
-import useHttpClient from '../../../shared/hooks/http_hook';
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateAppModal(props) {
   const classes = useStyles();
   const { openModal, modalHandler } = props;
-  const [formState, formInputHandler, formFocusHandler] = useForm({
+  const [formState, formInputHandler] = useForm({
     nameTextField: {
       value: '',
       isValid: true,

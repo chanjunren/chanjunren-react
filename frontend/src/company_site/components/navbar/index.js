@@ -3,10 +3,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 import { animateScroll as scroll } from 'react-scroll';
-import Button from '@material-ui/core/Button';
 import RsAppLogo from '../../images/rsLogo.png';
 import './navbar.css';
 import { withTheme } from '../../../util/theme';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const NavBar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -32,10 +32,10 @@ const NavBar = ({ toggle }) => {
       <nav className={`main-nav ${scrollNav && `main-nav-scrollNav`}`}>
         <div id="nav-bar-container">
           <LinkR id="nav-logo" to="/" onClick={scrollToTopListener}>
-            <img id="rs-logo" src={RsAppLogo} />
+            <img id="rs-logo" src={RsAppLogo} alt={RsAppLogo} />
           </LinkR>
           <div id="mobile-icon" onClick={toggle}>
-            <MenuIcon/>
+            <MenuIcon />
           </div>
           <ul id="nav-menu">
             <li className="nav-item">
@@ -117,16 +117,35 @@ const NavBar = ({ toggle }) => {
               </LinkS>
             </li>
           </ul>
-          <nav className="nav-btn">
-            <Button
-              href="/signin"
-              variant="outlined"
-              color="secondary"
+          <div id="social-icons">
+            <a
+              className="social-icon-link"
+              href="https://www.facebook.com/Temirobosolutions"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
             >
-              Company Portal
-            </Button>
-            {/* <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR> */}
-          </nav>
+              <FaFacebook />
+            </a>
+            <a
+              className="social-icon-link"
+              href="https://www.instagram.com/temi_singapore/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              className="social-icon-link"
+              href="https://www.linkedin.com/in/wenchyi-lim-a228637/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
       </nav>
     </React.Fragment>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';

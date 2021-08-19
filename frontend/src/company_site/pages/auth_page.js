@@ -20,7 +20,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const AuthPage = () => {
   const authContext = useContext(AuthContext);
   const formValidators = [];
-  const [formState, formInputHandler, formFocusHandler] = useForm({
+  const [formState, formInputHandler] = useForm({
     usernameInput: {
       value: '',
       isValid: true,
@@ -33,10 +33,6 @@ const AuthPage = () => {
 
   const pageInputHandler = useCallback((event) => {
     formInputHandler(event.target.id, event.target.value, formValidators);
-  }, []);
-
-  const pageFocusHandler = useCallback((event) => {
-    formFocusHandler(event.target.id, true);
   }, []);
 
   const { isLoading, errorEncountered, sendRequest, clearError } =

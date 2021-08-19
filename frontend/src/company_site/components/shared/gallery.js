@@ -44,7 +44,7 @@ const ResponsiveGallery = (props) => {
   return (
     <React.Fragment>
       <Modal className={classes.modal} open={modalVisible} onClose={closeModal}>
-        <img className={classes.modalImg} src={currentRes} />
+        <img className={classes.modalImg} alt={currentRes} src={currentRes} />
       </Modal>
       <div className="gallery-container">
         {resources.map((item, index) => {
@@ -55,6 +55,7 @@ const ResponsiveGallery = (props) => {
                   selectResource(item.src);
                 }}
                 src={item.src}
+                alt={item.src}
                 style={{ width: '100%' }}
               />
             </div>

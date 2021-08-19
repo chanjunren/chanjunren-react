@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player';
 
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
@@ -67,7 +67,11 @@ const GalleryModal = (props) => {
 
   const selectedSlideComp =
     selectedSlide.type === IMG_TYPE ? (
-      <img className={classes.selectedSlide} src={selectedSlide.src} />
+      <img
+        className={classes.selectedSlide}
+        src={selectedSlide.src}
+        alt={selectedSlide.src}
+      />
     ) : selectedSlide.type === VID_TYPE ? (
       <ReactPlayer
         className={classes.selectedSlide}
@@ -113,6 +117,7 @@ const GalleryModal = (props) => {
                   <img
                     className={classes.slideResource}
                     src={item.src}
+                    alt={item.src}
                     onClick={() => {
                       onGalleryItemClick(item);
                     }}

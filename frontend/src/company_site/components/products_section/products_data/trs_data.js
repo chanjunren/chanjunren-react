@@ -1,4 +1,4 @@
-import { IMG_TYPE, VID_TYPE } from '../../../../util/values';
+import { IMG_TYPE } from '../../../../util/values';
 
 import TrsImg1 from '../../../images/products/trsData/trs_img1.jpg';
 

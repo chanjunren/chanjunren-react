@@ -8,14 +8,12 @@ import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
 import 'swiper/components/pagination/pagination.min.css';
 
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
-import Collapse from '@material-ui/core/Collapse';
 import Button from '@material-ui/core/Button';
 
 import { AppSectionStyles, AppCardStyles } from './app_section_style';

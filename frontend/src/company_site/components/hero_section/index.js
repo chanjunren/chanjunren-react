@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import Video from '../../videos/homeVideo.mp4';
 
@@ -6,20 +6,20 @@ import {
   HeroContainer,
   HeroBg,
   VideoBg,
-  HeroContent,
-  HeroH1,
-  HeroP,
-  HeroBtnWrapper,
-  ArrowForward,
-  ArrowRight,
+  // HeroContent,
+  // HeroH1,
+  // HeroP,
+  // HeroBtnWrapper,
+  // ArrowForward,
+  // ArrowRight,
 } from './hero_elements';
 
 const HeroSection = () => {
-  const [hover, setHover] = useState(false);
+  // const [hover, setHover] = useState(false);
 
-  const onHoverHandler = () => {
-    setHover(!hover);
-  };
+  // const onHoverHandler = () => {
+  //   setHover(!hover);
+  // };
 
   return (
     <HeroContainer id="home">

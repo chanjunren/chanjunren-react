@@ -2,7 +2,8 @@ import React from 'react';
 
 import './footer.css';
 import { Link as LinkS } from 'react-scroll';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Button from '@material-ui/core/Button';
+
 const Footer = () => {
   return (
     <footer id="footer-container">
@@ -83,7 +84,7 @@ const Footer = () => {
             <small id="website-rights">
               Robosolutions © {new Date().getFullYear()} All Rights Reserved
             </small>
-            <div id="social-icons">
+            {/* <div id="social-icons">
               <a
                 className="social-icon-link"
                 href="https://www.facebook.com/Temirobosolutions"
@@ -108,7 +109,13 @@ const Footer = () => {
               >
                 <FaLinkedin />
               </a>
-            </div>
+  </div>*/}
+            <nav className="nav-btn">
+              <Button href="/signin" variant="outlined" color="secondary">
+                Company Portal
+              </Button>
+              {/* <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR> */}
+            </nav>
           </div>
         </section>
       </div>

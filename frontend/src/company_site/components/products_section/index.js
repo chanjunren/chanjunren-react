@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import psStyle from './ps_style';
 
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import StorefrontIcon from '@material-ui/icons/Storefront';
-import StoreIcon from '@material-ui/icons/Store';
+// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+// import StorefrontIcon from '@material-ui/icons/Storefront';
+// import StoreIcon from '@material-ui/icons/Store';
 
 import './ps_style.css';
 import ProductButtons from './product_buttons';

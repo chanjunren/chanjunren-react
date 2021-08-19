@@ -106,7 +106,7 @@ const ResourceSlider = (props) => {
         {resourceData.map((resource, index) => {
           const slide =
             resource.type === IMG_TYPE ? (
-              <img className={classes.resource} src={resource.src} />
+              <img className={classes.resource} src={resource.src} alt={resource}/>
             ) : resource.type === VID_TYPE ? (
               <ReactPlayer
                 className={classes.resource}
