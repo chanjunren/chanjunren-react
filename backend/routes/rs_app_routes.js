@@ -2,6 +2,7 @@ const express = require('express');
 const appController = require('../controllers/app_controller');
 const router = express.Router();
 
+router.use(check_authentication);
 router.get("/", appController.getAllApplications);
 router.post("/", appController.addApplication);
 router.delete("/:appId", appController.deleteApplicationByAid);

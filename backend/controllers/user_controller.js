@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const { isValidPassword } = require('../util/validators/user_validators');
-const { jwtPrivateKey } = require('../util/values');
 
 const getAllUsers = async (req, res, next) => {
   let users;
@@ -118,7 +117,7 @@ const loginUser = async (req, res, next) => {
         role: user.role,
         username: user.username,
       },
-      jwtPrivateKey,
+      process.env.JWT_KEY,
       { expiresIn: '1h' },
     );
     res.status(201).json({ username: user.username, token: token });

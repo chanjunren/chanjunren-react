@@ -48,11 +48,14 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect('mongodb+srv://itsmecjr:rsappmanagerdev@cluster0.lzzyn.mongodb.net/rsAppManagerDatabase?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.lzzyn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    },
+  )
   .then(() => {
     app.listen(5000);
   })
