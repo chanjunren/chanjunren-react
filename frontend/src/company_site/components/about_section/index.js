@@ -17,10 +17,10 @@ const AboutSection = () => {
         <video className="video-bg" autoPlay muted loop src={AboutVideo} />
       </div>
       <Grid container className={classes.aboutContent}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={5}>
           <Typography variant="h1" className={classes.headerText}>Everyday Robotics</Typography>
         </Grid>
-        <Grid item xs={12} md={8} className={classes.bodyContainer}>
+        <Grid item xs={12} md={7} className={classes.bodyContainer}>
           <div>
             <Typography variant="body1" className={classes.bodyText}>
               Founded in April 2019, RoboSolutions is the exclusive distributor

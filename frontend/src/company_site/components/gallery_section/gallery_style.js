@@ -5,7 +5,7 @@ const GalleryStyles = makeStyles((theme) => ({
     background: '#1B2026',
     minHeight: '100vh',
     width: 'auto',
-    padding: '40px',
+    // padding: '40px',
     display: 'flex',
     alignContent: 'center',
     justifyContent: 'center'

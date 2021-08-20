@@ -8,7 +8,7 @@ const psStyle = makeStyles((theme) => ({
     justifyItems: 'center',
     alignItems: 'center',
     // background: theme.palette.primary.light,
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   productCard: {
     display: 'inline-grid',

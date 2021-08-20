@@ -10,7 +10,7 @@ const AboutSectionStyles = makeStyles((theme) => ({
   // },
   bodyText: {
     textAlign: 'center',
-    fontSize: '1.5rem',
+    fontSize: '1.6rem',
     padding: '20px',
   },
   bodyContainer: {
@@ -41,6 +41,7 @@ const AboutSectionStyles = makeStyles((theme) => ({
     position: 'absolute',
     padding: '8px 24px',
     zIndex: '3',
+    overflow: 'scroll'
   },
 }));
 
