@@ -5,7 +5,6 @@ import RsLogo from '../images/rsLogo.png';
 
 import useForm from '../../shared/hooks/form_hook';
 import useHttpClient from '../../shared/hooks/http_hook';
-import { BASE_ADDRESS } from '../../util/values';
 import { AuthContext } from '../components/shared/auth_context';
 import CustomisedSnackBar from '../../shared/components/snackbar';
 
@@ -43,7 +42,7 @@ const AuthPage = () => {
     event.preventDefault();
     try {
       responseData = await sendRequest(
-        `${BASE_ADDRESS}/api/users/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/login`,
         'POST',
         JSON.stringify({
           username: formState.inputs.usernameInput.value,

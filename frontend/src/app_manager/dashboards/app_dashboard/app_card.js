@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded';
-import { BASE_ADDRESS } from '../../../util/values';
 
 const useStyles = makeStyles((theme) => ({
   deleteIcon: {
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const AppCard = (props) => {
   const classes = useStyles();
   const { title, id, showDeleteModal } = props;
-  const deleteEndpoint = `${BASE_ADDRESS}/api/apps/${id}`;
+  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/apps/${id}`;
 
   return (
     <Card variant="outlined">

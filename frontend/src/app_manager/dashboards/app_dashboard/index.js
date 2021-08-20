@@ -10,6 +10,7 @@ import CreateAppModal from './create_app_modal';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import DeleteModal from '../shared/delete_modal';
+import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,8 +38,10 @@ const AppDashboard = (props) => {
     clearError,
   } = useContext(DataContext);
 
+  const {token} = useContext(AuthContext);
+
   useEffect(() => {
-    fetchApplications();
+    fetchApplications(token);
   }, []);
 
   const [openModal, toggleOpenModal] = useState(false);

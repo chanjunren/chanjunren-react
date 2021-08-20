@@ -1,25 +1,28 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import useHttpClient from '../../shared/hooks/http_hook';
-import { BASE_ADDRESS } from '../../util/values';
 
 const getData = () => {
   const [applications, setApplications] = useState([]);
   const [temiUnits, setTemiUnits] = useState([]);
   const [users, setUsers] = useState([]);
-
-
   const { isLoading, errorEncountered, sendRequest, clearError } =
     useHttpClient();
 
-  const fetchData = async () => {
-    await fetchApplications();
-    await fetchAppUsers();
-    await fetchTemiUnits();
+  const fetchData = async (token) => {
+    console.log(token);
+    await fetchApplications(token);
+    await fetchAppUsers(token);
+    await fetchTemiUnits(token);
   };
 
-  const fetchApplications = useCallback(async () => {
+  const fetchApplications = useCallback(async (token) => {
     const getApplications = async () => {
-      let responseData = await sendRequest(`${BASE_ADDRESS}/api/apps`);
+      let responseData = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
+        'GET',
+        null,
+        { Authorization: 'Bearer ' + token },
+      );
       setApplications(responseData.applications);
     };
     try {
@@ -29,11 +32,14 @@ const getData = () => {
     }
   }, []);
 
-  
-
-  const fetchTemiUnits = useCallback(async () => {
+  const fetchTemiUnits = useCallback(async (token) => {
     const getTemiUnits = async () => {
-      const responseData = await sendRequest(`${BASE_ADDRESS}/api/temis`);
+      const responseData = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/api/temis`,
+        'GET',
+        null,
+        { Authorization: 'Bearer ' + token },
+      );
       setTemiUnits(responseData.Units);
     };
     try {
@@ -43,9 +49,14 @@ const getData = () => {
     }
   }, []);
 
-  const fetchAppUsers = useCallback(async () => {
+  const fetchAppUsers = useCallback(async (token) => {
     const getAppUsers = async () => {
-      let responseData = await sendRequest(`${BASE_ADDRESS}/api/users`);
+      let responseData = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/api/users`,
+        'GET',
+        null,
+        { Authorization: 'Bearer ' + token },
+      );
       console.log(responseData);
       setUsers(responseData.users);
     };

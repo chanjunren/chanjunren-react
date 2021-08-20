@@ -9,6 +9,7 @@ import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import CreateTemiModal from './create_temi_modal';
 import DeleteModal from '../shared/delete_modal';
+import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
 const TemiDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -37,8 +38,10 @@ const TemiDashboard = () => {
     clearError,
   } = useContext(DataContext);
 
+  const {token} = useContext(AuthContext);
+
   useEffect(() => {
-    fetchTemiUnits();
+    fetchTemiUnits(token);
   }, []);
 
   // For displaying apps in collapsible table

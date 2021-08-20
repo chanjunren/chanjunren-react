@@ -36,10 +36,6 @@ function App() {
     clearError,
   } = getData();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   let routes;
   if (!token) {
     routes = (
@@ -85,7 +81,6 @@ function App() {
     },
   }));
   const classes = useStyles();
-
   return (
     <AuthContext.Provider
       value={{

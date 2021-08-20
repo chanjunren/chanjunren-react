@@ -15,7 +15,7 @@ import {
 } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
-import { BASE_ADDRESS } from '../../../util/values';
+import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -60,6 +60,7 @@ export default function CreateAppModal(props) {
   };
 
   const dataContext = useContext(DataContext);
+  const authContext = useContext(AuthContext)
   const temiUnits = [];
   const temiUnitsMap = {};
 
@@ -79,13 +80,16 @@ export default function CreateAppModal(props) {
       );
 
       const responseData = await sendRequest(
-        `${BASE_ADDRESS}/api/apps`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
         'POST',
         JSON.stringify({
           name: formState.inputs.nameTextField.value,
           units: selectedIds,
         }),
-        { 'Content-Type': 'application/json' },
+        {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + authContext.token,
+        },
       );
       console.log(responseData);
       modalHandler();
@@ -113,7 +117,7 @@ export default function CreateAppModal(props) {
           <Grid className={classes.paper}>
             <Grid item>
               <TextField
-                error={!  formState.inputs.nameTextField.isValid}
+                error={!formState.inputs.nameTextField.isValid}
                 id="nameTextField"
                 label="App Name"
                 variant="outlined"

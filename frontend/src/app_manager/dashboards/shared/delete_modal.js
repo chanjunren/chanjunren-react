@@ -33,11 +33,12 @@ const DeleteModal = (props) => {
   const onConfirmDelete = async (event) => {
     try {
       console.log(deleteEndpoint);
+      console.log(authContext.token);
       const responseData = await sendRequest(deleteEndpoint, 'DELETE', null, {
         Authorization: `Bearer ${authContext.token}`,
       });
       console.log(responseData);
-      dataContext.fetchData();
+      dataContext.fetchData(authContext.token);
     } catch (err) {
       console.error(err);
     } finally {

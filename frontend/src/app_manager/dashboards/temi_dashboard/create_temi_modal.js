@@ -9,12 +9,10 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 import useForm from '../../../shared/hooks/form_hook';
-import {
-  VALIDATOR_REQUIRE,
-} from '../../../util/form_validators';
+import { VALIDATOR_REQUIRE } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
-import { BASE_ADDRESS } from '../../../util/values';
+import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -73,6 +71,7 @@ export default function CreateTemiModal(props) {
   };
 
   const dataContext = useContext(DataContext);
+  const authContext = useContext(AuthContext);
   const { sendRequest } = dataContext;
 
   const addNewUnit = async () => {
@@ -80,16 +79,19 @@ export default function CreateTemiModal(props) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
-
+      console.log(authContext.token);
       const responseData = await sendRequest(
-        `${BASE_ADDRESS}/api/temis`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/temis`,
         'POST',
         JSON.stringify({
           owner: formState.inputs.ownerTextField.value,
           serialNumber: formState.inputs.serialNumberTextField.value,
           applications: selectedIds,
         }),
-        { 'Content-Type': 'application/json' },
+        {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + authContext.token,
+        },
       );
       console.log(responseData);
       modalHandler();

@@ -10,7 +10,6 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { BASE_ADDRESS } from '../../../util/values';
 
 const useRowStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +38,7 @@ const TemiRow = (props) => {
   const { owner, serialNumber, id, applications, appMap, showDeleteModal } =
     props;
 
-  const deleteEndpoint = `${BASE_ADDRESS}/api/temis/${id}`;
+  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/temis/${id}`;
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
   return (

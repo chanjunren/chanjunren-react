@@ -7,6 +7,7 @@ import UserTable from './user_table';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import DeleteModal from '../shared/delete_modal';
+import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -27,8 +28,9 @@ const UserDashboard = () => {
   const { users, fetchAppUsers, isLoading, errorEncountered, clearError } =
     useContext(DataContext);
 
+  const {token} = useContext(AuthContext);
   useEffect(() => {
-    fetchAppUsers();
+    fetchAppUsers(token);
   }, []);
 
   const [openDeleteModal, toggleDeleteModal] = useState(false);
