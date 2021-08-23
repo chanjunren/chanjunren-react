@@ -16,6 +16,7 @@ import {
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
+import CustomisedSnackBar from '../../../shared/components/snackbar';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -55,12 +56,12 @@ export default function CreateAppModal(props) {
   };
 
   const setSelectedUnits = (selectedUnits) => {
-    console.log(formState);
+    // console.log(formState);
     formInputHandler('temiUnits', selectedUnits, []);
   };
 
   const dataContext = useContext(DataContext);
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
   const temiUnits = [];
   const temiUnitsMap = {};
 
@@ -68,8 +69,8 @@ export default function CreateAppModal(props) {
     temiUnits.push(unit.serialNumber);
     temiUnitsMap[unit.serialNumber] = unit.id;
   });
-  console.log(formState);
-  const { sendRequest } = dataContext;
+  // console.log(formState);
+  const { sendRequest, errorEncountered, clearError } = dataContext;
 
   const addNewUnit = async () => {
     if (formState.isFormValid) {
@@ -78,24 +79,27 @@ export default function CreateAppModal(props) {
           return temiUnitsMap[serialNumber];
         },
       );
-
-      const responseData = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
-        'POST',
-        JSON.stringify({
-          name: formState.inputs.nameTextField.value,
-          units: selectedIds,
-        }),
-        {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + authContext.token,
-        },
-      );
-      console.log(responseData);
-      modalHandler();
-
-      // To update the page
-      dataContext.fetchApplications();
+      try {
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
+          'POST',
+          JSON.stringify({
+            name: formState.inputs.nameTextField.value,
+            units: selectedIds,
+          }),
+          {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + authContext.token,
+          },
+        );
+        console.log(responseData);
+        modalHandler();
+      } catch (err) {
+        console.error(err);
+      } finally {
+        // To update the page
+        dataContext.fetchApplications(authContext.token);
+      }
     }
   };
 
@@ -112,44 +116,52 @@ export default function CreateAppModal(props) {
         timeout: 500,
       }}
     >
-      <Fade in={openModal}>
-        <form>
-          <Grid className={classes.paper}>
-            <Grid item>
-              <TextField
-                error={!formState.inputs.nameTextField.isValid}
-                id="nameTextField"
-                label="App Name"
-                variant="outlined"
-                color="secondary"
-                onInput={onNameInput}
-              />
-            </Grid>
-            <Grid item>
-              <SelectUnits
-                availableUnits={temiUnits}
-                selectedUnits={formState.inputs.temiUnits.value}
-                setSelectedUnits={setSelectedUnits}
-              />
-            </Grid>
+      <React.Fragment>
+        <CustomisedSnackBar
+          message={errorEncountered}
+          success={!!!errorEncountered}
+          open={!!errorEncountered}
+          clearError={clearError}
+        />
+        <Fade in={openModal}>
+          <form>
+            <Grid className={classes.paper}>
+              <Grid item>
+                <TextField
+                  error={!formState.inputs.nameTextField.isValid}
+                  id="nameTextField"
+                  label="App Name"
+                  variant="outlined"
+                  color="secondary"
+                  onInput={onNameInput}
+                />
+              </Grid>
+              <Grid item>
+                <SelectUnits
+                  availableUnits={temiUnits}
+                  selectedUnits={formState.inputs.temiUnits.value}
+                  setSelectedUnits={setSelectedUnits}
+                />
+              </Grid>
 
-            <Grid item>
-              <div>
-                <Button color="secondary" onClick={modalHandler}>
-                  Cancel
-                </Button>
-                <Button
-                  color="primary"
-                  onClick={addNewUnit}
-                  disabled={!formState.isFormValid}
-                >
-                  Add
-                </Button>
-              </div>
+              <Grid item>
+                <div>
+                  <Button color="secondary" onClick={modalHandler}>
+                    Cancel
+                  </Button>
+                  <Button
+                    color="primary"
+                    onClick={addNewUnit}
+                    disabled={!formState.isFormValid}
+                  >
+                    Add
+                  </Button>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
-      </Fade>
+          </form>
+        </Fade>
+      </React.Fragment>
     </Modal>
   );
 }

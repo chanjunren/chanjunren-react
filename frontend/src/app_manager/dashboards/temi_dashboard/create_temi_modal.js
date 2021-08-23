@@ -97,7 +97,7 @@ export default function CreateTemiModal(props) {
       modalHandler();
 
       // To update the page
-      dataContext.fetchTemiUnits();
+      dataContext.fetchTemiUnits(authContext.token);
     }
   };
 

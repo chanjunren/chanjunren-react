@@ -154,12 +154,13 @@ const checkPermission = async (req, res, next) => {
     );
   }
 
-  for (app in temiUnit.applications) {
-    if (appId === app) {
-      return res.status(200); 
+  for (let app of temiUnit.applications) {
+
+    if (appId === app.toString()) {
+      return res.status(200).json({ message: 'Welcome! :D' }); 
     }
   }
-  res.status(403).json({"message": "U HAVE NO RIGHTS"});
+  res.status(403).json({message: "Specified app not found in this Temi unit! D:"});
 };
 
 exports.getAllTemiUnits = getAllTemiUnits;

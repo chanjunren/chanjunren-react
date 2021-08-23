@@ -32,7 +32,7 @@ const AppDashboard = (props) => {
   const classes = useStyles();
   const {
     applications,
-    fetchApplications,
+    fetchData,
     isLoading,
     errorEncountered,
     clearError,
@@ -41,7 +41,8 @@ const AppDashboard = (props) => {
   const {token} = useContext(AuthContext);
 
   useEffect(() => {
-    fetchApplications(token);
+    console.log("Sending token: " + token);
+    fetchData(token);
   }, []);
 
   const [openModal, toggleOpenModal] = useState(false);
