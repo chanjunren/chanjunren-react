@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import Home from './company_site/pages/index';
-import AuthPage from './company_site/pages/auth_page';
 import useAuth from './company_site/hooks/auth_hook';
 import { AuthContext } from './company_site/components/shared/auth_context';
-import DashboardNav from './app_manager/dashboard_nav/index';
-import AppDashboard from './app_manager/dashboards/app_dashboard';
-import TemiDashboard from './app_manager/dashboards/temi_dashboard';
-import UserDashboard from './app_manager/dashboards/user_dashboard';
-
 import { makeStyles } from '@material-ui/core/styles';
 import DataContext from './app_manager/shared/data_context';
 import getData from './app_manager/hooks/data_hook';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const AuthPage = React.lazy(() => import('./company_site/pages/auth_page'));
+const Home = React.lazy(() => import('./company_site/pages/index'));
+const DashboardNav = React.lazy(() =>
+  import('./app_manager/dashboard_nav/index'),
+);
+const AppDashboard = React.lazy(() =>
+  import('./app_manager/dashboards/app_dashboard'),
+);
+const TemiDashboard = React.lazy(() =>
+  import('./app_manager/dashboards/temi_dashboard'),
+);
+const UserDashboard = React.lazy(() =>
+  import('./app_manager/dashboards/user_dashboard'),
+);
 
 /**
  * Application's entry point, contains the oruter and routes
@@ -109,10 +119,18 @@ function App() {
       >
         <BrowserRouter>
           <div className={!!token ? classes.root : undefined}>
-            {!!token && <DashboardNav />}
-            <main className={!!token ? classes.content : undefined}>
-              {routes}
-            </main>
+            <Suspense
+              fallback={
+                <Backdrop className={classes.backdrop} open={true}>
+                  <CircularProgress color="inherit" />
+                </Backdrop>
+              }
+            >
+              {!!token && <DashboardNav />}
+              <main className={!!token ? classes.content : undefined}>
+                {routes}
+              </main>
+            </Suspense>
           </div>
         </BrowserRouter>
       </DataContext.Provider>
