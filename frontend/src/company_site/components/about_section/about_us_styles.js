@@ -17,6 +17,7 @@ const AboutSectionStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   videoBg: {
     width: '100%',
@@ -41,7 +42,8 @@ const AboutSectionStyles = makeStyles((theme) => ({
     position: 'absolute',
     padding: '8px 24px',
     zIndex: '3',
-    overflow: 'scroll'
+    overflowY: 'scroll',
+    overflowX: 'hidden'
   },
 }));
 
