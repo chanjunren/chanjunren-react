@@ -25,10 +25,10 @@ app.use('/api/apps', appRoutes);
 
 app.use('/api/users', userRoutes);
 
-app.use((req, res, next) => {
-  const error = new HttpError('Are you lost? How did you get here :O', 404);
-  throw error;
-});
+// app.use((req, res, next) => {
+//   const error = new HttpError('Are you lost? How did you get here :O', 404);
+//   throw error;
+// });
 
 // Error handling middleware
 app.use((error, req, res, next) => {
