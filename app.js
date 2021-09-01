@@ -5,6 +5,7 @@ const temiRoutes = require('./routes/temi_routes');
 const userRoutes = require('./routes/user_routes');
 const HttpError = require('./models/http_error');
 const app = express();
+const path = require('path');
 
 app.use(express.json());
 
@@ -47,6 +48,8 @@ app.use((error, req, res, next) => {
   });
 });
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
 mongoose
   .connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.lzzyn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
@@ -57,6 +60,9 @@ mongoose
     },
   )
   .then(() => {
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
     app.listen(process.env.PORT || 5000);
   })
   .catch((error) => {
