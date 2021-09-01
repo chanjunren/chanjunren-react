@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     backgroundColor: theme.palette.primary.dark,
-    border: `0.5px solid ${theme.palette.primary.light}`
+    // border: `0.1px solid #fff`
   },
   cardMedia: {
   }
