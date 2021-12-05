@@ -22,9 +22,10 @@ const AboutSection = () => {
         </Grid>
         <Grid item xs={12} md={7} className={classes.bodyContainer}>
           <div>
+            
             <Typography variant="body1" className={classes.bodyText}>
               Founded in April 2019, RoboSolutions is the exclusive distributor
-              for temi – The Service Robot in Singapore, Malaysia & Indonesia.
+              for temi – The Service Robot in SG, Malaysia & Indonesia.
             </Typography>
             <Typography variant="body1" className={classes.bodyText}>
               Using temi’s platform, RoboSolutions brings businesses a powerful
@@ -35,13 +36,8 @@ const AboutSection = () => {
               way in service robotics globally
             </Typography>
             <Typography variant="body1" className={classes.bodyText}>
-              We provide a one-stop service needed to deploy and manage fleets
-              of temi(s) – from installation, training, custom programming,
-              add-on IoTs & maintenance to repair services
-            </Typography>
-            <Typography variant="body1" className={classes.bodyText}>
-              RoboSolutions also develops other robotic solutions to bring
-              productivity to business operations
+              We provide a one-stop service to deploy fleets of temi(s) – from installation, training, programming, 
+              add-on IoTs & repair maintenance.
             </Typography>
           </div>
         </Grid>

@@ -4,12 +4,12 @@ import psStyle from './ps_style';
 // import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 // import StorefrontIcon from '@material-ui/icons/Storefront';
 // import StoreIcon from '@material-ui/icons/Store';
-
-import './ps_style.css';
-import ProductButtons from './product_buttons';
 import ProductModal from './product_modal';
 import steami_data from './products_data/steami_data';
 import trs_data from './products_data/trs_data';
+import ProductCard from './product_card';
+import productData from './product_data';
+import { Grid, Typography } from '@material-ui/core';
 
 const ProductsSection = () => {
   const psClasses = psStyle();
@@ -21,8 +21,14 @@ const ProductsSection = () => {
 
   const [selectedProduct, setProductIdx] = useState([]);
   const resourceMap = {};
+  resourceMap[0] = steami_data;
   resourceMap[1] = steami_data;
   resourceMap[2] = trs_data;
+  resourceMap[3] = trs_data;
+  resourceMap[4] = trs_data;
+  resourceMap[5] = trs_data;
+  resourceMap[6] = trs_data;
+  
   const openProductModal = (index) => {
     toggleOpenModal(true);
     setProductIdx(index);
@@ -35,7 +41,25 @@ const ProductsSection = () => {
         modalHandler={modalHandler}
         openModal={openModal}
       />
-      <ProductButtons openProductModal={openProductModal} />
+      <Typography className={psClasses.sectionHeader} variant="h3" component="h3" color="primary">
+        Our Products
+      </Typography>
+      <Grid container spacing={3} className={psClasses.productsContainer}>
+        {productData.map((item, index) => {
+          return (
+            <Grid className={psClasses.productCard} key={index} item xs={12} sm={6} md={4} lg={2}>
+              <ProductCard
+                cardImg={item.cardImg}
+                title={item.title}
+                description={item.description}
+                onCardClick={() => {
+                  openProductModal(index);
+                }}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
   );
 };

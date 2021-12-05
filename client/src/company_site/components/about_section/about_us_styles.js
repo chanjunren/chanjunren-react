@@ -10,7 +10,7 @@ const AboutSectionStyles = makeStyles((theme) => ({
   // },
   bodyText: {
     textAlign: 'center',
-    fontSize: '1.6rem',
+    fontSize: '1.5rem',
     padding: '20px',
   },
   bodyContainer: {
@@ -33,7 +33,6 @@ const AboutSectionStyles = makeStyles((theme) => ({
   headerText: {
     textAlign: 'center',
     marginTop: '10px',
-    fontStyle: 'italic',
     color: theme.palette.secondary.main,
   },
   aboutContent: {

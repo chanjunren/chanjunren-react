@@ -7,6 +7,7 @@ import GalleryCard from './gallery_card';
 import GalleryStyles from './gallery_style';
 import galleryData from './gallery_data';
 import GalleryModal from './gallery_modal';
+import { Typography } from '@material-ui/core';
 
 const GallerySection = () => {
   const galleryClasses = GalleryStyles();
@@ -29,7 +30,7 @@ const GallerySection = () => {
   };
 
   return (
-    <div id="gallery">
+    <div id="gallery" className={galleryClasses.galleryContainer}>
       <GalleryModal
         openModal={openModal}
         modalHandler={modalHandler}
@@ -37,7 +38,10 @@ const GallerySection = () => {
         selectedSlide={selectedSlide}
         onGalleryItemClick={onGalleryItemClick}
       />
-      <Grid container spacing={3} className={galleryClasses.galleryContainer}>
+      <Typography className={galleryClasses.sectionHeader} variant="h3" component="h3" color="primary">
+        Gallery
+      </Typography>
+      <Grid container spacing={5} className={galleryClasses.cardContainer} >
         {galleryData.map((item, index) => {
           return (
             <Grid key={index} item xs={12} sm={6} md={4} lg={2}>

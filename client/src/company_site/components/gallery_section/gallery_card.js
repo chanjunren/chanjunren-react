@@ -9,11 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    backgroundColor: theme.palette.primary.dark,
-    // border: `0.1px solid #fff`
+    background: '#fff'
   },
-  cardMedia: {
-  }
 }));
 
 const GalleryCard = (props) => {
