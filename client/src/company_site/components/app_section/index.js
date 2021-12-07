@@ -2,12 +2,6 @@ import React from 'react';
 import { applicationsData } from './application_data';
 // import './rs_applications.css';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/swiper.min.css';
-import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
-import 'swiper/components/pagination/pagination.min.css';
-
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -46,40 +40,6 @@ const AppsSection = () => {
             </Grid>
           );
         })}
-        {/* <Swiper
-        id="swiper-list"
-        tag="section"
-        wrapperTag="ul"
-        navigation={true}
-        centeredSlides={true}
-        effect={'coverflow'}
-        grabCursor={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 0,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        pagination
-      >
-        {applications}
-      </Swiper> */}
-        {/* {productData.map((item, index) => {
-          return (
-            <Grid className={psClasses.productCard} key={index} item xs={12} sm={6} md={4} lg={2}>
-              <ProductCard
-                cardImg={item.cardImg}
-                title={item.title}
-                description={item.description}
-                onCardClick={() => {
-                  openProductModal(index);
-                }}
-              />
-            </Grid>
-          );
-        })} */}
       </Grid>
     </div>
   );

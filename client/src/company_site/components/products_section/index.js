@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import psStyle from './ps_style';
+import './ps_style.css';
 
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import StorefrontIcon from '@material-ui/icons/Storefront';
-// import StoreIcon from '@material-ui/icons/Store';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/swiper.min.css';
+import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
+// import 'swiper/components/pagination/pagination.min.css';
+
 import ProductModal from './product_modal';
 import steami_data from './products_data/steami_data';
 import trs_data from './products_data/trs_data';
 import ProductCard from './product_card';
 import productData from './product_data';
-import { Grid, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 const ProductsSection = () => {
   const psClasses = psStyle();
@@ -21,6 +25,12 @@ const ProductsSection = () => {
 
   const [selectedProduct, setProductIdx] = useState([]);
   const resourceMap = {};
+
+  // For keeping track of expanded card and ensuring that
+  // only 1 card can be expanded
+  const [currentCard, setCurrentCard] = useState(0);
+  const [isCardExpanded, setCardExpanded] = useState(false);
+
   resourceMap[0] = steami_data;
   resourceMap[1] = steami_data;
   resourceMap[2] = trs_data;
@@ -34,6 +44,31 @@ const ProductsSection = () => {
     setProductIdx(index);
   };
 
+  const onCardClick = (index) => {
+    console.log("Card clicked!");
+    if (index != currentCard) {
+      return;
+    }
+    setCardExpanded(!isCardExpanded);
+  };
+
+  const products = productData.map((item, index) => {
+    return (
+      <SwiperSlide tag="li" key={`slider-slide-${index}`}>
+        <ProductCard
+          index={index}
+          cardImg={item.cardImg}
+          title={item.title}
+          description={item.description}
+          expanded={isCardExpanded && currentCard == index}
+          onCardClick={() => {
+            onCardClick(index);
+          }}
+        />
+      </SwiperSlide>
+    );
+  });
+
   return (
     <div id="products" className={psClasses.productRoot}>
       <ProductModal
@@ -44,22 +79,24 @@ const ProductsSection = () => {
       <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary">
         Our Products
       </Typography>
-      <Grid container spacing={3} className={psClasses.productsContainer}>
-        {productData.map((item, index) => {
-          return (
-            <Grid className={psClasses.productCard} key={index} item xs={12} sm={6} md={4} lg={2}>
-              <ProductCard
-                cardImg={item.cardImg}
-                title={item.title}
-                description={item.description}
-                onCardClick={() => {
-                  openProductModal(index);
-                }}
-              />
-            </Grid>
-          );
-        })}
-      </Grid>
+      <Swiper
+        id="swiper-list"
+        tag="section"
+        wrapperTag="ul"
+        centeredSlides={true}
+        // grabCursor={true}
+        // slidesPerView={3}
+        spaceBetween={30}
+        coverflowEffect={{
+          stretch: 0,
+          depth: 0,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        onSlideChange={(event) => { setCurrentCard(event.realIndex);}}
+      >
+        {products}
+      </Swiper>
     </div>
   );
 };
