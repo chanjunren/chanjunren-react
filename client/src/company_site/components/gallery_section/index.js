@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 
-import Grid from '@material-ui/core/Grid';
-
-import GalleryCard from './gallery_card';
-
 import GalleryStyles from './gallery_style';
 import galleryData from './gallery_data';
 import GalleryModal from './gallery_modal';
 import { Typography } from '@material-ui/core';
+import GalleryButtons from './gallery_buttons';
 
 const GallerySection = () => {
   const galleryClasses = GalleryStyles();
-
   const [openModal, toggleOpenModal] = useState(false);
   const [selectedGallery, setSelectedGallery] = useState();
   const [selectedSlide, setSelectedSlide] = useState();
@@ -38,10 +34,14 @@ const GallerySection = () => {
         selectedSlide={selectedSlide}
         onGalleryItemClick={onGalleryItemClick}
       />
-      <Typography className={galleryClasses.sectionHeader} variant="h3" component="h3" color="primary">
+      <Typography className={galleryClasses.sectionHeader} variant="h4" component="h4" color="primary">
         Gallery
       </Typography>
-      <Grid container spacing={5} className={galleryClasses.cardContainer} >
+      <div className={galleryClasses.buttonContainer}>
+        <GalleryButtons onCardClick={onCardClick}/>
+
+      </div>
+      {/* <Grid container spacing={5} className={galleryClasses.cardContainer} >
         {galleryData.map((item, index) => {
           return (
             <Grid key={index} item xs={12} sm={6} md={4} lg={2}>
@@ -56,7 +56,7 @@ const GallerySection = () => {
             </Grid>
           );
         })}
-      </Grid>
+      </Grid> */}
     </div>
   );
 };

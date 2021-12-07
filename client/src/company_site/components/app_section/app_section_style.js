@@ -1,21 +1,22 @@
 import { makeStyles } from '@material-ui/styles';
 export const AppSectionStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
-    padding: '32px',
+    minHeight: '100vh',
+    padding: '20px',
     display: 'grid',
-    alignItems: 'center',
+    justifyItems: 'center',
+    alignContent: 'center',
   },
   header: {
-    fontStyle: 'italic',
-    fontSize: '2rem',
-    textAlign: 'center',
+    padding: '30px',
   },
+  appsContainer: {
+
+  }
 }));
 
 export const AppCardStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
     padding: '20px',
   },
   media: {

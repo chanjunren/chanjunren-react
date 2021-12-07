@@ -1,6 +1,6 @@
 import React from 'react';
 import { applicationsData } from './application_data';
-import './rs_applications.css';
+// import './rs_applications.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -18,35 +18,35 @@ import Button from '@material-ui/core/Button';
 
 import { AppSectionStyles, AppCardStyles } from './app_section_style';
 import SwiperCore, { Pagination, EffectCoverflow, Navigation } from 'swiper/core';
+import { Grid } from '@material-ui/core';
 SwiperCore.use([Pagination, Navigation, EffectCoverflow]);
 
 const AppsSection = () => {
   const sectionClasses = AppSectionStyles();
   const cardClasses = AppCardStyles();
-  const applications = applicationsData.map((app, idx) => {
-    return (
-      <SwiperSlide tag="li" key={`slider-slide-${idx}`}>
-        <Card className={cardClasses.root}>
-          <CardHeader
-            avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
-            title={app.title}
-          />
-          <CardContent>{app.description}</CardContent>
-          <CardActions>
-            <Button color="secondary" variant="outlined">View Guide</Button>
-          </CardActions>
-
-        </Card>
-      </SwiperSlide>
-    );
-  });
-  const headerTitle = '</> Customised Applications';
   return (
     <div id="apps" className={sectionClasses.root}>
-      <Typography className={sectionClasses.header} variant="body1">
-        {headerTitle}
+      <Typography className={sectionClasses.header} variant="h4" component="h4">
+        Customised Applications
       </Typography>
-      <Swiper
+      <Grid container spacing={3} className={sectionClasses.productsContainer}>
+        {applicationsData.map((app, index) => {
+          return (
+            <Grid className={sectionClasses.appCard} key={index} item xs={12} sm={6} md={4} lg={2}>
+              <Card className={cardClasses.root}>
+                <CardHeader
+                  avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
+                  title={app.title}
+                />
+                <CardContent>{app.description}</CardContent>
+                <CardActions>
+                  <Button color="secondary" variant="outlined">View Guide</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          );
+        })}
+        {/* <Swiper
         id="swiper-list"
         tag="section"
         wrapperTag="ul"
@@ -65,7 +65,22 @@ const AppsSection = () => {
         pagination
       >
         {applications}
-      </Swiper>
+      </Swiper> */}
+        {/* {productData.map((item, index) => {
+          return (
+            <Grid className={psClasses.productCard} key={index} item xs={12} sm={6} md={4} lg={2}>
+              <ProductCard
+                cardImg={item.cardImg}
+                title={item.title}
+                description={item.description}
+                onCardClick={() => {
+                  openProductModal(index);
+                }}
+              />
+            </Grid>
+          );
+        })} */}
+      </Grid>
     </div>
   );
 };

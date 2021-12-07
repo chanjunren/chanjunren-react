@@ -41,7 +41,7 @@ const ProductsSection = () => {
         modalHandler={modalHandler}
         openModal={openModal}
       />
-      <Typography className={psClasses.sectionHeader} variant="h3" component="h3" color="primary">
+      <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary">
         Our Products
       </Typography>
       <Grid container spacing={3} className={psClasses.productsContainer}>

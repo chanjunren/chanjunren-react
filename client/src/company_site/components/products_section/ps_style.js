@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const psStyle = makeStyles((theme) => ({
   productRoot: {
-    padding: 20,
+    padding: '20px',
     minHeight: '100vh',
     display: 'grid',
     justifyItems: 'center',

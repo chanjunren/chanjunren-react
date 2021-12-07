@@ -6,6 +6,7 @@ const GalleryStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     width: '100%',
     display: 'grid',
+    padding: '24px',
     alignContent: 'center',
     justifyItems: 'center'
   },
@@ -15,6 +16,15 @@ const GalleryStyles = makeStyles((theme) => ({
   sectionHeader: {
     padding: '30px'
   },
+  buttonContainer: {
+    width: '100%',
+    height: '100%',
+    padding: '24px',
+    borderWidth: '1px',
+    borderRadius: '10px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(17, 17, 17, 0.12)'
+  }
   // galleryButton: {},
   // heading: {
   //   marginBottom: '24px',
