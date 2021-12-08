@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import psStyle from './ps_style';
-import './ps_style.css';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
-// import 'swiper/components/pagination/pagination.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
 import ProductModal from './product_modal';
 import steami_data from './products_data/steami_data';
@@ -51,10 +49,13 @@ const ProductsSection = () => {
     }
     setCardExpanded(!isCardExpanded);
   };
+  {
+    
+  }
 
   const products = productData.map((item, index) => {
     return (
-      <SwiperSlide tag="li" key={`slider-slide-${index}`}>
+      <SwiperSlide tag="div" key={`slider-slide-${index}`}>
         <ProductCard
           index={index}
           cardImg={item.cardImg}
@@ -79,24 +80,27 @@ const ProductsSection = () => {
       <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary">
         Our Products
       </Typography>
-      <Swiper
-        id="swiper-list"
-        tag="section"
-        wrapperTag="ul"
-        centeredSlides={true}
-        // grabCursor={true}
-        // slidesPerView={3}
-        spaceBetween={30}
-        coverflowEffect={{
-          stretch: 0,
-          depth: 0,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        onSlideChange={(event) => { setCurrentCard(event.realIndex);}}
-      >
-        {products}
-      </Swiper>
+      <div className="expanding-collection expanding-collection-initialized">
+        <Swiper
+          id="swiper-list"
+          // tag="section"
+          // wrapperTag="ul"
+          centeredSlides={true}
+          // grabCursor={true}
+          slidesPerView={2}
+          // spaceBetween={10}
+          coverflowEffect={{
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          onSlideChange={(event) => { setCurrentCard(event.realIndex);}}
+        >
+          {products}
+        </Swiper>
+      </div>
+      
     </div>
   );
 };

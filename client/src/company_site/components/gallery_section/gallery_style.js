@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const GalleryStyles = makeStyles((theme) => ({
   galleryContainer: {
     background: '#FFF',
-    minHeight: '100vh',
+    // minHeight: '100vh',
     width: '100%',
     display: 'grid',
     padding: '24px',
