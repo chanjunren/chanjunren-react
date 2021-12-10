@@ -44,14 +44,11 @@ const ProductsSection = () => {
 
   const onCardClick = (index) => {
     console.log("Card clicked!");
-    if (index != currentCard) {
+    if (index !== currentCard) {
       return;
     }
     setCardExpanded(!isCardExpanded);
   };
-  {
-    
-  }
 
   const products = productData.map((item, index) => {
     return (
@@ -61,10 +58,11 @@ const ProductsSection = () => {
           cardImg={item.cardImg}
           title={item.title}
           description={item.description}
-          expanded={isCardExpanded && currentCard == index}
+          expanded={isCardExpanded && currentCard === index}
           onCardClick={() => {
             onCardClick(index);
           }}
+          openProductModal={index => openProductModal(index)}
         />
       </SwiperSlide>
     );

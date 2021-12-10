@@ -1,17 +1,10 @@
 import React from 'react';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import Tokyo from './temp/tokyo.jpg';
-import Avatar1 from './temp/avatar1.jpg';
-import Avatar2 from './temp/avatar2.jpg';
-import Avatar3 from './temp/avatar3.jpg';
-import Avatar4 from './temp/avatar4.jpg';
-import OrangeStar from './temp/star-orange.svg';
-import GrayStar from './temp/star-gray.svg';
-
 import './product_card.css';
 
 const ProductCard = (props) => {
-  const { title, index, cardImg, description, onCardClick, expanded } = props;
+  const { title, openProductModal, cardImg, description, onCardClick, expanded } = props;
   return (
     <div className='expanding-collection-container' 
       onClick={onCardClick}>
@@ -20,7 +13,7 @@ const ProductCard = (props) => {
       ` content-expanded`:' content-minimized'}`}>
         <div className="expanding-collection-content-inner">
           <div className="demo-content">
-            <Button color="secondary" variant="outlined">
+            <Button color="secondary" variant="outlined" onClick={openProductModal}>
               View Demo
             </Button>
           </div>
@@ -29,7 +22,7 @@ const ProductCard = (props) => {
       {/* <!-- Expanding collection cover, can contain any HTML content --> */}
       <div className={`expanding-collection-cover${expanded ? 
       ` cover-opened`:' cover-closed'}`}>
-        <img src={Tokyo}/>
+        <img src={Tokyo} alt={`${title}`}/>
         <div className="demo-cover-title">{title}</div>
         <div className="demo-cover-coords">
           <span>{description}</span>

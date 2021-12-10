@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useState } from 'react';
 import useHttpClient from '../../shared/hooks/http_hook';
 
 const getData = () => {
