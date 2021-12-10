@@ -13,39 +13,26 @@ import './product_card.css';
 const ProductCard = (props) => {
   const { title, index, cardImg, description, onCardClick, expanded } = props;
   return (
-    <div className={`expanding-collection-container${expanded ? ` expanding-collection-opened`:''}`} 
+    <div className='expanding-collection-container' 
       onClick={onCardClick}>
       {/* <!-- Expanding collection content that opens underneath the cover image on click --> */}
-      <div className="expanding-collection-content">
+      <div className={`expanding-collection-content${expanded ? 
+      ` content-expanded`:' content-minimized'}`}>
         <div className="expanding-collection-content-inner">
           <div className="demo-content">
-            <Button>
+            <Button color="secondary" variant="outlined">
               View Demo
             </Button>
-            <div className="demo-content-title">Jameson Street, CA90030</div>
-            <div className="demo-content-avatars">
-              <img src={Avatar1}/>
-              <img src={Avatar2}/>
-              <img src={Avatar3}/>
-              <img src={Avatar4}/>
-            </div>
-            <div className="demo-content-rating">
-              <img src={OrangeStar}/>
-              <img src={OrangeStar}/>
-              <img src={OrangeStar}/>
-              <img src={OrangeStar}/>
-              <img src={GrayStar}/>
-            </div>
           </div>
         </div>
       </div> 
       {/* <!-- Expanding collection cover, can contain any HTML content --> */}
-      <div className="expanding-collection-cover">
+      <div className={`expanding-collection-cover${expanded ? 
+      ` cover-opened`:' cover-closed'}`}>
         <img src={Tokyo}/>
-        <div className="demo-cover-title">Tokyo</div>
+        <div className="demo-cover-title">{title}</div>
         <div className="demo-cover-coords">
-          <span>North LAT 36</span>
-          <span>East LON 37</span>
+          <span>{description}</span>
         </div>
       </div>
     </div>
