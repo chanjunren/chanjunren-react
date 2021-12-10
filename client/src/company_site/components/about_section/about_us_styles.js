@@ -41,7 +41,7 @@ const AboutSectionStyles = makeStyles((theme) => ({
     position: 'absolute',
     padding: '8px 24px',
     zIndex: '3',
-    overflowY: 'scroll',
+    overflowY: 'hidden',
     overflowX: 'hidden'
   },
 }));

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import useAuth from './company_site/hooks/auth_hook';
@@ -7,7 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import DataContext from './app_manager/shared/data_context';
 import getData from './app_manager/hooks/data_hook';
 import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import SplashScreen from './splashscreen';
 
 const AuthPage = React.lazy(() => import('./company_site/pages/auth_page'));
 const Home = React.lazy(() => import('./company_site/pages/index'));
@@ -79,6 +80,15 @@ function App() {
     );
   }
 
+  const [isSplashing, setIsSplashing] = useState(false);
+  useEffect(() => {
+    setIsSplashing(true);
+  }, []);
+
+  const onSplashScreenEndHandler = () => {
+    setIsSplashing(false);
+  }
+
   const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -89,6 +99,9 @@ function App() {
       height: '100vh',
       overflow: 'auto',
     },
+    backdrop: {
+      color: "#000000"
+    }
   }));
   const classes = useStyles();
   return (
@@ -118,11 +131,13 @@ function App() {
         }}
       >
         <BrowserRouter>
-          <div className={!!token ? classes.root : undefined}>
+          {isSplashing 
+            ? <SplashScreen onSplashScreenEndHandler={onSplashScreenEndHandler}/>
+            : <div className={!!token ? classes.root : undefined}>
             <Suspense
               fallback={
                 <Backdrop className={classes.backdrop} open={true}>
-                  <CircularProgress color="inherit" />
+                  <ScaleLoader color="#ffffff"/>
                 </Backdrop>
               }
             >
@@ -132,6 +147,8 @@ function App() {
               </main>
             </Suspense>
           </div>
+          }
+          
         </BrowserRouter>
       </DataContext.Provider>
     </AuthContext.Provider>
