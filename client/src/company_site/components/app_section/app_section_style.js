@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 export const AppSectionStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    padding: '20px',
+    padding: '24px',
     display: 'grid',
     justifyItems: 'center',
     alignContent: 'center',
@@ -11,7 +11,13 @@ export const AppSectionStyles = makeStyles((theme) => ({
     padding: '30px',
   },
   appsContainer: {
-
+    borderWidth: '1px',
+    borderRadius: '10px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(200, 200, 200, 0.12)'
+  },
+  appCard: {
+    padding: '15px',
   }
 }));
 

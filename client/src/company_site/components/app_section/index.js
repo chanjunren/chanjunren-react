@@ -23,7 +23,7 @@ const AppsSection = () => {
       <Typography className={sectionClasses.header} variant="h4" component="h4">
         Customised Applications
       </Typography>
-      <Grid container spacing={3} className={sectionClasses.productsContainer}>
+      <Grid container className={sectionClasses.appsContainer}>
         {applicationsData.map((app, index) => {
           return (
             <Grid className={sectionClasses.appCard} key={index} item xs={12} sm={6} md={4} lg={2}>
