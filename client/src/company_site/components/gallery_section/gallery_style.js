@@ -2,14 +2,29 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const GalleryStyles = makeStyles((theme) => ({
   galleryContainer: {
-    background: '#1B2026',
-    minHeight: '100vh',
-    width: 'auto',
-    // padding: '40px',
-    display: 'flex',
+    background: '#FFF',
+    // minHeight: '100vh',
+    width: '100%',
+    display: 'grid',
+    padding: '24px',
     alignContent: 'center',
-    justifyContent: 'center'
+    justifyItems: 'center'
   },
+  cardContainer: {
+    padding: '30px',
+  },
+  sectionHeader: {
+    padding: '30px'
+  },
+  buttonContainer: {
+    width: '100%',
+    height: '100%',
+    padding: '24px',
+    borderWidth: '1px',
+    borderRadius: '10px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(17, 17, 17, 0.12)'
+  }
   // galleryButton: {},
   // heading: {
   //   marginBottom: '24px',

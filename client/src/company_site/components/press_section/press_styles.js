@@ -4,7 +4,7 @@ const PressStyles = makeStyles((theme) => ({
   pressContainer: {
     padding: '20px',
     height: 'auto',
-    background: '#1B2026',
+    // background: '#1B2026',
   }
 }));
 

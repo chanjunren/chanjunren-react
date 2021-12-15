@@ -2,30 +2,19 @@ import { makeStyles } from '@material-ui/core';
 
 const psStyle = makeStyles((theme) => ({
   productRoot: {
-    padding: 20,
-    height: '100vh',
+    padding: '20px',
+    // minHeight: '100vh',
     display: 'grid',
     justifyItems: 'center',
-    alignItems: 'center',
+    alignContent: 'center',
+    background: '#FFF',
+    maxWidth: '100%',
     // background: theme.palette.primary.light,
     // flexGrow: 1,
   },
-  productCard: {
-    display: 'inline-grid',
-    justifyItems: 'center',
-    alignItems: 'center',
+  sectionHeader: {
+    padding: '30px'
   },
-  productImg: {
-    display: 'block',
-    alignItems: 'center',
-    maxWidth: '200px',
-    maxHeight: '400px',
-  },
-  cardTitle: {},
-  cardDescription: {},
-  currentItem: {},
-  itemTitle: {},
-  itemDescription: {},
 }));
 
 export default psStyle;

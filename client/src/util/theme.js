@@ -42,6 +42,21 @@ let theme = createTheme({
     },
   },
   typography: {
+    h1: {
+      fontFamily: ['Roboto', 'sans-serif'].join(',')
+    },
+    h2: {
+      fontFamily: ['Roboto', 'sans-serif'].join(',')
+    },
+    h3: {
+      fontFamily: ['Roboto', 'sans-serif'].join(',')
+    },
+    h4: {
+      fontFamily: ['Roboto', 'sans-serif'].join(',')
+    },
+    h5: {
+      fontFamily: ['Roboto', 'sans-serif'].join(',')
+    },
     body1: {
       fontFamily: 'Nunito',
       
