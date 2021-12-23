@@ -155,6 +155,8 @@
   height: 100%;
   padding:var(--expanding-collection-content-padding);
   box-sizing:border-box;
+  display: grid;
+  justify-items: center;
 }
 
 .expanding-collection{
@@ -200,14 +202,10 @@
   font-weight:500;
 }
 
-.expanding-collection .demo-content{
+.demo-content{
   position: absolute;
   padding:5px;
   bottom:3px;
-  justify-content:space-between;
-  align-items:center;
-  align-content:center;
-  flex-wrap:wrap;
 }
 
 .expanding-collection .demo-content-title{

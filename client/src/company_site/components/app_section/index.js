@@ -11,9 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
 import { AppSectionStyles, AppCardStyles } from './app_section_style';
-import SwiperCore, { Pagination, EffectCoverflow, Navigation } from 'swiper/core';
 import { Grid } from '@material-ui/core';
-SwiperCore.use([Pagination, Navigation, EffectCoverflow]);
 
 const AppsSection = () => {
   const sectionClasses = AppSectionStyles();
@@ -26,7 +24,7 @@ const AppsSection = () => {
       <Grid container className={sectionClasses.appsContainer}>
         {applicationsData.map((app, index) => {
           return (
-            <Grid className={sectionClasses.appCard} key={index} item xs={12} sm={6} md={4} lg={2}>
+            <Grid className={sectionClasses.appCard} key={index} item xs={12} sm={6} md={4}>
               <Card className={cardClasses.root}>
                 <CardHeader
                   avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
