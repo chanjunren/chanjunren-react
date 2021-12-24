@@ -14,7 +14,7 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>When We Started</Typography>
-            <Typography variant="h2" color="#fff" className={classes.subHeader}>Founded in April 2019</Typography>
+            <Typography variant="h2" className={classes.subHeader}>Founded in April 2019</Typography>
             <Typography variant="body1" className={classes.bodyText}>
                     RoboSolutions is the exclusive distributor
                     for temi – The Service Robot in Singapore, Malaysia & Indonesia.

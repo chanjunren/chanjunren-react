@@ -7,8 +7,6 @@ import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
 import 'swiper/components/pagination/pagination.min.css';
 
 import ProductModal from './product_modal';
-import steami_data from './products_data/steami_data';
-import trs_data from './products_data/trs_data';
 import ProductCard from './product_card';
 import productData from './product_data';
 import { Typography } from '@material-ui/core';
@@ -17,11 +15,12 @@ const ProductsSection = () => {
   const psClasses = psStyle();
 
   const [openModal, toggleOpenModal] = useState(false);
+  
   const modalHandler = (event) => {
     toggleOpenModal(!openModal);
   };
 
-  const [selectedProduct, setProductIdx] = useState([]);
+  const [selectedProduct, setProductIdx] = useState(-1);
   const resourceMap = {};
 
   // For keeping track of expanded card and ensuring that
@@ -29,21 +28,18 @@ const ProductsSection = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const [isCardExpanded, setCardExpanded] = useState(false);
 
-  resourceMap[0] = steami_data;
-  resourceMap[1] = steami_data;
-  resourceMap[2] = trs_data;
-  resourceMap[3] = trs_data;
-  resourceMap[4] = trs_data;
-  resourceMap[5] = trs_data;
-  resourceMap[6] = trs_data;
-  
+  for (var i = 0; i < productData.length; i++) {
+    resourceMap[i] = productData[i].demoVideo;
+  }
+    
   const openProductModal = (index) => {
-    toggleOpenModal(true);
     setProductIdx(index);
+    console.log("Oi");
+    console.log(resourceMap[index]);
+    toggleOpenModal(true);
   };
 
   const onCardClick = (index) => {
-    console.log("Card clicked!");
     if (index !== currentCard) {
       return;
     }
@@ -62,7 +58,7 @@ const ProductsSection = () => {
           onCardClick={() => {
             onCardClick(index);
           }}
-          openProductModal={index => openProductModal(index)}
+          openProductModal={() => openProductModal(index)}
         />
       </SwiperSlide>
     );
