@@ -247,6 +247,7 @@
   position: absolute;
   padding:5px;
   bottom:3px;
+  display: flex;
 }
 
 .expanding-collection .demo-content-title{
@@ -255,4 +256,8 @@
   margin-bottom:8px;
   font-weight:600;
   width:100%;
+}
+
+.product-button {
+  margin: 5px;
 }

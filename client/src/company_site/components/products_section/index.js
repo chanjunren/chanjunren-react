@@ -10,6 +10,7 @@ import ProductModal from './product_modal';
 import ProductCard from './product_card';
 import productData from './product_data';
 import { Typography } from '@material-ui/core';
+import ProductSnackbar from './product_snackbar';
 
 const ProductsSection = () => {
   const psClasses = psStyle();
@@ -46,6 +47,13 @@ const ProductsSection = () => {
     setCardExpanded(!isCardExpanded);
   };
 
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  console.log("snackbarOpen: " + snackbarOpen);
+  const onOrderClick = () => {
+    console.log("Order clicked!");
+    setSnackbarOpen(true);
+  }
+
   const products = productData.map((item, index) => {
     return (
       <SwiperSlide tag="div" key={`slider-slide-${index}`}>
@@ -59,6 +67,7 @@ const ProductsSection = () => {
             onCardClick(index);
           }}
           openProductModal={() => openProductModal(index)}
+          onOrderClick={onOrderClick}
         />
       </SwiperSlide>
     );
@@ -70,6 +79,10 @@ const ProductsSection = () => {
         resourceData={resourceMap[selectedProduct]}
         modalHandler={modalHandler}
         openModal={openModal}
+      />
+      <ProductSnackbar
+        open={snackbarOpen}
+        handleClose={() => setSnackbarOpen(false)}
       />
       <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary">
         Our Products

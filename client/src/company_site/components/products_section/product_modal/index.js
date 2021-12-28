@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductModal(props) {
   const classes = useStyles();
   const { openModal, modalHandler, resourceData } = props;
-  console.log(props);
   return (
     <Modal
       aria-labelledby="transition-modal-title"
