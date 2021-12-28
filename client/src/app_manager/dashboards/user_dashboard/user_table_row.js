@@ -24,7 +24,6 @@ const useRowStyles = makeStyles((theme) => ({
     padding: '0.2rem',
   },
   deleteButton: {
-    color: theme.palette.error.main,
   },
 }));
 

@@ -37,7 +37,6 @@ const CustomAppBar = (props) => {
       display: 'none',
     },
     logoutButton: {
-      color: theme.palette.error.main,
       width: '100px',
       marginLeft: '600px',
     },

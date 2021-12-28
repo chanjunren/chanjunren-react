@@ -41,7 +41,6 @@ const AppDashboard = (props) => {
   const {token} = useContext(AuthContext);
 
   useEffect(() => {
-    console.log("Sending token: " + token);
     fetchData(token);
   }, []);
 
@@ -78,7 +77,6 @@ const AppDashboard = (props) => {
         hideDeleteModal={hideDeleteModal}
         deleteEndpoint={deleteEndpoint}
         deleteMessage="Are you sure you want to delete this application?"
-        
       />
       <Grid container spacing={3}>
         <Grid item xs={12}>

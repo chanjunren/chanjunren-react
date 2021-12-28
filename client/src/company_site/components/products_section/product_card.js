@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import './product_card.css';
 
 const ProductCard = (props) => {
@@ -24,8 +24,6 @@ const ProductCard = (props) => {
         <div className="image-holder">
           <img src={cardImg} alt={`${title}`}/>
         </div>
-        {/* <Typography className="demo-cover-title">{title}</Typography>
-        <Typography className="demo-cover-coords">{description}</Typography> */}
         <div className="demo-cover-title">{title}</div>
         <div className="demo-cover-coords">
           <span>{description}</span>
