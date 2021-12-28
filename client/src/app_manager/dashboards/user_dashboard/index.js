@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Backdrop from '@material-ui/core/Backdrop';
+import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
@@ -22,6 +23,9 @@ const UserDashboard = () => {
       zIndex: theme.zIndex.drawer + 1,
       color: '#fff',
     },
+    addUserButton: {
+      marginTop: '20px'
+    }
   }));
 
   const classes = useStyles();
@@ -64,6 +68,15 @@ const UserDashboard = () => {
       <div className={classes.tableRoot}>
         <UserTable users={users} showDeleteModal={showDeleteModal}/>
       </div>
+      <Button
+        className={classes.addUserButton}
+          variant="outlined"
+          size="medium"
+          color="secondary"
+          // onClick={createModalHandler}
+        >
+          Add User
+        </Button>
     </div>
   );
 };
