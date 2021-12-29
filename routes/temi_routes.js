@@ -3,7 +3,7 @@ const temiController = require('../controllers/temi_controller');
 const check_authentication = require('../middleware/check_authentication');
 const router = express.Router();
 
-router.get("/permission", temiController.checkPermission);
+router.post("/permission", temiController.checkPermission);
 
 router.use(check_authentication);
 router.get("/", temiController.getAllTemiUnits);

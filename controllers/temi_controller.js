@@ -150,7 +150,19 @@ const checkPermission = async (req, res, next) => {
   } catch (err) {
     console.error(err);
     return next(
-      new HttpError(404, 'This Unit is not registered in our database! D:'),
+      new HttpError(
+        'Something went wrong when trying to query this unit! D:',
+        500,
+      ),
+    );
+  }
+
+  if (!temiUnit) {
+    return next(
+      new HttpError(
+        'This temi unit is not registered in our database! D:',
+        403,
+      ),
     );
   }
 
