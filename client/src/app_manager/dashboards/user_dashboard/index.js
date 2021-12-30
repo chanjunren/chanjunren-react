@@ -9,6 +9,7 @@ import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import DeleteModal from '../shared/delete_modal';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
+import CreateUserModal from './create_user_modal';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -48,6 +49,11 @@ const UserDashboard = () => {
     toggleDeleteModal(false);
   };
 
+  const [openUserModal, toggleUserModal] = useState(false);
+  const userModalHandler = () => {
+    toggleUserModal(!openUserModal);
+  };
+
   return (
     <div className={classes.root}>
       <CustomisedSnackBar
@@ -55,6 +61,10 @@ const UserDashboard = () => {
         success={!!!errorEncountered}
         open={!!errorEncountered}
         clearError={clearError}
+      />
+      <CreateUserModal
+        openModal={openUserModal}
+        modalHandler={userModalHandler}
       />
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
@@ -73,7 +83,7 @@ const UserDashboard = () => {
           variant="outlined"
           size="medium"
           color="secondary"
-          // onClick={createModalHandler}
+          onClick={toggleUserModal}
         >
           Add User
         </Button>

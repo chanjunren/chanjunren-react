@@ -73,7 +73,6 @@ const CustomAppBar = (props) => {
           className={classes.logoutButton}
           onClick={authContext.logout}
           variant="outlined"
-          color="test"
         >
           Logout
         </Button>
