@@ -45,7 +45,7 @@ const productData = [
     type: null,
   },
   {
-    title: 'IAQ-Pro',
+    title: 'IAQ+X',
     description: '',
     cardImg: IaqXPreview,
     demoVideo: IaqXDemo,

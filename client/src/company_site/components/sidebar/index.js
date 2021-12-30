@@ -60,7 +60,7 @@ const SideBar = ({ toggle, isOpen }) => {
           </a>
           <a
             className="sidebar-social-icon-link"
-            href="https://www.linkedin.com/in/wenchyi-lim-a228637/"
+            href="https://www.linkedin.com/company/robosolutions"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
