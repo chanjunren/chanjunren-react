@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: '#000',
+    borderRadius: '5px',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -146,11 +147,11 @@ export default function CreateAppModal(props) {
 
               <Grid item>
                 <div>
-                  <Button color="secondary" onClick={modalHandler}>
+                  <Button onClick={modalHandler}>
                     Cancel
                   </Button>
                   <Button
-                    color="primary"
+                    color="secondary"
                     onClick={addNewUnit}
                     disabled={!formState.isFormValid}
                   >

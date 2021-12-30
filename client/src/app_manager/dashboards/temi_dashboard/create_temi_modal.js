@@ -19,11 +19,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: '5px',
   },
   paper: {
     backgroundColor: '#000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '5px'
   },
   formControl: {
     margin: theme.spacing(1),
@@ -116,11 +118,12 @@ export default function CreateTemiModal(props) {
     >
       <Fade in={openModal}>
         <form>
-          <Grid className={classes.paper}>
+          <Grid className={classes.paper} container direction='column' spacing={1}>
             <Grid item>
               <TextField
                 error={!formState.inputs.ownerTextField.isValid}
                 id="ownerTextField"
+                className={classes.textField}
                 label="Owner"
                 variant="outlined"
                 onInput={onOwnerInput}
@@ -131,6 +134,7 @@ export default function CreateTemiModal(props) {
               <TextField
                 error={!formState.inputs.serialNumberTextField.isValid}
                 id="serialNumberTextField"
+                className={classes.textField}
                 label="Serial Number"
                 variant="outlined"
                 onInput={onSerialNumberInput}
@@ -148,11 +152,11 @@ export default function CreateTemiModal(props) {
 
             <Grid item>
               <div>
-                <Button color="secondary" onClick={modalHandler}>
+                <Button onClick={modalHandler}>
                   Cancel
                 </Button>
                 <Button
-                  color="primary"
+                  color="secondary"
                   onClick={addNewUnit}
                   disabled={!formState.isFormValid}
                 >
