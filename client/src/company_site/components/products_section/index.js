@@ -92,9 +92,17 @@ const ProductsSection = () => {
           id="swiper-list"
           // tag="section"
           // wrapperTag="ul"
+          grabCursor={true}
           centeredSlides={true}
-          // grabCursor={true}
-          slidesPerView={2}
+          breakpoints={{
+            "560": {
+              "slidesPerView": 1,
+              "spaceBetween": 10,
+            },
+            "768": {
+              "slidesPerView": 2,
+            }
+          }}
           // spaceBetween={10}
           coverflowEffect={{
             stretch: 0,

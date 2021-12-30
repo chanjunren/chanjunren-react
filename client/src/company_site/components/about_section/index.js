@@ -11,7 +11,7 @@ const AboutSection = () => {
   return (
     <Grid id="about" className={classes.aboutContainer} container>
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.textContainer} item xs={6}>
+        <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>When We Started</Typography>
             <Typography variant="h2" className={classes.subHeader}>Established in April 2019</Typography>
@@ -22,13 +22,13 @@ const AboutSection = () => {
           </div>
           
         </Grid>
-        <Grid className={classes.imageContainer} item xs={6}>
+        <Grid className={classes.imageContainer} item xs={12} sm={6}>
         </Grid>
       </Grid>
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.imageContainer} item xs={6}>
+        <Grid className={classes.imageContainer} item xs={12} sm={6}>
         </Grid>
-        <Grid className={classes.textContainer} container item xs={6}>
+        <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
             <Typography variant="h2" color="#fff" className={classes.subHeader}>temi as a platform</Typography>
@@ -42,7 +42,7 @@ const AboutSection = () => {
         </Grid>
       </Grid>
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.textContainer} container item xs={6}>
+        <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Like Magic</Typography>
             <Typography variant="h2" color="#fff" className={classes.subHeader}>Versatile, Effective and Affordable</Typography>
@@ -53,13 +53,13 @@ const AboutSection = () => {
             </Typography>
           </div>
         </Grid>
-        <Grid className={classes.imageContainer} item xs={6}>
+        <Grid className={classes.imageContainer} item xs={12} sm={6}>
         </Grid>
       </Grid>
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.imageContainer} item xs={6}>
+        <Grid className={classes.imageContainer} item xs={12} sm={6}>
         </Grid>
-        <Grid className={classes.textContainer} container item xs={6}>
+        <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>What We Provide</Typography>
             <Typography variant="h2" color="#fff" className={classes.subHeader}>One Stop Service</Typography>
