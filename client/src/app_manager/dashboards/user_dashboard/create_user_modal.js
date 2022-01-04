@@ -70,7 +70,7 @@ export default function CreateUserModal(props) {
 	};
 
 	const onRoleChange = (event) => {
-		if (formState.inputs.roleField.value == 'ADMIN') {
+		if (formState.inputs.roleField.value === 'ADMIN') {
 			formInputHandler(event.target.id, 'USER', []);
 		} else {
 			formInputHandler(event.target.id, 'ADMIN', [])
@@ -155,7 +155,7 @@ export default function CreateUserModal(props) {
 										<Checkbox
 											id="roleField"
 											// className={classes.label}
-											checked={formState.inputs.roleField.value == 'ADMIN'}
+											checked={formState.inputs.roleField.value === 'ADMIN'}
 											onChange={onRoleChange}
 											style={{color: 'white'}}
 										/>} label="Admin" />

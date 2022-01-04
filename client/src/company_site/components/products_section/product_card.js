@@ -13,7 +13,10 @@ const ProductCard = (props) => {
         <div className="expanding-collection-content-inner">
           <div className="demo-content">
             <Button className="product-button" color="secondary" variant="outlined" onClick={openProductModal}>
-              View Demo
+              Demo
+            </Button>
+            <Button className="product-button" color="secondary" variant="outlined">
+              Specs
             </Button>
             <Button className="product-button" color="secondary" variant="contained" onClick={onOrderClick}>
               Order
