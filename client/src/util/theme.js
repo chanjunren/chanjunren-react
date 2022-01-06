@@ -34,7 +34,6 @@ let theme = createTheme({
       main: '#01bf71',
       contrastText: '#fff',
     },
-    error: red
   },
   props: {
     MuiButtonBase: {

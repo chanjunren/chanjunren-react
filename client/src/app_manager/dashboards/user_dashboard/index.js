@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Backdrop from '@material-ui/core/Backdrop';
+import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '../../../util/theme';
@@ -8,6 +9,7 @@ import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import DeleteModal from '../shared/delete_modal';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
+import CreateUserModal from './create_user_modal';
 
 const UserDashboard = () => {
   const useStyles = makeStyles((theme) => ({
@@ -22,6 +24,9 @@ const UserDashboard = () => {
       zIndex: theme.zIndex.drawer + 1,
       color: '#fff',
     },
+    addUserButton: {
+      marginTop: '20px'
+    }
   }));
 
   const classes = useStyles();
@@ -44,6 +49,11 @@ const UserDashboard = () => {
     toggleDeleteModal(false);
   };
 
+  const [openUserModal, toggleUserModal] = useState(false);
+  const userModalHandler = () => {
+    toggleUserModal(!openUserModal);
+  };
+
   return (
     <div className={classes.root}>
       <CustomisedSnackBar
@@ -51,6 +61,10 @@ const UserDashboard = () => {
         success={!!!errorEncountered}
         open={!!errorEncountered}
         clearError={clearError}
+      />
+      <CreateUserModal
+        openModal={openUserModal}
+        modalHandler={userModalHandler}
       />
       <Backdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
@@ -64,6 +78,15 @@ const UserDashboard = () => {
       <div className={classes.tableRoot}>
         <UserTable users={users} showDeleteModal={showDeleteModal}/>
       </div>
+      <Button
+        className={classes.addUserButton}
+          variant="outlined"
+          size="medium"
+          color="secondary"
+          onClick={toggleUserModal}
+        >
+          Add User
+        </Button>
     </div>
   );
 };

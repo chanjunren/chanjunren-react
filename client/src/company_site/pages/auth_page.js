@@ -17,6 +17,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const AuthPage = () => {
+  console.log(process.env.REACT_APP_BACKEND_URL);
   const authContext = useContext(AuthContext);
   const formValidators = [];
   const [formState, formInputHandler] = useForm({

@@ -30,7 +30,6 @@ const useRowStyles = makeStyles((theme) => ({
     padding: '0.2rem',
   },
   deleteButton: {
-    color: theme.palette.error.main
   }
 }));
 
@@ -73,9 +72,7 @@ const TemiRow = (props) => {
                 })}
               </div>
               <div className={classes.controlPanel}>
-                <Button disabled color="primary">Edit</Button>
                 <Button
-                  color="secondary"
                   className={classes.deleteButton}
                   onClick={() => showDeleteModal(deleteEndpoint)}
                 >

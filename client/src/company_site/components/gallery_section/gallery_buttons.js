@@ -7,10 +7,10 @@ import galleryData from './gallery_data';
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
-  height: 200,
+  height: 300,
   [theme.breakpoints.down('sm')]: {
     width: '100% !important', // Overrides inline-style
-    height: 100,
+    height: 200,
   },
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,

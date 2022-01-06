@@ -11,13 +11,14 @@ import { AuthContext } from '../../../company_site/components/shared/auth_contex
 
 const useStyles = makeStyles((theme) => ({
   modal: {
+    backgroundColor: '#000',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: '5px',
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -64,7 +65,7 @@ const DeleteModal = (props) => {
           <div className={classes.paper}>
             <Grid>
               <Grid item>
-                <Typography>{deleteMessage}</Typography>
+                <Typography className={classes.deleteMessage}>{deleteMessage}</Typography>
               </Grid>
               <Grid item>
                 <div>

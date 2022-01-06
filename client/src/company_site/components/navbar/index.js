@@ -42,7 +42,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="about"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -55,7 +55,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="products"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -68,7 +68,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="gallery"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -81,7 +81,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="apps"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -94,7 +94,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="press"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -107,7 +107,7 @@ const NavBar = ({ toggle }) => {
               <LinkS
                 className="nav-link"
                 to="contactUs"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -138,7 +138,7 @@ const NavBar = ({ toggle }) => {
             </a>
             <a
               className="social-icon-link"
-              href="https://www.linkedin.com/in/wenchyi-lim-a228637/"
+              href="https://www.linkedin.com/company/robosolutions"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

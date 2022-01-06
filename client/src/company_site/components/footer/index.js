@@ -15,7 +15,7 @@ const Footer = () => {
               <LinkS
                 className="footer-link"
                 to="about"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
@@ -40,7 +40,7 @@ const Footer = () => {
               </LinkS>
             </div>
             <div className="footer-link-items">
-              <h1 className="footer-link-title">Temi</h1>
+              <h1 className="footer-link-title">temi</h1>
               <a
                 className="footer-link"
                 href="https://www.robotemi.com/"
@@ -63,7 +63,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Temi Center
+                temi Center
               </a>
               <a
                 className="footer-link"
