@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import AboutBackground from '../../images/about_section/about_bg.jpg';
 
 const AboutSectionStyles = makeStyles((theme) => ({
   aboutContainer: {
@@ -12,13 +11,16 @@ const AboutSectionStyles = makeStyles((theme) => ({
   },
   imageContainer: {
     padding: '4.5em',
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     borderRadius: '24px',
-    minHeight: 'inherit'
+    minHeight: '300px',
+    [theme.breakpoints.up('md')]: {
+      minHeight: '400px',
+    },
   },
+  
   textContainer: {
     height: '100%',
     display: 'grid',

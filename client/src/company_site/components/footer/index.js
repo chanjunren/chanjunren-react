@@ -15,7 +15,7 @@ const Footer = () => {
               <LinkS
                 className="footer-link"
                 to="about"
-                smooth={1}
+                smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
