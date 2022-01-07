@@ -57,6 +57,7 @@ const SplashScreen = (props) => {
       options={defaultOptions}
       height={250}
       width={250}
+      isClickToPauseDisabled={true}
       eventListeners={[
         {
           eventName: 'complete',
