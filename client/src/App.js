@@ -96,7 +96,8 @@ function App() {
       overflow: 'auto',
     },
     backdrop: {
-      color: "#000000"
+      color: "#000000",
+      background: "#000000"
     }
   }));
   const classes = useStyles();
