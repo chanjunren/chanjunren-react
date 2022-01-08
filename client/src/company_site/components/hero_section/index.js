@@ -1,7 +1,7 @@
 import React from 'react';
 import getS3AssetUrl from '../../../util/aws_url_generator';
 
-import Video from '../../videos/homeVideo.mp4';
+// import Video from '../../videos/homeVideo.mp4';
 
 import {
   HeroContainer,
