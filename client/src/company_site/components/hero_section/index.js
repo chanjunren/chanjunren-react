@@ -1,4 +1,5 @@
 import React from 'react';
+import getS3AssetUrl from '../../../util/aws_url_generator';
 
 import Video from '../../videos/homeVideo.mp4';
 
@@ -21,6 +22,8 @@ const HeroSection = () => {
   //   setHover(!hover);
   // };
 
+  const videoUrl = getS3AssetUrl('homeVideo.mp4');
+
   return (
     <HeroContainer id="home">
       <HeroBg>
@@ -28,8 +31,12 @@ const HeroSection = () => {
           autoPlay
           loop
           muted
-          src={Video}
-          type='video/mp4'/>
+        >
+          <source
+            src={videoUrl}
+            type='video/mp4'
+          />
+        </VideoBg>
       </HeroBg>
       {/* <HeroContent>
         <HeroH1>Your Personal Robot Assistant</HeroH1>
