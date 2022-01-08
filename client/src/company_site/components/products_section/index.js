@@ -49,7 +49,6 @@ const ProductsSection = () => {
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const onOrderClick = () => {
-    console.log("Order clicked!");
     setSnackbarOpen(true);
   }
 

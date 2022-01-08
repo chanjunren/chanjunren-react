@@ -1,19 +1,21 @@
 import TemiPreview from './temp/tokyo.jpg';
 
 import SteamiPreview from '../../images/products/steami_preview.png';
-import SteamiDemo from '../../images/products/steami_demo.mp4';
+// import SteamiDemo from '../../images/products/steami_demo.mp4';
 
 import SnapFitPreview from '../../images/products/snap_fit_tray_preview.png';
-import SnapFitDemo from '../../images/products/snap_fit_tray_demo.mp4';
+// import SnapFitDemo from '../../images/products/snap_fit_tray_demo.mp4';
 
 import PesGuardPreview from '../../images/products/pes_guard_preview.png';
-import PesGuardDemo from '../../images/products/pes_guard_demo.mp4';
+// import PesGuardDemo from '../../images/products/pes_guard_demo.mp4';
 
 import IaqXPreview from '../../images/products/iaq_x_preview.png';
-import IaqXDemo from '../../images/products/iaq_x_demo.mp4';
+// import IaqXDemo from '../../images/products/iaq_x_demo.mp4';
 
 import TrayRunnerPreview from '../../images/products/tray_runner_preview.png';
-import TrayRunnerDemo from '../../images/products/tray_runner_demo.mp4';
+// import TrayRunnerDemo from '../../images/products/tray_runner_demo.mp4';
+
+import getS3AssetUrl from '../../../util/aws_url_generator';
 
 const productData = [
   {
@@ -27,35 +29,35 @@ const productData = [
     title: 'Steami',
     description: 'Disinfectant spray unit',
     cardImg: SteamiPreview,
-    demoVideo: SteamiDemo,
+    demoVideo: getS3AssetUrl('steami_demo.mp4'),
     type: null,
   },
   {
     title: 'Snap-Fit Tray',
     description: 'Attachable tray for item delivery',
     cardImg: SnapFitPreview,
-    demoVideo: SnapFitDemo,
+    demoVideo: getS3AssetUrl('snap_fit_tray_demo.mp4'),
     type: null,
   },
   {
     title: 'PesGuard',
     description: 'Module that performs administrative tasks for entry',
     cardImg: PesGuardPreview,
-    demoVideo: PesGuardDemo,
+    demoVideo: getS3AssetUrl('pes_guard_demo.mp4'),
     type: null,
   },
   {
     title: 'IAQ+X',
     description: '',
     cardImg: IaqXPreview,
-    demoVideo: IaqXDemo,
+    demoVideo: getS3AssetUrl('iaq_x_demo.mp4'),
     type: null,
   },
   {
     title: 'Tray Runner',
     description: 'Autonomous tray return service',
     cardImg: TrayRunnerPreview,
-    demoVideo: TrayRunnerDemo,
+    demoVideo: getS3AssetUrl('tray_runner_demo.mp4'),
     type: null,
   },
 ]
