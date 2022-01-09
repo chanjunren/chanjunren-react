@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import './product_card.css';
 
 const ProductCard = (props) => {
-  const { title, openProductModal, cardImg, description, onCardClick, expanded, onOrderClick } = props;
+  const { index, title, openProductModal, cardImg, description, onCardClick, expanded, onOrderClick } = props;
   return (
     <div className='expanding-collection-container'
       onClick={onCardClick}>
@@ -12,12 +12,18 @@ const ProductCard = (props) => {
         ` content-expanded` : ' content-minimized'}`}>
         <div className="expanding-collection-content-inner">
           <div className="demo-content">
-            <Button className="product-button" color="secondary" variant="outlined" onClick={openProductModal}>
-              Demo
-            </Button>
-            <Button className="product-button" color="secondary" variant="outlined">
+            {index === 0
+              ? <Button className="product-button" color="secondary" variant="outlined"
+                  href="https://www.robotemi.sg/" target="_blank">
+                View
+              </Button>
+              : <Button className="product-button" color="secondary" variant="outlined" onClick={openProductModal}>
+                View
+              </Button>
+            }
+            {/* <Button className="product-button" color="secondary" variant="outlined">
               Specs
-            </Button>
+            </Button> */}
             <Button className="product-button" color="secondary" variant="contained" onClick={onOrderClick}>
               Order
             </Button>
