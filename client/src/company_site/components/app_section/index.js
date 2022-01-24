@@ -29,6 +29,7 @@ const AppsSection = () => {
                 <CardHeader
                   avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
                   title={app.title}
+                  titleTypographyProps={{variant:"h6"}}
                 />
                 <CardContent>{app.description}</CardContent>
                 <CardActions>

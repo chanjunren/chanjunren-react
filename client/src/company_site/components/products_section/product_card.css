@@ -162,6 +162,21 @@
   transition-duration:.3s;
 }
 
+.expanding-collection-cover.cover-opened .image-holder:hover:after {
+  opacity: 0;
+  transition-duration:.3s;
+}
+
+.expanding-collection-cover.cover-opened .demo-cover-title {
+  opacity: 0 !important; 
+  transition-duration:.3s;
+}
+
+.expanding-collection-cover.cover-opened .demo-cover-coords {
+  opacity: 0 !important; 
+  transition-duration:.3s;
+}
+
 .swiper-slide:not(.swiper-slide-active) .expanding-collection-cover:before{
   box-shadow:none;
 }
