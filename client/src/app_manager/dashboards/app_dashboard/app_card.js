@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   deleteIcon: {
+  },
+  idBody: {
+    paddingTop: '20px',
   }
 }));
 
@@ -22,6 +25,9 @@ const AppCard = (props) => {
       <CardContent>
         <Typography variant="h5" component="h2">
           {title}
+        </Typography>
+        <Typography className={classes.idBody} variant="body1">
+          {id}
         </Typography>
       </CardContent>
       <CardActions>
