@@ -9,7 +9,6 @@ const getData = () => {
     useHttpClient();
 
   const fetchData = async (token) => {
-    console.log(token);
     await fetchApplications(token);
     await fetchAppUsers(token);
     await fetchTemiUnits(token);
@@ -57,7 +56,7 @@ const getData = () => {
         null,
         { Authorization: 'Bearer ' + token },
       );
-      console.log(responseData);
+      // console.log(responseData);
       setUsers(responseData.users);
     };
     try {

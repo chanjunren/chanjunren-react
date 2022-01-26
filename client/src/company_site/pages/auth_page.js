@@ -53,7 +53,7 @@ const AuthPage = () => {
         },
       );
 
-      authContext.login(responseData.token, responseData.username);
+      authContext.login(responseData.token, responseData.username, responseData.role);
 
       console.log(responseData);
     } catch (err) {

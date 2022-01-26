@@ -5,11 +5,13 @@ let logoutTimer;
 const useAuth = () => {
   const [token, setToken] = useState(false);
   const [loggedInUserId, setLoggedInUserId] = useState();
+  const [role, setUserRole] = useState();
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
-  const login = useCallback((token, uid, expirationDate) => {
+  const login = useCallback((token, uid, role, expirationDate) => {
     setToken(token);
     setLoggedInUserId(uid);
+    setUserRole(role);
 
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 50 * 60);
@@ -22,6 +24,7 @@ const useAuth = () => {
       JSON.stringify({
         uid: uid,
         token: token,
+        role: role,
         tokenExpirationDate: tokenExpirationDate.toISOString(),
       }),
     );
@@ -31,6 +34,7 @@ const useAuth = () => {
     setToken(null);
     setLoggedInUserId(null);
     setTokenExpirationDate(null);
+    setUserRole(null);
     localStorage.removeItem('userData');
   }, []);
 
@@ -45,6 +49,7 @@ const useAuth = () => {
       login(
         storedData.token,
         storedData.uid,
+        storedData.role,
         new Date(storedData.tokenExpirationDate),
       );
     }
@@ -60,7 +65,7 @@ const useAuth = () => {
     }
   }, [token, logout, tokenExpirationDate]);
 
-  return { token, login, logout, loggedInUserId };
+  return { token, login, logout, loggedInUserId, role };
 };
 
 export default useAuth;

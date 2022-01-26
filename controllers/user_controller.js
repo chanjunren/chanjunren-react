@@ -120,7 +120,7 @@ const loginUser = async (req, res, next) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' },
     );
-    res.status(201).json({ username: user.username, token: token });
+    res.status(201).json({ username: user.username, token: token, role: user.role });
   } catch (err) {
     console.error(err);
     return next(

@@ -33,7 +33,8 @@ const UserDashboard = () => {
   const { users, fetchAppUsers, isLoading, errorEncountered, clearError } =
     useContext(DataContext);
 
-  const {token} = useContext(AuthContext);
+  const {token, isAdmin} = useContext(AuthContext);
+  // console.log("isAdmin: " + isAdmin);
   useEffect(() => {
     fetchAppUsers(token);
   }, []);
@@ -76,9 +77,9 @@ const UserDashboard = () => {
         deleteMessage="Are you sure you want to delete this user?"
       />
       <div className={classes.tableRoot}>
-        <UserTable users={users} showDeleteModal={showDeleteModal}/>
+        <UserTable users={users} showDeleteModal={showDeleteModal} isAdmin={isAdmin}/>
       </div>
-      <Button
+      {isAdmin && <Button
         className={classes.addUserButton}
           variant="outlined"
           size="medium"
@@ -86,7 +87,7 @@ const UserDashboard = () => {
           onClick={toggleUserModal}
         >
           Add User
-        </Button>
+        </Button>}
     </div>
   );
 };

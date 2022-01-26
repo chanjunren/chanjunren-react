@@ -31,7 +31,7 @@ const UserDashboard = React.lazy(() =>
  * @return {div} The html of the page
  */
 function App() {
-  const { token, login, logout, loggedInUserId } = useAuth();
+  const { token, login, logout, loggedInUserId, role } = useAuth();
   const {
     fetchData,
     fetchApplications,
@@ -109,6 +109,7 @@ function App() {
         token: token,
         login: login,
         logout: logout,
+        isAdmin: role === 'ADMIN',
       }}
     >
       <DataContext.Provider

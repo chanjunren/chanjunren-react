@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import UserRow from './user_table_row';
 
 const UserTable = (props) => {
-  const { users, showDeleteModal } = props;
+  const { users, showDeleteModal, isAdmin } = props;
   const [page, setPage] = React.useState(0);
   const [usersPerPage, setUsersPerPage] = React.useState(5);
 
@@ -44,6 +44,7 @@ const UserTable = (props) => {
                     key={user.id}
                     {...user}
                     showDeleteModal={showDeleteModal}
+                    isAdmin={isAdmin}
                   />
                 );
               })}

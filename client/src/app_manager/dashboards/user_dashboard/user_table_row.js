@@ -23,12 +23,11 @@ const useRowStyles = makeStyles((theme) => ({
     float: 'right',
     padding: '0.2rem',
   },
-  deleteButton: {
-  },
+  deleteButton: {},
 }));
 
 const UserRow = (props) => {
-  const { id, role, username, showDeleteModal } = props;
+  const { id, role, username, showDeleteModal, isAdmin } = props;
   const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/users/${id}`;
   const classes = useRowStyles();
   return (
@@ -40,12 +39,14 @@ const UserRow = (props) => {
       <TableCell>
         <div className={classes.controlPanel}>
           <Button disabled>Edit</Button>
-          <Button
-            className={classes.deleteButton}
-            onClick={() => showDeleteModal(deleteEndpoint)}
-          >
-            Delete
-          </Button>
+          {isAdmin && (
+            <Button
+              className={classes.deleteButton}
+              onClick={() => showDeleteModal(deleteEndpoint)}
+            >
+              Delete
+            </Button>
+          )}
         </div>
       </TableCell>
     </TableRow>
