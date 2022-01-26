@@ -24,16 +24,36 @@ const AppsSection = () => {
       <Grid container className={sectionClasses.appsContainer}>
         {applicationsData.map((app, index) => {
           return (
-            <Grid className={sectionClasses.appCard} key={index} item xs={12} sm={6} md={4}>
+            <Grid
+              className={sectionClasses.appCard}
+              key={index}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+            >
               <Card className={cardClasses.root}>
                 <CardHeader
-                  avatar={<Avatar rounded={1} className={cardClasses.avatar} src={app.imageSrc}/>}
+                  avatar={
+                    <Avatar
+                      rounded={1}
+                      className={cardClasses.avatar}
+                      src={app.imageSrc}
+                    />
+                  }
                   title={app.title}
-                  titleTypographyProps={{variant:"h6"}}
+                  titleTypographyProps={{ variant: 'h6' }}
                 />
                 <CardContent>{app.description}</CardContent>
                 <CardActions>
-                  <Button color="secondary" variant="outlined">View Guide</Button>
+                  <Button
+                    href={app.url}
+                    target="_blank"
+                    color="secondary"
+                    variant="outlined"
+                  >
+                    View
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
