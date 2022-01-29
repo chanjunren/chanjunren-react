@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "heroku-postbuild": "cd client && npm install --only=dev --force && npm install && npm run build"
   },
   "engines": {
@@ -27,5 +27,5 @@
     "eslint-plugin-import": "^2.25.4",
     "nodemon": "^2.0.9"
   },
-  "proxy": "https://localhost:5000"
+  "proxy": "http://localhost:5000"
 }
