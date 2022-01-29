@@ -17,6 +17,6 @@ module.exports = (req, res, next) => {
         next();
     } catch (err) {
         console.error(err);
-        return next(new HttpError("The header is probably missing or something!", 401));
+        return next(new HttpError("You are not authorized to view this", 401));
     }
 };
