@@ -10,7 +10,7 @@ import {
 
 import './sidebar.css';
 
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 const SideBar = ({ toggle, isOpen }) => {
   return (
@@ -66,6 +66,15 @@ const SideBar = ({ toggle, isOpen }) => {
             aria-label="LinkedIn"
           >
             <FaLinkedin />
+          </a>
+          <a
+            className="sidebar-social-icon-link"
+            href="https://youtube.com/channel/UCxOq44vEG251lq8A39RXnYw"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <FaYoutube />
           </a>
         </div>
       </SidebarWrapper>

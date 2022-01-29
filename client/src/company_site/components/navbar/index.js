@@ -6,7 +6,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import RsAppLogo from '../../images/rsLogo.png';
 import './navbar.css';
 import { withTheme } from '../../../util/theme';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 const NavBar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -144,6 +144,15 @@ const NavBar = ({ toggle }) => {
               aria-label="LinkedIn"
             >
               <FaLinkedin />
+            </a>
+            <a
+              className="social-icon-link"
+              href="https://youtube.com/channel/UCxOq44vEG251lq8A39RXnYw"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <FaYoutube />
             </a>
           </div>
         </div>
