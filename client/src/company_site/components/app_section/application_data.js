@@ -15,7 +15,7 @@ export const applicationsData = [
   },
   {
     imageSrc: temiNusConciergeIcon,
-    title: 'Temi OHS Concierge',
+    title: 'OHS Concierge',
     description: 'Concierge Application customised for NUS OHS',
     url: 'https://github.com/temideveloper/Rs-App-Guides/tree/master/TemiNusOhsConcierge'
   },
@@ -26,7 +26,7 @@ export const applicationsData = [
   },
   {
     imageSrc: temiMuseumIcon,
-    title: 'National Museum Guide',
+    title: 'NGS Autonomous Tour Guide',
     description: 'Tour Guide for National Museum',
     url: 'https://www.youtube.com/watch?v=tB3oNlf_sJg'
   },

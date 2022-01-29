@@ -11,7 +11,7 @@ const Footer = () => {
         <div id="footer-links-container">
           <div className="footer-links-wrapper">
             <div className="footer-link-items">
-              <h1 className="footer-link-title">Robosolutions</h1>
+              <h1 className="footer-link-title">RoboSolutions</h1>
               <LinkS
                 className="footer-link"
                 to="about"
@@ -55,7 +55,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                User Manual
+                temi User Manual
               </a>
               <a
                 className="footer-link"
@@ -64,6 +64,14 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 temi Center
+              </a>
+              <a
+                className="footer-link"
+                href="https://github.com/temistore/usermanual/blob/master/Temi_Center_User_Guide.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                temi Center Manual
               </a>
               <a
                 className="footer-link"
@@ -79,10 +87,10 @@ const Footer = () => {
         <section id="social-media">
           <div id="social-media-wrap">
             <LinkS to="/" id="social-logo">
-              Robosolutions
+              RoboSolutions
             </LinkS>
             <small id="website-rights">
-              Robosolutions © {new Date().getFullYear()} All Rights Reserved
+              RoboSolutions © {new Date().getFullYear()} All Rights Reserved
             </small>
             {/* <div id="social-icons">
               <a

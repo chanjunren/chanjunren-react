@@ -93,6 +93,7 @@ export default function GalleryButtons(props) {
                 position: 'relative',
                 p: 4,
                 pt: 2,
+                fontSize: '1.75rem',
                 pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
               }}
             >
