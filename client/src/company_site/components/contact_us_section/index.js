@@ -2,6 +2,7 @@ import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Link from '@mui/material/Link';
 import useContactStyles from './contact_us_style';
 import Map from './map';
 
@@ -32,16 +33,19 @@ const ContactUsSection = (props) => {
             Email
           </Typography>
         </div>
-        <Typography className={classes.infoBody} variant="body1">
+        <Link
+          className={classes.infoHeader}
+          variant="body1"
+          href="mailto:enquiries@robosolutions.sg"
+        >
           enquiries@robosolutions.sg
-        </Typography>
+        </Link>
         <div className={classes.headerBlock}>
           <LocalPhoneIcon />
           <Typography className={classes.infoHeader} variant="h5">
             Contact Number
           </Typography>
         </div>
-
         <Typography className={classes.infoBody} variant="body1">
           +(65) 8303 2264
         </Typography>

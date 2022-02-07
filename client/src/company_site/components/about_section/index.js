@@ -50,12 +50,12 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
-            <Typography variant="h2" className={classes.subHeader}>temi as a platform.</Typography>
+            <Typography variant="h2" className={classes.subHeader}>temi as a platform</Typography>
             <Typography variant="body1" className={classes.bodyText}>
               temi brings businesses a powerful
               way to communicate with people, no matter where they may be.
               Its state-of-the-art web-based fleet management platform provides users easy programming 
-              (without coding) to design, sequence and deliver robotic capabilities
+              (without coding) to design, sequence and deliver robotic capabilities.
             </Typography>
           </div>
         </Grid>
