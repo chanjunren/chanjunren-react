@@ -1,4 +1,4 @@
-import TemiPreview from '../../images/products/temi_preview.png';
+import TemiPreview from '../../images/products/temi.png';
 
 import SteamiPreview from '../../images/products/steami_preview.png';
 // import SteamiDemo from '../../images/products/steami_demo.mp4';
