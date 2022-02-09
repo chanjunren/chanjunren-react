@@ -41,14 +41,14 @@ const productData = [
   },
   {
     title: 'PesGuard',
-    description: 'Module that performs administrative tasks for entry',
+    description: 'Visitor Mgt System ( FR, Safe Entry and attendance taking)',
     cardImg: PesGuardPreview,
     demoVideo: getS3AssetUrl('pes_guard_demo.mp4'),
     type: null,
   },
   {
     title: 'IAQ+X',
-    description: '',
+    description: 'Real time indoor air quality monitoring ( temp, humidity, CO2, PM 10, PM 2.5, TVOC, CH2O)',
     cardImg: IaqXPreview,
     demoVideo: getS3AssetUrl('iaq_x_demo.mp4'),
     type: null,

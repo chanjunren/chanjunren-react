@@ -36,9 +36,10 @@ const ContactUsSection = (props) => {
         <Link
           className={classes.infoHeader}
           variant="body1"
-          href="mailto:enquiries@robosolutions.sg"
-        >
-          enquiries@robosolutions.sg
+          href={`mailto:enquiries@robosolutions.sg`}
+         // href="mailto:enquiries@robosolutions.sg" 
+         >
+            enquiries@robosolutions.sg
         </Link>
         <div className={classes.headerBlock}>
           <LocalPhoneIcon />
