@@ -24,8 +24,9 @@ const ProductCard = (props) => {
             {/* <Button className="product-button" color="secondary" variant="outlined">
               Specs
             </Button> */}
-            <Button className="product-button" color="secondary" variant="contained" onClick={onOrderClick}>
-              Order
+            <Button className="product-button" color="secondary" variant="contained" onClick={()=> window.location = `mailto:enquiries@robosolutions.sg`
+            }>
+              Order 
             </Button>
           </div>
         </div>
