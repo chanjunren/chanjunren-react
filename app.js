@@ -6,7 +6,7 @@ const userRoutes = require('./routes/user_routes');
 const HttpError = require('./models/http_error');
 const app = express();
 const path = require('path');
-
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.json());
 
 app.use((req, res, next) => {
