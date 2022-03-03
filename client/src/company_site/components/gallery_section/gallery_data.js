@@ -1,8 +1,9 @@
 import GuideCard from '../../images/gallery_images/autonomous_guide/guide_card.jpg';
 // import GuideRes1 from '../../images/gallery_images/autonomous_guide/guide_res1.mp4';
 
-import EduCard from '../../images/gallery_images/education/edu_card2.jpg';
+//import EduCard from '../../images/gallery_images/education/edu_card2.jpg';
 // import EduRes1 from '../../images/gallery_images/education/edu_res1.mp4';
+import EduCard from '../../images/gallery_images/education/edu_card3.jpg';
 
 import HomeCard from '../../images/gallery_images/home_office/home_office_card2.jpg';
 

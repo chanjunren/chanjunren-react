@@ -72,7 +72,7 @@ const ProductsSection = () => {
   });
 
   return (
-    <div id="products" className={psClasses.productRoot}>
+    <div id="products" className={psClasses.productRoot}  >
       <ProductModal
         resourceData={resourceMap[selectedProduct]}
         modalHandler={modalHandler}
@@ -82,10 +82,11 @@ const ProductsSection = () => {
         open={snackbarOpen}
         handleClose={() => setSnackbarOpen(false)}
       />
-      <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary">
+      
+      <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary" >
         Our Products
       </Typography>
-      <div className="expanding-collection expanding-collection-initialized">
+      <div className="expanding-collection expanding-collection-initialized" >
         <Swiper
           id="swiper-list"
           // tag="section"
@@ -93,7 +94,7 @@ const ProductsSection = () => {
           grabCursor={true}
           centeredSlides={true}
           breakpoints={{
-            "560": {
+            "500": {
               "slidesPerView": 1,
               "spaceBetween": 10,
             },

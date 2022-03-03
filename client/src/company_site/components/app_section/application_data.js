@@ -8,18 +8,6 @@ import temiConciergeIcon from '../../images/app_logos/temi_concierge_icon.png';
 
 export const applicationsData = [
   {
-    imageSrc: temiPatrolIcon,
-    title: 'Temi Patrol',
-    description: 'Mask detection application',
-    url: 'https://github.com/temideveloper/Rs-App-Guides/tree/master/TemiPatrol',
-  },
-  {
-    imageSrc: temiNusConciergeIcon,
-    title: 'OHS Concierge',
-    description: 'Concierge Application customised for NUS OHS',
-    url: 'https://github.com/temideveloper/Rs-App-Guides/tree/master/TemiNusOhsConcierge'
-  },
-  {
     imageSrc: receptemistIcon,
     title: 'Receptemist',
     description: 'Receptionist Temi Application',

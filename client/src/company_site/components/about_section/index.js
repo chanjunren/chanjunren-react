@@ -33,7 +33,7 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>When We Started</Typography>
-            <Typography variant="h2" className={classes.subHeader}>Established in April 2019</Typography>
+            <Typography variant="h3" className={classes.subHeader}>Established in April 2019</Typography>
             <Typography variant="body1" className={classes.bodyText}>
                     RoboSolutions is the exclusive distributor
                     for temi – The Service Robot in Singapore, Malaysia & Indonesia.
@@ -64,7 +64,7 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Like Magic</Typography>
-            <Typography variant="h2" className={classes.subHeader}>Versatile, Effective and Affordable</Typography>
+            <Typography variant="h3" className={classes.subHeader}>Versatile, Effective and Affordable</Typography>
             <Typography variant="body1" className={classes.bodyText}>
             temi delivers like magic with real opportunities for mass deployment. 
             It will drive innovative customer experience and business processes. 

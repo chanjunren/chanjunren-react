@@ -10,11 +10,11 @@ import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
 import PlaceIcon from '@material-ui/icons/Place';
 import MailIcon from '@material-ui/icons/Mail';
 const ContactUsSection = (props) => {
+  //<Map zoom={19} center={{ lat: 1.3265126, lng: 103.8940942 }}/>
   const classes = useContactStyles();
   return (
     <Grid id="contactUs" container className={classes.root}>
       <Grid item className={classes.mapContainer} sm={12} md={6}>
-        <Map zoom={19} center={{ lat: 1.3265126, lng: 103.8940942 }} />
       </Grid>
       <Grid item sm={12} md={6} className={classes.infoContainer}>
         <div className={classes.headerBlock}>
@@ -52,6 +52,7 @@ const ContactUsSection = (props) => {
         </Typography>
       </Grid>
     </Grid>
+    
   );
 };
 
