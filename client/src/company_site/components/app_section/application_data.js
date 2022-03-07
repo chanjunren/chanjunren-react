@@ -10,23 +10,23 @@ export const applicationsData = [
   {
     imageSrc: receptemistIcon,
     title: 'Receptemist',
-    description: 'Receptionist Temi Application',
+    description: 'Receptionist Application',
   },
   {
     imageSrc: temiMuseumIcon,
-    title: 'NGS Autonomous Tour Guide',
-    description: 'Tour Guide for National Museum',
+    title: 'Autonomous Tour Guide',
+    description: 'Tour Guide for National Gallery Singapore',
     url: 'https://www.youtube.com/watch?v=tB3oNlf_sJg'
   },
   {
     imageSrc: temiConciergeIcon,
     title: 'TemiConcierge',
-    description: 'Concierge Application for temi',
+    description: 'Concierge Application',
   },
   {
     imageSrc: temiAnnouncerIcon,
     title: 'TemiAnnouncer',
-    description: 'Announcer Application for temi',
+    description: 'Announcer Application',
     url: 'https://github.com/temideveloper/Rs-App-Guides/tree/master/TemiAnnouncer'
   },
 ];

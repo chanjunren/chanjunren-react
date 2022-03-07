@@ -26,14 +26,14 @@ const productData = [
     type: null,
   },
   {
-    title: 'Steami',
+    title: 'temi add-on: Steami',
     description: 'Disinfectant spray unit',
     cardImg: SteamiPreview,
     demoVideo: getS3AssetUrl('steami_demo.mp4'),
     type: null,
   },
   {
-    title: 'Snap-Fit Tray',
+    title: 'temi add-on: Snap-Fit Tray',
     description: 'Attachable tray for item delivery',
     cardImg: SnapFitPreview,
     demoVideo: getS3AssetUrl('snap_fit_tray_demo.mp4'),
@@ -47,7 +47,7 @@ const productData = [
     type: null,
   },
   {
-    title: 'IAQ+X',
+    title: 'temi add-on: IAQ+X',
     description: 'Real time indoor air quality monitoring ( temp, humidity, CO2, PM 10, PM 2.5, TVOC, CH2O)',
     cardImg: IaqXPreview,
     demoVideo: getS3AssetUrl('iaq_x_demo.mp4'),
