@@ -28,7 +28,7 @@ const useRowStyles = makeStyles((theme) => ({
 
 const UserRow = (props) => {
   const { id, role, username, showDeleteModal, isAdmin } = props;
-  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/users/${id}`;
+  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/users/${id}/`;
   const classes = useRowStyles();
   return (
     <TableRow className={classes.root}>

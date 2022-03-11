@@ -82,7 +82,7 @@ export default function CreateAppModal(props) {
       );
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/apps/`,
           'POST',
           JSON.stringify({
             name: formState.inputs.nameTextField.value,

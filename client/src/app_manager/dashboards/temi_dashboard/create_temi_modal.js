@@ -83,7 +83,7 @@ export default function CreateTemiModal(props) {
       });
       console.log(authContext.token);
       const responseData = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/temis`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/temis/`,
         'POST',
         JSON.stringify({
           owner: formState.inputs.ownerTextField.value,

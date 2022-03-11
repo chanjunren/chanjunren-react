@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const AppCard = (props) => {
   const classes = useStyles();
   const { title, id, showDeleteModal } = props;
-  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/apps/${id}`;
+  const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/apps/${id}/`;
 
   return (
     <Card variant="outlined">

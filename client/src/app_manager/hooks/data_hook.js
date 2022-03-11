@@ -17,7 +17,7 @@ const getData = () => {
   const fetchApplications = useCallback(async (token) => {
     const getApplications = async () => {
       let responseData = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/apps`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/apps/`,
         'GET',
         null,
         { Authorization: 'Bearer ' + token },
@@ -34,7 +34,7 @@ const getData = () => {
   const fetchTemiUnits = useCallback(async (token) => {
     const getTemiUnits = async () => {
       const responseData = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/temis`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/temis/`,
         'GET',
         null,
         { Authorization: 'Bearer ' + token },
@@ -51,7 +51,7 @@ const getData = () => {
   const fetchAppUsers = useCallback(async (token) => {
     const getAppUsers = async () => {
       let responseData = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/users`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/`,
         'GET',
         null,
         { Authorization: 'Bearer ' + token },
