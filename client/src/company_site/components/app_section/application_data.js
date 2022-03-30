@@ -22,11 +22,13 @@ export const applicationsData = [
     imageSrc: temiConciergeIcon,
     title: 'TemiConcierge',
     description: 'Concierge Application',
+    url: 'https://github.com/temideveloper/Rs-App-Guides/blob/master/TemiConcierge/preview.md'
   },
   {
     imageSrc: temiAnnouncerIcon,
     title: 'TemiAnnouncer',
     description: 'Announcer Application',
-    url: 'https://github.com/temideveloper/Rs-App-Guides/tree/master/TemiAnnouncer'
+    url: 'https://github.com/temideveloper/Rs-App-Guides/blob/master/TemiAnnouncer/preview.md'
+    
   },
 ];
