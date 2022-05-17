@@ -22,7 +22,6 @@ const getAllTemiUnits = async (req, res, next) => {
 const addNewTemiUnit = async (req, res, next) => {
   const { owner, serialNumber, applications } = req.body;
   let existingUnit;
-  console.log(applications);
   try {
     existingUnit = await TemiUnit.findOne({ serialNumber: serialNumber });
   } catch (err) {

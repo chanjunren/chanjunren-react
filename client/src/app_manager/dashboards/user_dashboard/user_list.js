@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 const UserList = (props) => {
   let dense = true;
   const {users} = props;
-  console.log(users);
   const classes = useStyles();
   return (
     <Grid item xs={12} md={6}>

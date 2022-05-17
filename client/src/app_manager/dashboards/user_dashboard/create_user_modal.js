@@ -79,7 +79,6 @@ export default function CreateUserModal(props) {
 
 	const authContext = useContext(AuthContext);
 	const dataContext = useContext(DataContext);
-	// console.log(formState);
 	const { sendRequest, errorEncountered, clearError } = dataContext;
 
 	const addNewUnit = async () => {
@@ -98,7 +97,6 @@ export default function CreateUserModal(props) {
 						Authorization: 'Bearer ' + authContext.token,
 					},
 				);
-				console.log(responseData);
 				modalHandler();
 			} catch (err) {
 				console.error(err);

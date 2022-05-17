@@ -34,7 +34,6 @@ const UserDashboard = () => {
     useContext(DataContext);
 
   const {token, isAdmin} = useContext(AuthContext);
-  // console.log("isAdmin: " + isAdmin);
   useEffect(() => {
     fetchAppUsers(token);
   }, []);

@@ -37,7 +37,7 @@ app.use('/api/users', userRoutes);
 app.use((error, req, res, next) => {
   if (req.file) {
     fs.unlink(req.file.path, (error) => {
-      console.log('Error: ' + error);
+      console.error('Error: ' + error);
     });
   }
   if (res.headerSent) {

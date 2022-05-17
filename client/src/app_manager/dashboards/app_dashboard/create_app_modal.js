@@ -57,7 +57,6 @@ export default function CreateAppModal(props) {
   };
 
   const setSelectedUnits = (selectedUnits) => {
-    // console.log(formState);
     formInputHandler('temiUnits', selectedUnits, []);
   };
 
@@ -70,7 +69,6 @@ export default function CreateAppModal(props) {
     temiUnits.push(unit.serialNumber);
     temiUnitsMap[unit.serialNumber] = unit.id;
   });
-  // console.log(formState);
   const { sendRequest, errorEncountered, clearError } = dataContext;
 
   const addNewUnit = async () => {
@@ -93,7 +91,6 @@ export default function CreateAppModal(props) {
             Authorization: 'Bearer ' + authContext.token,
           },
         );
-        console.log(responseData);
         modalHandler();
       } catch (err) {
         console.error(err);

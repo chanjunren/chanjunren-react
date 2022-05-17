@@ -63,9 +63,7 @@ const createUser = async (req, res, next) => {
   });
 
   try {
-    console.log(' === USER SUCCESFULLY ADDED ===');
     await newUser.save();
-    console.log(newUser.toObject({ getters: true }));
   } catch (err) {
     console.error(err);
     return next(

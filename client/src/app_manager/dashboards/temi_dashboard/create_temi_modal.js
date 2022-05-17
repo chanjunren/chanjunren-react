@@ -67,8 +67,6 @@ export default function CreateTemiModal(props) {
   };
 
   const setSelectedUnits = (selectedUnits) => {
-    console.log(selectedUnits);
-    console.log(formState);
     formInputHandler('applications', selectedUnits, []);
   };
 
@@ -81,7 +79,6 @@ export default function CreateTemiModal(props) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
-      console.log(authContext.token);
       const responseData = await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/api/temis/`,
         'POST',
@@ -95,7 +92,6 @@ export default function CreateTemiModal(props) {
           Authorization: 'Bearer ' + authContext.token,
         },
       );
-      console.log(responseData);
       modalHandler();
 
       // To update the page

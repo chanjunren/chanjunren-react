@@ -35,8 +35,6 @@ const ProductsSection = () => {
     
   const openProductModal = (index) => {
     setProductIdx(index);
-    console.log("Oi");
-    console.log(resourceMap[index]);
     toggleOpenModal(true);
   };
 

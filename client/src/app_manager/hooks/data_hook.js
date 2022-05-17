@@ -56,7 +56,6 @@ const getData = () => {
         null,
         { Authorization: 'Bearer ' + token },
       );
-      // console.log(responseData);
       setUsers(responseData.users);
     };
     try {
