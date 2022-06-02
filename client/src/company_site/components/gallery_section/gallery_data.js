@@ -81,6 +81,10 @@ const galleryData = [
         src: getS3AssetUrl('autonomous_guide6.mp4'),
         type: VID_TYPE,
       },
+      {
+        src: getS3AssetUrl('autonomous_guide7.mp4'),
+        type: VID_TYPE,
+      },
     ],
   },
   {
@@ -103,6 +107,10 @@ const galleryData = [
       },
       {
         src: getS3AssetUrl('education4.mp4'),
+        type: VID_TYPE,
+      },
+      {
+        src: getS3AssetUrl('education5.mp4'),
         type: VID_TYPE,
       },
     ],
@@ -187,6 +195,10 @@ const galleryData = [
       },
       {
         src: getS3AssetUrl('others6.mp4'),
+        type: VID_TYPE,
+      },
+      {
+        src: getS3AssetUrl('others7.mp4'),
         type: VID_TYPE,
       },
     ],
