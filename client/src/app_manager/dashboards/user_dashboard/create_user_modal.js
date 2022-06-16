@@ -84,7 +84,7 @@ export default function CreateUserModal(props) {
 	const addNewUnit = async () => {
 		if (formState.isFormValid) {
 			try {
-				const responseData = await sendRequest(
+				await sendRequest(
 					`${process.env.REACT_APP_BACKEND_URL}/api/users/signup/`,
 					'POST',
 					JSON.stringify({

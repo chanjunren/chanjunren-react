@@ -54,8 +54,6 @@ const AuthPage = () => {
       );
 
       authContext.login(responseData.token, responseData.username, responseData.role);
-
-      (responseData);
     } catch (err) {
       console.error(err);
     }

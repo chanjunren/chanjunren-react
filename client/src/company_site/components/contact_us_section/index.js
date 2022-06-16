@@ -4,13 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from '@mui/material/Link';
 import useContactStyles from './contact_us_style';
-import Map from './map';
 
 import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
 import PlaceIcon from '@material-ui/icons/Place';
 import MailIcon from '@material-ui/icons/Mail';
 const ContactUsSection = (props) => {
-  //<Map zoom={19} center={{ lat: 1.3265126, lng: 103.8940942 }}/>
   const classes = useContactStyles();
   return (
     <Grid id="contactUs" container className={classes.root}>

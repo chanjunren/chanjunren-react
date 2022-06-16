@@ -2,7 +2,7 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import RsAppLogo from './company_site/images/rsLogo.png';
 
-import * as animationData from './resources/splashscreen.json';
+import animationData from './resources/splashscreen.json';
 import { withTheme } from './util/theme';
 import { makeStyles } from '@material-ui/core/styles';
 

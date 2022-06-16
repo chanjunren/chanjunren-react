@@ -7,7 +7,6 @@ import {
 
 import Nunito from '../resources/fonts/Nunito-Regular.ttf';
 import { CssBaseline } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
 
 const nunito = {
   fontFamily: 'Nunito',

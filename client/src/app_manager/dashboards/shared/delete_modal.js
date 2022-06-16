@@ -31,9 +31,9 @@ const DeleteModal = (props) => {
 
   const authContext = useContext(AuthContext);
 
-  const onConfirmDelete = async (event) => {
+  const onConfirmDelete = async () => {
     try {
-      const responseData = await sendRequest(deleteEndpoint, 'DELETE', null, {
+      await sendRequest(deleteEndpoint, 'DELETE', null, {
         Authorization: `Bearer ${authContext.token}`,
       });
       dataContext.fetchData(authContext.token);

@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import './product_card.css';
 
 const ProductCard = (props) => {
-  const { index, title, openProductModal, cardImg, description, onCardClick, expanded, onOrderClick } = props;
+  const { index, title, openProductModal, cardImg, description, onCardClick, expanded } = props;
   return (
     <div className='expanding-collection-container'
       onClick={onCardClick}>

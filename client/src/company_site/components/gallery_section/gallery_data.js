@@ -10,12 +10,7 @@ import HomeCard from '../../images/gallery_images/home_office/home_office_card2.
 import ConciergeCard from '../../images/gallery_images/concierge/concierge_card2.jpg';
 
 import HealthCard from '../../images/gallery_images/healthcare/health_card.jpg';
-// import HealthRes1 from '../../images/gallery_images/healthcare/health_res1.mp4';
-import HealthRes2 from '../../images/gallery_images/healthcare/health_res2.jpg';
-
 import OtherCard from '../../images/gallery_images/others/others_card2.jpg';
-// import OtherRes1 from '../../images/gallery_images/others/others_res1.mp4';
-// import OtherRes2 from '../../images/gallery_images/others/others_res2.mp4';
 
 import { IMG_TYPE, VID_TYPE } from '../../../util/values';
 import getS3AssetUrl from '../../../util/aws_url_generator';

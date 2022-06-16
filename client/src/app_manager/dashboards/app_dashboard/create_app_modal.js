@@ -79,7 +79,7 @@ export default function CreateAppModal(props) {
         },
       );
       try {
-        const responseData = await sendRequest(
+        await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/api/apps/`,
           'POST',
           JSON.stringify({

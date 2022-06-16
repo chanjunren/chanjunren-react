@@ -1,6 +1,3 @@
-import temiPatrolIcon from '../../images/app_logos/temi_patrol_icon.png';
-import temiNusConciergeIcon from
-  '../../images/app_logos/temi_ohs_concierge_icon.png';
 import temiMuseumIcon from '../../images/app_logos/temi_museum_icon.png';
 import receptemistIcon from '../../images/app_logos/receptemist_icon.png';
 import temiAnnouncerIcon from '../../images/app_logos/temi_announcer_icon.png';
