@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "heroku-postbuild": "cd client && npm install --only=dev --force && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev --force && npm audit fix --force && npm run build"
   },
   "engines": {
     "node": "15.11.0"
