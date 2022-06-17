@@ -1,31 +1,44 @@
 import { makeStyles } from '@material-ui/styles';
 
-const useContactStyles = makeStyles((theme) => ({
+export const useContactStyles = makeStyles((theme) => ({
   root: {
-    height: 'auto',
-    padding: '50px',
+    padding: '24px',
+    display: 'grid',
+    justifyItems: 'center',
+    alignContent: 'center',
   },
   mapContainer: {
     display: 'grid',
     justifyContent: 'center',
     alignContent: 'center',
   },
+  header: {
+    padding: '30px',
+  },
+}));
+
+export const useContactCardStyles = makeStyles((theme) => ({
   infoContainer: {
     display: 'grid',
     alignContent: 'center',
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'center',
     },
+    padding: '10px'
   },
   headerBlock: {
     display: 'flex',
     marginTop: '20px',
     alignItems: 'center',
+    justifyContent: 'center'
   },
   infoHeader: {
     marginLeft: '10px',
   },
-  infoBody: {},
+  countryHeader: {
+    fontStyle: 'italic'
+  },
+  infoBody: {
+    textAlign: 'center'
+  },
 }));
-
-export default useContactStyles;
