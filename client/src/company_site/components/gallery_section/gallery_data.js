@@ -38,12 +38,6 @@ const galleryData = [
         src: getS3AssetUrl('healthcare4.mp4'),
         type: VID_TYPE,
       },
-
-      {
-        src: getS3AssetUrl('healthcare5.mp4'),
-        type: VID_TYPE,
-      },
-
     ],
   },
   {
@@ -121,11 +115,11 @@ const galleryData = [
         type: VID_TYPE,
       },
       {
-        src: getS3AssetUrl('home_office2.mov'),
+        src: getS3AssetUrl('home_office2.mp4'),
         type: VID_TYPE,
       },
       {
-        src: getS3AssetUrl('home_office3.mov'),
+        src: getS3AssetUrl('home_office3.mp4'),
         type: VID_TYPE,
       },
       {
@@ -181,7 +175,7 @@ const galleryData = [
         type: VID_TYPE,
       },
       {
-        src: getS3AssetUrl('others4.mov'),
+        src: getS3AssetUrl('others4.mp4'),
         type: VID_TYPE,
       },
       {
