@@ -21,10 +21,9 @@ export const useContactCardStyles = makeStyles((theme) => ({
   infoContainer: {
     display: 'grid',
     alignContent: 'center',
-    [theme.breakpoints.down('xs')]: {
-      justifyContent: 'center',
-    },
-    padding: '10px'
+    width: 'inherit',
+    textAlign: 'center',
+    justifyContent: 'center'
   },
   headerBlock: {
     display: 'flex',
@@ -39,6 +38,6 @@ export const useContactCardStyles = makeStyles((theme) => ({
     fontStyle: 'italic'
   },
   infoBody: {
-    textAlign: 'center'
+    maxWidth: '300px'
   },
 }));

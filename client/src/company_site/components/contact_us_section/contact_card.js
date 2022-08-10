@@ -11,7 +11,7 @@ import MailIcon from '@material-ui/icons/Mail';
 
 export default function ContactCard(props) {
 	const classes = useContactCardStyles();
-	return <Grid item sm={12} md={6} className={classes.infoContainer}>
+	return <Grid item xs={12} sm={6} lg={3} className={classes.infoContainer}>
 		<div className={classes.headerBlock}>
 			<Typography className={classes.countryHeader} variant="h5">
 				{props.country}

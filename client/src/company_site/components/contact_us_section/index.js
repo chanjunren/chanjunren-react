@@ -14,7 +14,7 @@ const ContactUsSection = (props) => {
       <Typography className={classes.header} variant="h4" component="h4">
         Contact Us
       </Typography>
-      <Grid container>
+      <Grid container spacing={6}>
         {contacts.map((contact) => { return <ContactCard {...contact} />})}
       </Grid>
     </div>
