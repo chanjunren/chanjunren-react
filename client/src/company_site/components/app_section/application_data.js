@@ -39,6 +39,6 @@ export const applicationsData = [
     imageSrc: temiEyeIcon,
     title: 'TemiEye',
     description: 'Surveillance Application',
-    url: 'https://github.com/temideveloper/Rs-App-Guides/blob/master/TemiEye/README.md'
+    url: 'https://github.com/temideveloper/Rs-App-Guides/blob/master/TemiEye/preview.md'
   },
 ];
