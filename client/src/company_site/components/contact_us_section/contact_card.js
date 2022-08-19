@@ -13,7 +13,7 @@ export default function ContactCard(props) {
 	const classes = useContactCardStyles();
 	return <Grid item xs={12} sm={6} lg={3} className={classes.infoContainer}>
 		<div className={classes.headerBlock}>
-			<Typography className={classes.countryHeader} variant="h5">
+			<Typography className={classes.countryHeader} variant="h5" color="secondary">
 				{props.country}
 			</Typography>
 		</div>
