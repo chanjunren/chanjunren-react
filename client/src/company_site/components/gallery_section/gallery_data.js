@@ -1,7 +1,7 @@
 import GuideCard from '../../images/gallery_images/autonomous_guide/guide_card.jpg';
 // import GuideRes1 from '../../images/gallery_images/autonomous_guide/guide_res1.mp4';
 
-//import EduCard from '../../images/gallery_images/education/edu_card2.jpg';
+// import EduCard from '../../images/gallery_images/education/edu_card2.jpg';
 // import EduRes1 from '../../images/gallery_images/education/edu_res1.mp4';
 import EduCard from '../../images/gallery_images/education/edu_card3.jpg';
 
@@ -102,6 +102,10 @@ const galleryData = [
         src: getS3AssetUrl('education5.mp4'),
         type: VID_TYPE,
       },
+      {
+        src: getS3AssetUrl('education6.mp4'),
+        type: VID_TYPE,
+      },
     ],
   },
   {
@@ -126,7 +130,14 @@ const galleryData = [
         src: getS3AssetUrl('home_office4.mp4'),
         type: VID_TYPE,
       },
-
+      {
+        src: getS3AssetUrl('home_office5.mp4'),
+        type: VID_TYPE,
+      },
+      {
+        src: getS3AssetUrl('home_office6.mp4'),
+        type: VID_TYPE,
+      },
     ],
   },
   {
@@ -172,22 +183,6 @@ const galleryData = [
       },
       {
         src: getS3AssetUrl('others3.mp4'),
-        type: VID_TYPE,
-      },
-      {
-        src: getS3AssetUrl('others4.mp4'),
-        type: VID_TYPE,
-      },
-      {
-        src: getS3AssetUrl('others5.mp4'),
-        type: VID_TYPE,
-      },
-      {
-        src: getS3AssetUrl('others6.mp4'),
-        type: VID_TYPE,
-      },
-      {
-        src: getS3AssetUrl('others7.mp4'),
         type: VID_TYPE,
       },
     ],
