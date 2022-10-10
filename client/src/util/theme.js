@@ -57,7 +57,7 @@ let theme = createTheme({
     },
     body1: {
       fontFamily: 'Nunito',
-      
+      fontSize: 20
     },
     body2: {
       fontFamily: 'Nunito',

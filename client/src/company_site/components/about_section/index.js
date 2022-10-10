@@ -50,7 +50,7 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
-            <Typography variant="h2" className={classes.subHeader}>temi as a platform</Typography>
+            <Typography variant="h3" className={classes.subHeader}>temi as a platform</Typography>
             <Typography variant="body1" className={classes.bodyText}>
               temi brings businesses a powerful
               way to communicate with people, no matter where they may be.
@@ -81,7 +81,7 @@ const AboutSection = () => {
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>What We Provide</Typography>
-            <Typography variant="h2" className={classes.subHeader}>One Stop Service</Typography>
+            <Typography variant="h3" className={classes.subHeader}>One Stop Service</Typography>
             <Typography variant="body1" className={classes.bodyText}>
             We provide end-to-end services to deploy and manage fleets of temi(s) – 
             from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.
