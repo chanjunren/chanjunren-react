@@ -29,7 +29,7 @@ const AboutSection = () => {
 
   return (
     <Grid id="about" className={classes.aboutContainer} container>
-      <Grid className={classes.cardContainer} container item xs={12}>
+      {/* <Grid className={classes.cardContainer} container item xs={12}>
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>When We Started</Typography>
@@ -43,24 +43,23 @@ const AboutSection = () => {
         </Grid>
         <Grid className={classes.imageContainer} style={imageBg1} item xs={12} sm={6}>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.imageContainer} style={imageBg2} item xs={12} sm={6}>
-        </Grid>
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
             <Typography variant="h3" className={classes.subHeader}>temi as a platform</Typography>
             <Typography variant="body1" className={classes.bodyText}>
-              temi brings businesses a powerful
-              way to communicate with people, no matter where they may be.
-              Its state-of-the-art web-based fleet management platform provides users easy programming 
-              (without coding) to design, sequence and deliver robotic capabilities.
+            Robosolutions flagship product, temi, is a powerful, intuitive 
+            web-based fleet management platform that enables business users with 
+            no programming experience to design, sequence and deliver robotic capabilities.
             </Typography>
           </div>
         </Grid>
+        <Grid className={classes.imageContainer} style={imageBg2} item xs={12} sm={6}>
+        </Grid>
       </Grid>
-      <Grid className={classes.cardContainer} container item xs={12}>
+      {/* <Grid className={classes.cardContainer} container item xs={12}>
         <Grid className={classes.textContainer} item xs={12} sm={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Like Magic</Typography>
@@ -74,7 +73,7 @@ const AboutSection = () => {
         </Grid>
         <Grid className={classes.imageContainer} style={imageBg3} item xs={12} sm={6}>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Grid className={classes.cardContainer} container item xs={12}>
         <Grid className={classes.imageContainer} style={imageBg4} item xs={12} sm={6}>
         </Grid>
@@ -84,7 +83,9 @@ const AboutSection = () => {
             <Typography variant="h3" className={classes.subHeader}>One Stop Service</Typography>
             <Typography variant="body1" className={classes.bodyText}>
             We provide end-to-end services to deploy and manage fleets of temi(s) – 
-            from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.
+            from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.<br/>
+            <br/>
+            Request for a demo. Reimagine, redefine, re-envision your services with Service Robot temi!
             </Typography>
           </div>
         </Grid>

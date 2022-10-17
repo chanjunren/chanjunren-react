@@ -17,6 +17,9 @@ export default function ContactCard(props) {
 				{props.country}
 			</Typography>
 		</div>
+		<Typography className={classes.infoBody} variant='body2'>
+			{props.company}
+		</Typography>
 		<div className={classes.headerBlock}>
 			<PlaceIcon />
 			<Typography className={classes.infoHeader} variant="h6">

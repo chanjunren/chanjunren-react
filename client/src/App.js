@@ -80,7 +80,7 @@ function App() {
     );
   }
 
-  const [isSplashing, setIsSplashing] = useState(true);
+  const [isSplashing, setIsSplashing] = useState(false);
   const onSplashScreenEndHandler = () => {
     setIsSplashing(false);
   }

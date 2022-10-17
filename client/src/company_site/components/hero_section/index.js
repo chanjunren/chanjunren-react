@@ -1,5 +1,6 @@
 import React from 'react';
 import getS3AssetUrl from '../../../util/aws_url_generator';
+import RsAppLogo from '../../images/temi.jpg';
 
 // import Video from '../../videos/homeVideo.mp4';
 
@@ -7,6 +8,7 @@ import {
   HeroContainer,
   HeroBg,
   VideoBg,
+  HeroImg,
   // HeroContent,
   // HeroH1,
   // HeroP,
@@ -27,7 +29,7 @@ const HeroSection = () => {
   return (
     <HeroContainer id="home">
       <HeroBg>
-        <VideoBg
+        {/* <VideoBg
           autoPlay
           loop
           muted
@@ -36,7 +38,8 @@ const HeroSection = () => {
             src={videoUrl}
             type='video/mp4'
           />
-        </VideoBg>
+        </VideoBg> */}
+        <HeroImg src={RsAppLogo} alt='temi products'/>
       </HeroBg>
       {/* <HeroContent>
         <HeroH1>Your Personal Robot Assistant</HeroH1>

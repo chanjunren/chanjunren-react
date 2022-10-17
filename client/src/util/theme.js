@@ -61,6 +61,7 @@ let theme = createTheme({
     },
     body2: {
       fontFamily: 'Nunito',
+      fontSize: 18
     },
   },
   overrides: {

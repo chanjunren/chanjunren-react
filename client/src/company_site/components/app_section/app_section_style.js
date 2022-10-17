@@ -18,6 +18,10 @@ export const AppSectionStyles = makeStyles((theme) => ({
   },
   appCard: {
     padding: '15px',
+  },
+  description: {
+    paddingBottom: '30px',
+    textAlign: 'center'
   }
 }));
 

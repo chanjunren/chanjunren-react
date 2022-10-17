@@ -11,6 +11,7 @@ export const HeroContainer = styled.div`
     height: 100vh;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 
     :before {
         content: '';
@@ -37,10 +38,10 @@ export const HeroContainer = styled.div`
 export const HeroBg = styled.div`
     position: absolute;
     top: 0;
-    right: 0;
+    // right: 0;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    // left: 0;
+    // width: 100%;
     height: 100%;
     overflow: hidden;
 `;
@@ -51,6 +52,13 @@ export const VideoBg = styled.video`
     -o-object-fit: cover;
     object-fit: cover;
     background: #232a34;
+`;
+
+export const HeroImg = styled.img`
+    /* Set a specific height */
+    height: 100%;
+    // width: 100%;
+    object-fit: cover;
 `;
 
 export const HeroContent = styled.div`

@@ -21,7 +21,7 @@ const Footer = () => {
                 exact="true"
                 offset={-80}
               >
-                About
+                About Us
               </LinkS>
               <LinkS className="footer-link" to="products">
                 Products
