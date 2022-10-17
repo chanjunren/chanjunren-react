@@ -51,7 +51,7 @@ const AppsSection = () => {
                   titleTypographyProps={{ variant: 'h6' }}
                 />
                 <CardContent>{app.description}</CardContent>
-                <CardActions>
+                {/* <CardActions>
                   <Button
                     href={app.url}
                     target="_blank"
@@ -60,7 +60,7 @@ const AppsSection = () => {
                   >
                     View
                   </Button>
-                </CardActions>
+                </CardActions> */}
               </Card>
             </Grid>
           );
