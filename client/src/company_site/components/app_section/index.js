@@ -21,10 +21,10 @@ const AppsSection = () => {
       <Typography className={sectionClasses.header} variant="h4" component="h4">
         Customised Applications
       </Typography>
-      <Typography component="h6">
+      <Typography className={sectionClasses.description} component="h6">
         Offering software programming services for customised solutions, tailored to your needs.
       </Typography>
-      <Typography className={sectionClasses.description} variant='h6' color='secondary'>
+      <Typography className={sectionClasses.contact} variant='h6' color='secondary'>
         Contact us for more information regarding existing applications.
       </Typography>
       <Grid container className={sectionClasses.appsContainer}>

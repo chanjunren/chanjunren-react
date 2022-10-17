@@ -20,8 +20,11 @@ export const AppSectionStyles = makeStyles((theme) => ({
     padding: '15px',
   },
   description: {
-    paddingBottom: '30px',
     textAlign: 'center'
+  },
+  contact: {
+    textAlign: 'center',
+    paddingBottom: '30px'
   }
 }));
 
