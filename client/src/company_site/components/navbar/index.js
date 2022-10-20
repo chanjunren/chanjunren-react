@@ -12,11 +12,12 @@ const NavBar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const navListener = () => {
-    if (window.scrollY >= 80) {
-      setScrollNav(true);
-    } else {
-      setScrollNav(false);
-    }
+    // if (window.scrollY >= 80) {
+    //   setScrollNav(true);
+    // } else {
+    //   setScrollNav(false);
+    // }
+    setScrollNav(true)
   };
 
   useEffect(() => {

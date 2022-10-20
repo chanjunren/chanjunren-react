@@ -50,9 +50,10 @@ const AboutSection = () => {
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
             <Typography variant="h3" className={classes.subHeader}>temi as a platform</Typography>
             <Typography variant="body1" className={classes.bodyText}>
-            Robosolutions flagship product, temi, is a powerful, intuitive 
-            web-based fleet management platform that enables business users with 
-            no programming experience to design, sequence and deliver robotic capabilities.
+              RoboSolution's flagship product, temi, is an AI powered service robot that 
+              comes with an intuitive web-based fleet management platform. It easily enables 
+              business users with no programming experience to design, sequence and deliver 
+              robotic capabilities.
             </Typography>
           </div>
         </Grid>
@@ -85,7 +86,7 @@ const AboutSection = () => {
             We provide end-to-end services to deploy and manage fleets of temi(s) – 
             from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.<br/>
             <br/>
-            Request for a demo. Reimagine, redefine, re-envision your services with Service Robot temi!
+            Request for a demo. Reimagine, redefine, re-envision your services with temi service robots.
             </Typography>
           </div>
         </Grid>

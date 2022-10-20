@@ -22,10 +22,10 @@ const AppsSection = () => {
         Customised Applications
       </Typography>
       <Typography className={sectionClasses.description} component="h6">
-        Offering software programming services for customised solutions, tailored to your needs.
+        Offering software programming services for customised user interface, tailored to your specific needs.
       </Typography>
       <Typography className={sectionClasses.contact} variant='h6' color='secondary'>
-        Contact us for more information regarding existing applications.
+        Contact us for more information.
       </Typography>
       <Grid container className={sectionClasses.appsContainer}>
         {applicationsData.map((app, index) => {

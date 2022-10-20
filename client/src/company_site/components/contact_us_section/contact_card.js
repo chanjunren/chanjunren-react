@@ -26,7 +26,7 @@ export default function ContactCard(props) {
 				Address
 			</Typography>
 		</div>
-		<Typography className={classes.infoBody} variant="body1">
+		<Typography className={classes.infoBody} variant="body2">
 			{props.address}
 		</Typography>
 
