@@ -11,6 +11,8 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import SplashScreen from './splashscreen';
 
 const AuthPage = React.lazy(() => import('./company_site/pages/auth_page'));
+const PressPage = React.lazy(() => import('./company_site/pages/press'));
+const AboutPage = React.lazy(() => import('./company_site/pages/about_us'));
 const Home = React.lazy(() => import('./company_site/pages/index'));
 const DashboardNav = React.lazy(() =>
   import('./app_manager/dashboard_nav/index'),
@@ -56,6 +58,12 @@ function App() {
         </Route>
         <Route path="/signIn">
           <AuthPage />
+        </Route>
+        <Route path="/press">
+          <PressPage />
+        </Route>
+        <Route path="/aboutus">
+          <AboutPage />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -134,7 +142,7 @@ function App() {
             : <div className={!!token ? classes.root : undefined}>
             <Suspense
               fallback={
-                <Backdrop className={classes.backdrop} open={true}>
+                <Backdrop className={classes.backdrop} open={false}>
                   <ScaleLoader color="#ffffff"/>
                 </Backdrop>
               }

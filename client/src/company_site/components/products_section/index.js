@@ -91,6 +91,7 @@ const ProductsSection = () => {
           // wrapperTag="ul"
           grabCursor={true}
           centeredSlides={true}
+          loop={true}
           breakpoints={{
             "500": {
               "slidesPerView": 1,

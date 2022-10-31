@@ -24,11 +24,9 @@ const Home = () => {
       <NavBar toggle={toggle}/>
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <HeroSection/>
-      <AboutSection/>
       <ProductsSection/>
       <GallerySection/>
       <AppsSection/>
-      <PressSection/>
       <ContactUsSection/>
       <Footer/>
     </React.Fragment>

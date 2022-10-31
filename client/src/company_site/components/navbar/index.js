@@ -7,6 +7,7 @@ import RsAppLogo from '../../images/rsLogo.png';
 import './navbar.css';
 import { withTheme } from '../../../util/theme';
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { Button } from '@material-ui/core';
 
 const NavBar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -40,9 +41,9 @@ const NavBar = ({ toggle }) => {
           </div>
           <ul id="nav-menu">
             <li className="nav-item">
-              <LinkS
+              <LinkR
                 className="nav-link"
-                to="about"
+                to="/aboutus"
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -50,7 +51,7 @@ const NavBar = ({ toggle }) => {
                 offset={-80}
               >
                 About Us
-              </LinkS>
+              </LinkR>
             </li>
             <li className="nav-item">
               <LinkS
@@ -92,9 +93,9 @@ const NavBar = ({ toggle }) => {
               </LinkS>
             </li>
             <li className="nav-item">
-              <LinkS
+              <LinkR
                 className="nav-link"
-                to="press"
+                to={"/press"}
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -102,7 +103,7 @@ const NavBar = ({ toggle }) => {
                 offset={-80}
               >
                 Press
-              </LinkS>
+              </LinkR>             
             </li>
             <li className="nav-item">
               <LinkS
@@ -119,6 +120,9 @@ const NavBar = ({ toggle }) => {
             </li>
           </ul>
           <div id="social-icons">
+            {/* <Button href="/contactus" variant='outlined' color='secondary'>
+              Book a demo
+            </Button> */}
             <a
               className="social-icon-link"
               href="https://www.facebook.com/Temirobosolutions"
