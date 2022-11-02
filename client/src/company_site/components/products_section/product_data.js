@@ -69,28 +69,28 @@ import TemiGoTrayPreview from '../../images/products/temi_Go\(tray\).png';
 
 const productData = [
   {
+    title: 'temi Platform',
+    description: 'Autonomous Mobile Robot',
+    cardImg: TemiPlatformPreview, 
+    demoVideo: '',
+    type: null,
+  },
+  {
     title: 'temi',
     description: 'Autonomous Service Robot',
     cardImg: TemiV3Preview, 
     demoVideo: '',
     type: null,
   },
+  // {
+  //   title: 'temi Go (Door)',
+  //   description: 'Autonomous Delivery Robot',
+  //   cardImg: TemiGoPreview, 
+  //   demoVideo: '',
+  //   type: null,
+  // },
   {
-    title: 'temi Platform',
-    description: 'Autonomous Mobility Platform',
-    cardImg: TemiPlatformPreview, 
-    demoVideo: '',
-    type: null,
-  },
-  {
-    title: 'temi Go (Door)',
-    description: 'Autonomous Delivery Robot',
-    cardImg: TemiGoPreview, 
-    demoVideo: '',
-    type: null,
-  },
-  {
-    title: 'temi Go (Tray)',
+    title: 'temi Go',
     description: 'Autonomous Delivery robot',
     cardImg: TemiGoTrayPreview, 
     demoVideo: '',

@@ -38,8 +38,12 @@ const ProductsSection = () => {
     toggleOpenModal(true);
   };
 
+  const [swiper, setSwiper] = useState(null);
+  const slideTo = (index) => {if (swiper) swiper.slideTo(index)};
+
   const onCardClick = (index) => {
     if (index !== currentCard) {
+      slideTo(index);
       return;
     }
     setCardExpanded(!isCardExpanded);
@@ -86,19 +90,32 @@ const ProductsSection = () => {
       </Typography>
       <div className="expanding-collection expanding-collection-initialized" >
         <Swiper
+          onSwiper={setSwiper}
+          initialSlide={1}
           id="swiper-list"
           // tag="section"
           // wrapperTag="ul"
-          grabCursor={true}
+          // grabCursor={true}
           centeredSlides={true}
-          loop={true}
+          // slidesPerView="auto"
           breakpoints={{
             "500": {
-              "slidesPerView": 1,
-              "spaceBetween": 10,
+              "slidesPerView": 1.2,
             },
-            "768": {
-              "slidesPerView": 2,
+            "650": {
+              "slidesPerView": 1.7,
+            },
+            "750": {
+              "slidesPerView": 1.9,
+            },
+            "800": {
+              "slidesPerView": 2.3,
+            },
+            "850": {
+              "slidesPerView": 2.8,
+            },
+            "920": {
+              "slidesPerView": 3.5,
             }
           }}
           // spaceBetween={10}

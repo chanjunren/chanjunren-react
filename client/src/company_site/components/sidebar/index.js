@@ -6,6 +6,7 @@ import {
   SidebarWrapper,
   SidebarMenu,
   SidebarLink,
+  SidebarRoute,
 } from './sidebar_elements.js';
 
 import './sidebar.css';
@@ -20,9 +21,9 @@ const SideBar = ({ toggle, isOpen }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="about" onClick={toggle}>
+          <SidebarRoute to="/aboutus" onClick={toggle}>
             About Us
-          </SidebarLink>
+          </SidebarRoute>
           <SidebarLink to="products" onClick={toggle}>
             Products
           </SidebarLink>
@@ -32,9 +33,9 @@ const SideBar = ({ toggle, isOpen }) => {
           <SidebarLink to="apps" onClick={toggle}>
             Apps
           </SidebarLink>
-          <SidebarLink to="press" onClick={toggle}>
+          <SidebarRoute to="/press" onClick={toggle}>
             Press
-          </SidebarLink>
+          </SidebarRoute>
           <SidebarLink to="contactUs" onClick={toggle}>
             Contact Us
           </SidebarLink>

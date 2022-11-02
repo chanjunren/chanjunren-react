@@ -43,12 +43,15 @@ const NavBar = ({ toggle }) => {
             <li className="nav-item">
               <LinkR
                 className="nav-link"
+                to="/"
+              >
+                Home
+              </LinkR>
+            </li>
+            <li className="nav-item">
+              <LinkR
+                className="nav-link"
                 to="/aboutus"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
               >
                 About Us
               </LinkR>

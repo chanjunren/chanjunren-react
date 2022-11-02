@@ -9,6 +9,7 @@ export const HeroContainer = styled.div`
     align-items: center;
     padding: 0 30px;
     height: 100vh;
+    max-height: 70vw;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -57,6 +58,7 @@ export const VideoBg = styled.video`
 export const HeroImg = styled.img`
     /* Set a specific height */
     height: 100%;
+    max-height: 70vw;
     // width: 100%;
     object-fit: cover;
 `;
