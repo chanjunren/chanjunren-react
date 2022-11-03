@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link as LinkR } from 'react-router-dom';
+import { Link as LinkR, NavLink } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { HashLink } from 'react-router-hash-link';
 import { animateScroll as scroll } from 'react-scroll';
 import RsAppLogo from '../../images/rsLogo.png';
 import './navbar.css';
 import { withTheme } from '../../../util/theme';
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import { Button } from '@material-ui/core';
 
 const NavBar = ({ toggle }) => {
-  const [scrollNav, setScrollNav] = useState(false);
+  const [scrollNav, setScrollNav] = useState(true);
 
   const navListener = () => {
     // if (window.scrollY >= 80) {
@@ -29,6 +29,14 @@ const NavBar = ({ toggle }) => {
     scroll.scrollToTop();
   };
 
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  }
+
+  const startFromTop = () => window.scrollTo(0,0);
+
   return (
     <React.Fragment>
       <nav className={`main-nav ${scrollNav && `main-nav-scrollNav`}`}>
@@ -44,21 +52,36 @@ const NavBar = ({ toggle }) => {
               <LinkR
                 className="nav-link"
                 to="/"
+                onClick={scrollToTopListener}
               >
                 Home
               </LinkR>
+              <LinkS
+              className="nav-link-background"
+              to="home"
+              spy={true}
+              exact="true"
+              offset={-80}>home</LinkS>
             </li>
             <li className="nav-item">
-              <LinkR
+              <NavLink
                 className="nav-link"
                 to="/aboutus"
+                onClick={startFromTop}
               >
                 About Us
-              </LinkR>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <LinkS
+              <HashLink
                 className="nav-link"
+                scroll={scrollWithOffset}
+                to="/#products"
+              >
+                Products
+              </HashLink>
+              <LinkS
+                className="nav-link-background"
                 to="products"
                 smooth={true}
                 duration={500}
@@ -70,8 +93,15 @@ const NavBar = ({ toggle }) => {
               </LinkS>
             </li>
             <li className="nav-item">
+              <HashLink
+                className='nav-link'
+                scroll={scrollWithOffset}
+                to="/#gallery"
+              >
+                Gallery
+              </HashLink>
               <LinkS
-                className="nav-link"
+                className="nav-link-background"
                 to="gallery"
                 smooth={true}
                 duration={500}
@@ -83,8 +113,15 @@ const NavBar = ({ toggle }) => {
               </LinkS>
             </li>
             <li className="nav-item">
+              <HashLink
+                className='nav-link'
+                scroll={scrollWithOffset}
+                to="/#apps"
+              >
+                Apps
+              </HashLink>
               <LinkS
-                className="nav-link"
+                className="nav-link-background"
                 to="apps"
                 smooth={true}
                 duration={500}
@@ -96,21 +133,24 @@ const NavBar = ({ toggle }) => {
               </LinkS>
             </li>
             <li className="nav-item">
-              <LinkR
+              <NavLink
                 className="nav-link"
                 to={"/press"}
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
+                onClick={startFromTop}
               >
                 Press
-              </LinkR>             
+              </NavLink>             
             </li>
             <li className="nav-item">
+              <HashLink
+                className='nav-link'
+                scroll={scrollWithOffset}
+                to="/#contactUs"
+              >
+                Contact Us
+              </HashLink>
               <LinkS
-                className="nav-link"
+                className="nav-link-background"
                 to="contactUs"
                 smooth={true}
                 duration={500}

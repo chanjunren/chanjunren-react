@@ -14,6 +14,18 @@ import './sidebar.css';
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 const SideBar = ({ toggle, isOpen }) => {
+  
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  }
+
+  const startFromTop = () => {
+    window.scrollTo(0,0);
+    toggle=false;
+  }
+
   return (
     <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>
@@ -21,25 +33,25 @@ const SideBar = ({ toggle, isOpen }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarRoute to="/" onClick={toggle}>
+          <SidebarLink to="/#home" onClick={toggle}>
             Home
-          </SidebarRoute>
-          <SidebarRoute to="/aboutus" onClick={toggle}>
+          </SidebarLink>
+          <SidebarRoute to="/aboutus" onClick={startFromTop}>
             About Us
           </SidebarRoute>
-          <SidebarLink to="products" onClick={toggle}>
+          <SidebarLink to="/#products" onClick={toggle} scroll={scrollWithOffset}>
             Products
           </SidebarLink>
-          <SidebarLink to="gallery" onClick={toggle}>
+          <SidebarLink to="/#gallery" onClick={toggle} scroll={scrollWithOffset}>
             Gallery
           </SidebarLink>
-          <SidebarLink to="apps" onClick={toggle}>
+          <SidebarLink to="/#apps" onClick={toggle} scroll={scrollWithOffset}>
             Apps
           </SidebarLink>
           <SidebarRoute to="/press" onClick={toggle}>
             Press
           </SidebarRoute>
-          <SidebarLink to="contactUs" onClick={toggle}>
+          <SidebarLink to="/#contactUs" onClick={toggle} scroll={scrollWithOffset}>
             Contact Us
           </SidebarLink>
         </SidebarMenu>
