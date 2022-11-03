@@ -31,7 +31,7 @@ const NavBar = ({ toggle }) => {
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80; 
+    const yOffset = -79; 
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
   }
 
