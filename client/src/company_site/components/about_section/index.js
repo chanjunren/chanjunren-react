@@ -45,7 +45,7 @@ const AboutSection = () => {
         </Grid>
       </Grid> */}
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.textContainer} item xs={12} sm={6}>
+        <Grid className={classes.textContainer} item xs={12} md={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
             <Typography variant="h3" className={classes.subHeader}>temi as a platform</Typography>
@@ -59,7 +59,7 @@ const AboutSection = () => {
             </Typography>
           </div>
         </Grid>
-        <Grid className={classes.imageContainer} style={imageBg2} item xs={12} sm={6}>
+        <Grid className={classes.imageContainer} style={imageBg2} item xs={12} md={6}>
         </Grid>
       </Grid>
       {/* <Grid className={classes.cardContainer} container item xs={12}>
@@ -78,9 +78,9 @@ const AboutSection = () => {
         </Grid>
       </Grid> */}
       <Grid className={classes.cardContainer} container item xs={12}>
-        <Grid className={classes.imageContainer} style={imageBg4} item xs={12} sm={6}>
+        <Grid className={classes.imageContainer} style={imageBg4} item xs={12} md={6}>
         </Grid>
-        <Grid className={classes.textContainer} item xs={12} sm={6}>
+        <Grid className={classes.textContainer} item xs={12} md={6}>
           <div>
             <Typography variant="h6" color="secondary" className={classes.header}>What We Provide</Typography>
             <Typography variant="h3" className={classes.subHeader}>One Stop Service</Typography>
