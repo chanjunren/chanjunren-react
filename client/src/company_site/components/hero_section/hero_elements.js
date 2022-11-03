@@ -58,7 +58,6 @@ export const VideoBg = styled.video`
 export const HeroImg = styled.img`
     /* Set a specific height */
     height: 100%;
-    max-height: 70vw;
     // width: 100%;
     object-fit: cover;
 `;

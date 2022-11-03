@@ -72,7 +72,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 export default function GalleryButtons(props) {
   const {onCardClick} = props;
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
       {galleryData.map((image, index) => (
         <ImageButton
           focusRipple
