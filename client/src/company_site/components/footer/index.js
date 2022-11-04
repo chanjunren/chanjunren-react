@@ -1,8 +1,9 @@
 import React from 'react';
 
 import './footer.css';
-import { Link as LinkS } from 'react-scroll';
 import Button from '@material-ui/core/Button';
+import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
+import MailIcon from '@material-ui/icons/Mail';
 
 const Footer = () => {
   return (
@@ -10,34 +11,28 @@ const Footer = () => {
       <div id="footer-wrapper">
         <div id="footer-links-container">
           <div className="footer-links-wrapper">
-            <div className="footer-link-items">
-              <h1 className="footer-link-title">RoboSolutions</h1>
-              <LinkS
-                className="footer-link"
-                to="about"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                About Us
-              </LinkS>
-              <LinkS className="footer-link" to="products">
-                Products
-              </LinkS>
-              <LinkS className="footer-link" to="gallery">
-                Gallery
-              </LinkS>
-              <LinkS className="footer-link" to="apps">
-                Applications
-              </LinkS>
-              <LinkS className="footer-link" to="press">
-                Press
-              </LinkS>
-              <LinkS className="footer-link" to="contactUs">
-                Contact Us
-              </LinkS>
+            <div className='footer-link-items'>
+              <h1 className="footer-link-title">About Us</h1>
+              <small>
+                We provide end-to-end services to deploy and manage fleets of temi(s) - 
+                installations, training, custom programming, add-on IoTs, maintenance and repairs.
+              </small>
+              <h1 className="footer-address">RoboSolutions Pte Ltd</h1>
+              <small>
+                10 Ubi Crescent #07-50 Ubi TechPark (Lobby C) Singapore 408564
+              </small>
+              <div>
+                <div className='footer-contact'>
+                  <MailIcon/>
+                  <a className='footer-email' href="mailto:enquiries@robosolutions.sg">
+                    enquiries@robosolutions.sg
+                  </a>
+                </div>
+                <div className='footer-contact'>
+                  <LocalPhoneIcon/>
+                  <small>+(65) 8303 2264</small>
+                </div>
+              </div>
             </div>
             <div className="footer-link-items">
               <h1 className="footer-link-title">temi</h1>
@@ -86,9 +81,6 @@ const Footer = () => {
         </div>
         <section id="social-media">
           <div id="social-media-wrap">
-            <LinkS to="/" id="social-logo">
-              RoboSolutions
-            </LinkS>
             <small id="website-rights">
               RoboSolutions © {new Date().getFullYear()} All Rights Reserved
             </small>
@@ -117,14 +109,14 @@ const Footer = () => {
               >
                 <FaLinkedin />
               </a>
-  </div>*/}
+              </div>*/}
+          </div>
             <nav className="nav-btn">
               <Button href="/signin" variant="outlined" color="secondary">
                 Company Portal
               </Button>
               {/* <LinkR className="nav-btn-link" to="/signin">Sign In</LinkR> */}
             </nav>
-          </div>
         </section>
       </div>
     </footer>
