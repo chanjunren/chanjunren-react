@@ -48,8 +48,8 @@ const SideBar = ({ toggle, isOpen }) => {
           <SidebarLink to="/#apps" onClick={toggle} scroll={scrollWithOffset}>
             Apps
           </SidebarLink>
-          <SidebarRoute to="/press" onClick={toggle}>
-            Press
+          <SidebarRoute to="/blog" onClick={toggle}>
+            Blog
           </SidebarRoute>
           <SidebarLink to="/#contactUs" onClick={toggle} scroll={scrollWithOffset}>
             Contact Us

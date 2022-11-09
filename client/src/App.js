@@ -11,9 +11,10 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import SplashScreen from './splashscreen';
 
 const AuthPage = React.lazy(() => import('./company_site/pages/auth_page'));
-const PressPage = React.lazy(() => import('./company_site/pages/press'));
+const BlogPage = React.lazy(() => import('./company_site/pages/press'));
 const AboutPage = React.lazy(() => import('./company_site/pages/about_us'));
 const Home = React.lazy(() => import('./company_site/pages/index'));
+const HospitalBlog = React.lazy(() => import('./company_site/components/blog_section/blogs/service-robots-in-singapore-hospitals'));
 const DashboardNav = React.lazy(() =>
   import('./app_manager/dashboard_nav/index'),
 );
@@ -59,11 +60,14 @@ function App() {
         <Route path="/signIn">
           <AuthPage />
         </Route>
-        <Route path="/press">
-          <PressPage />
+        <Route path="/blog" exact>
+          <BlogPage />
         </Route>
         <Route path="/aboutus">
           <AboutPage />
+        </Route>
+        <Route path="/blog/service-robots-in-singapore-hospitals">
+          <HospitalBlog/>
         </Route>
         <Redirect to="/" />
       </Switch>

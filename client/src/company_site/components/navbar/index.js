@@ -135,10 +135,10 @@ const NavBar = ({ toggle }) => {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to={"/press"}
+                to={"/blog"}
                 onClick={startFromTop}
               >
-                Press
+                Blog
               </NavLink>             
             </li>
             <li className="nav-item">
