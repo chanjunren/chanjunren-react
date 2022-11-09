@@ -21,7 +21,6 @@ export const useBlogCardStyles = makeStyles((theme) => ({
   blogButton: {
     display: 'flex',
     alignContent: 'center',
-    // maxHeight: '150px',
     borderRadius: '30px',
     textDecoration: 'none',
     backgroundColor: '#424242',
@@ -40,14 +39,10 @@ export const useBlogCardStyles = makeStyles((theme) => ({
   gradient: {
     overflow: 'hidden',
     maxWidth: '20vw',
-    // height: '120px'
   },
   blogImage: {
-    // height: '120px',
     width: '100%',
-    // left: '0',
     minHeight: '100%',
-    // height: '100%',
     objectFit: 'cover',
   },
   blogText: {

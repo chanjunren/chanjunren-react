@@ -39,6 +39,8 @@ const HospitalBlog = () => {
       <Typography className={blogStyles.blogText} style={{textAlign: 'center'}}>
       How service robots can improve healthcare services, patient/visitor experiences 
       and most importantly, operational productivity
+      <br/>
+      Published on 9 Nov 2022
       </Typography>
       <Typography className={blogStyles.blogHeader} variant='h4' color='secondary'>
         Why Singapore hospitals are using robots
@@ -195,6 +197,10 @@ const HospitalBlog = () => {
       their family members) coming into the ward and various important information about the 
       ward and their stay.  This will take a load off nurses who would otherwise have to go 
       through the information with each patient and their family members.
+      </Typography>
+      <Typography className={blogStyles.blogText} style={{fontStyle: 'italic', fontWeight: 'bold'}}>
+      Contact RoboSolutions Singapore on WhatsApp +(65) 8303-2264 to discuss how you can make 
+      use of temi in your work environment.
       </Typography>
     </div>
     <Footer/>
