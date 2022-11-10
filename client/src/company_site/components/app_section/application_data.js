@@ -43,7 +43,7 @@ export const applicationsData = [
     imageSrc: temiEyeIcon,
     title: 'TemiEye',
     description: 'A security application for temi robot with patrolling and live video feed capabilities. '+
-    'Create patrol routes from temi\'s saved locations and monitor from command centre.',
+    'Create patrol routes from temi\'s saved locations and monitor and record from command centre.',
     url: 'https://github.com/temideveloper/Rs-App-Guides/blob/master/TemiEye/preview.md'
   },
 ];

@@ -96,12 +96,7 @@ const HospitalBlog = () => {
       3. Tele-medicine, tele-pharmacist consultations and tele-social counselling
       </Typography>
       <div className={blogStyles.DoubleImageContainer}>
-        <div>
           <img className={blogStyles.doubleImage} src={Teleprescence} alt='temi Robot deliver medicine in Tan Tock Seng Hospital'/>
-        </div>
-        <div>
-          <img className={blogStyles.doubleImage} src={Teleprescence2} alt='Patients communicate with family using temi'/>
-        </div>
       </div>
       <Typography className={blogStyles.blogText} >
       temi(s) were used to conduct tele-consultations to minimise healthcare workers’ face-to-
