@@ -32,6 +32,9 @@ export const useBlogCardStyles = makeStyles((theme) => ({
       zIndex: 1,
       backgroundColor: '#000',
     },
+    '@media (max-width: 570px)': {
+      flexDirection: 'column',
+    }
   },
   blogItem: {
     width: '100%',
@@ -39,6 +42,9 @@ export const useBlogCardStyles = makeStyles((theme) => ({
   gradient: {
     overflow: 'hidden',
     maxWidth: '20vw',
+    '@media (max-width: 570px)': {
+      maxWidth: '100%',
+    }
   },
   blogImage: {
     width: '100%',
