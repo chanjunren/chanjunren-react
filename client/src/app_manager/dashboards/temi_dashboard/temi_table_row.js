@@ -34,7 +34,7 @@ const useRowStyles = makeStyles((theme) => ({
 }));
 
 const TemiRow = (props) => {
-  const { owner, serialNumber, id, applications, appMap, updateModalHandler, showDeleteModal } =
+  const { owner, serialNumber, id, applications, appMap, showUpdateModal, showDeleteModal } =
     props;
 
   const deleteEndpoint = `${process.env.REACT_APP_BACKEND_URL}/api/temis/${id}/`;
@@ -82,7 +82,7 @@ const TemiRow = (props) => {
               <div className={classes.controlPanel}>
                 <Button
                   className={classes.editButton}
-                  onClick={updateModalHandler}
+                  onClick={() => showUpdateModal(id, owner, serialNumber, applications)}
                 >
                   Edit
                 </Button>

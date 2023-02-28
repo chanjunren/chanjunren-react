@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import TemiRow from './temi_table_row';
 
 const TemiCollapsibleTable = (props) => {
-  const { units, applicationsMap, updateModalHandler, showDeleteModal } = props;
+  const { units, applicationsMap, showUpdateModal, showDeleteModal } = props;
   const [page, setPage] = React.useState(0);
   const [unitsPerPage, setUnitsPerPage] = React.useState(5);
 
@@ -44,7 +44,7 @@ const TemiCollapsibleTable = (props) => {
                     key={unit.serialNumber}
                     {...unit}
                     appMap={applicationsMap}
-                    updateModalHandler={updateModalHandler}
+                    showUpdateModal={showUpdateModal}
                     showDeleteModal={showDeleteModal}
                   />
                 );

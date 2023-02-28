@@ -70,6 +70,14 @@ const TemiDashboard = () => {
     toggleUpdateModal(!openUpdateModal);
   };
 
+  const showUpdateModal = (id, owner, serialNumber, applications) => {
+    console.log(id);
+    console.log(owner);
+    console.log(serialNumber);
+    console.log(applications);
+    toggleUpdateModal(true);
+  };
+
   const [openDeleteModal, toggleDeleteModal] = useState(false);
   const [deleteEndpoint, setDeleteEndpoint] = useState()
   const showDeleteModal = (link) => {
@@ -115,7 +123,7 @@ const TemiDashboard = () => {
         <TemiCollapsibleTable
           units={temiUnits}
           applicationsMap={appIdToNameMap}
-          updateModalHandler={updateModalHandler}
+          showUpdateModal={showUpdateModal}
           showDeleteModal={showDeleteModal}
         />
         <Button
