@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UpdateTemiModal(props) {
   const classes = useStyles();
-  const { openModal, modalHandler, appNameToIdMap, applications } = props;
+  const { updateModal, modalHandler, appNameToIdMap, applications, editId, editOwner, editSerialNumber, editApplications } = props;
   const [formState, formInputHandler] = useForm({
     ownerTextField: {
       value: '',
@@ -104,7 +104,7 @@ export default function UpdateTemiModal(props) {
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       className={classes.modal}
-      open={openModal}
+      open={updateModal}
       onClose={modalHandler}
       closeAfterTransition
       BackdropComponent={Backdrop}
@@ -112,7 +112,7 @@ export default function UpdateTemiModal(props) {
         timeout: 500,
       }}
     >
-      <Fade in={openModal}>
+      <Fade in={updateModal}>
         <form>
           <Grid className={classes.paper} container direction='column' spacing={1}>
             <Grid item>

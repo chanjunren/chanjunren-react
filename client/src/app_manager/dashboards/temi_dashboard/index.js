@@ -66,20 +66,24 @@ const TemiDashboard = () => {
   };
 
   const [openUpdateModal, toggleUpdateModal] = useState(false);
+  const [editId, setEditId] = useState();
+  const [editOwner, setEditOwner] = useState();
+  const [editSerialNumber, setEditSerialNumber] = useState();
+  const [editApplications, setEditApplications] = useState();
   const updateModalHandler = (event) => {
     toggleUpdateModal(!openUpdateModal);
   };
 
   const showUpdateModal = (id, owner, serialNumber, applications) => {
-    console.log(id);
-    console.log(owner);
-    console.log(serialNumber);
-    console.log(applications);
+    setEditId(id);
+    setEditOwner(owner);
+    setEditSerialNumber(serialNumber);
+    setEditApplications(applications);
     toggleUpdateModal(true);
   };
 
   const [openDeleteModal, toggleDeleteModal] = useState(false);
-  const [deleteEndpoint, setDeleteEndpoint] = useState()
+  const [deleteEndpoint, setDeleteEndpoint] = useState();
   const showDeleteModal = (link) => {
     toggleDeleteModal(true);
     setDeleteEndpoint(link);
@@ -107,10 +111,14 @@ const TemiDashboard = () => {
         applications={applications.map((app) => app.name)}
       />
       <UpdateTemiModal
-        openModal={openUpdateModal}
+        updateModal={openUpdateModal}
         modalHandler={updateModalHandler}
         appNameToIdMap={appNameToIdMap}
         applications={applications.map((app) => app.name)}
+        editId={editId}
+        editOwner={editOwner}
+        editSerialNumber={editSerialNumber}
+        editApplications={editApplications}
       />
       <DeleteModal
         openModal={openDeleteModal}
