@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import CreateTemiModal from './create_temi_modal';
+import UpdateTemiModal from './update_temi_modal';
 import DeleteModal from '../shared/delete_modal';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
@@ -38,7 +39,7 @@ const TemiDashboard = () => {
     clearError,
   } = useContext(DataContext);
 
-  const {token} = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     fetchTemiUnits(token);
@@ -62,6 +63,11 @@ const TemiDashboard = () => {
   const [openCreateModal, toggleCreateModal] = useState(false);
   const createModalHandler = (event) => {
     toggleCreateModal(!openCreateModal);
+  };
+
+  const [openUpdateModal, toggleUpdateModal] = useState(false);
+  const updateModalHandler = (event) => {
+    toggleUpdateModal(!openUpdateModal);
   };
 
   const [openDeleteModal, toggleDeleteModal] = useState(false);
@@ -92,6 +98,12 @@ const TemiDashboard = () => {
         appNameToIdMap={appNameToIdMap}
         applications={applications.map((app) => app.name)}
       />
+      <UpdateTemiModal
+        openModal={openUpdateModal}
+        modalHandler={updateModalHandler}
+        appNameToIdMap={appNameToIdMap}
+        applications={applications.map((app) => app.name)}
+      />
       <DeleteModal
         openModal={openDeleteModal}
         hideDeleteModal={hideDeleteModal}
@@ -103,10 +115,11 @@ const TemiDashboard = () => {
         <TemiCollapsibleTable
           units={temiUnits}
           applicationsMap={appIdToNameMap}
+          updateModalHandler={updateModalHandler}
           showDeleteModal={showDeleteModal}
         />
         <Button
-        className={classes.addTemiButton}
+          className={classes.addTemiButton}
           variant="outlined"
           size="medium"
           color="secondary"
