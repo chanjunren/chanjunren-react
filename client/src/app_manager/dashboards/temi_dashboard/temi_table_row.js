@@ -79,6 +79,14 @@ const TemiRow = (props) => {
                   Delete
                 </Button>
               </div>
+              <div className={classes.controlPanel}>
+                <Button
+                  className={classes.editButton}
+                  onClick={() => console.log('edit')}
+                >
+                  Edit
+                </Button>
+              </div>
               {/* <Chips/> */}
             </Box>
           </Collapse>
