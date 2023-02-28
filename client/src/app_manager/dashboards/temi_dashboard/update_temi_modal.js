@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 import useForm from '../../../shared/hooks/form_hook';
-import { VALIDATOR_REQUIRE } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
@@ -38,43 +37,26 @@ export default function UpdateTemiModal(props) {
   const classes = useStyles();
   const { updateModal, modalHandler, appNameToIdMap, applications, editId, editOwner, editSerialNumber, editApplications } = props;
   const [formState, formInputHandler] = useForm({
-    ownerTextField: {
-      value: '',
-      isValid: false,
-    },
-    serialNumberTextField: {
-      value: '',
-      isValid: false,
-    },
     applications: {
       value: [],
       isValid: true,
     },
   });
 
-  const onOwnerInput = (event) => {
-    const ownerValidators = [VALIDATOR_REQUIRE()];
-    formInputHandler(event.target.id, event.target.value, ownerValidators);
-  };
-
-  const onSerialNumberInput = (event) => {
-    const serialNumberValidators = [VALIDATOR_REQUIRE()];
-    formInputHandler(
-      event.target.id,
-      event.target.value,
-      serialNumberValidators,
-    );
-  };
-
   const setSelectedUnits = (selectedUnits) => {
     formInputHandler('applications', selectedUnits, []);
   };
+
+  // populate form with current setting
+  useEffect(() => {
+    if (editApplications.length != 0) setSelectedUnits(editApplications);
+  }, [editApplications]);
 
   const dataContext = useContext(DataContext);
   const authContext = useContext(AuthContext);
   const { sendRequest } = dataContext;
 
-  const addNewUnit = async () => {
+  const updateUnit = async () => {
     if (formState.isFormValid) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
@@ -117,24 +99,28 @@ export default function UpdateTemiModal(props) {
           <Grid className={classes.paper} container direction='column' spacing={1}>
             <Grid item>
               <TextField
-                error={!formState.inputs.ownerTextField.isValid}
                 id="ownerTextField"
                 className={classes.textField}
                 label="Owner"
                 variant="outlined"
-                onInput={onOwnerInput}
                 color="secondary"
+                defaultValue={editOwner}
+                InputProps={{
+                  readOnly: true,
+                }}
               />
             </Grid>
             <Grid item>
               <TextField
-                error={!formState.inputs.serialNumberTextField.isValid}
                 id="serialNumberTextField"
                 className={classes.textField}
                 label="Serial Number"
                 variant="outlined"
-                onInput={onSerialNumberInput}
                 color="secondary"
+                defaultValue={editSerialNumber}
+                InputProps={{
+                  readOnly: true,
+                }}
               />
             </Grid>
             <Grid item>
@@ -153,10 +139,10 @@ export default function UpdateTemiModal(props) {
                 </Button>
                 <Button
                   color="secondary"
-                  onClick={addNewUnit}
+                  onClick={updateUnit}
                   disabled={!formState.isFormValid}
                 >
-                  Add
+                  Update
                 </Button>
               </div>
             </Grid>

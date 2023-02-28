@@ -69,7 +69,7 @@ const TemiDashboard = () => {
   const [editId, setEditId] = useState();
   const [editOwner, setEditOwner] = useState();
   const [editSerialNumber, setEditSerialNumber] = useState();
-  const [editApplications, setEditApplications] = useState();
+  const [editApplications, setEditApplications] = useState([]);
   const updateModalHandler = (event) => {
     toggleUpdateModal(!openUpdateModal);
   };
@@ -118,7 +118,7 @@ const TemiDashboard = () => {
         editId={editId}
         editOwner={editOwner}
         editSerialNumber={editSerialNumber}
-        editApplications={editApplications}
+        editApplications={editApplications.map((appId) => appIdToNameMap[appId])}
       />
       <DeleteModal
         openModal={openDeleteModal}
