@@ -66,7 +66,7 @@ const TemiDashboard = () => {
   };
 
   const [openUpdateModal, toggleUpdateModal] = useState(false);
-  const [editId, setEditId] = useState();
+  const [apiEndPoint, setApiEndPoint] = useState();
   const [editOwner, setEditOwner] = useState();
   const [editSerialNumber, setEditSerialNumber] = useState();
   const [editApplications, setEditApplications] = useState([]);
@@ -74,8 +74,8 @@ const TemiDashboard = () => {
     toggleUpdateModal(!openUpdateModal);
   };
 
-  const showUpdateModal = (id, owner, serialNumber, applications) => {
-    setEditId(id);
+  const showUpdateModal = (apiEndpoint, owner, serialNumber, applications) => {
+    setApiEndPoint(apiEndpoint);
     setEditOwner(owner);
     setEditSerialNumber(serialNumber);
     setEditApplications(applications);
@@ -115,7 +115,7 @@ const TemiDashboard = () => {
         modalHandler={updateModalHandler}
         appNameToIdMap={appNameToIdMap}
         applications={applications.map((app) => app.name)}
-        editId={editId}
+        editEndpoint={apiEndPoint}
         editOwner={editOwner}
         editSerialNumber={editSerialNumber}
         editApplications={editApplications.map((appId) => appIdToNameMap[appId])}

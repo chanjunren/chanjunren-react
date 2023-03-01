@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UpdateTemiModal(props) {
   const classes = useStyles();
-  const { updateModal, modalHandler, appNameToIdMap, applications, editId, editOwner, editSerialNumber, editApplications } = props;
+  const { updateModal, modalHandler, appNameToIdMap, applications, editEndpoint, editOwner, editSerialNumber, editApplications } = props;
   const [formState, formInputHandler] = useForm({
     applications: {
       value: [],
