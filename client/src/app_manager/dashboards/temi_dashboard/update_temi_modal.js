@@ -47,10 +47,12 @@ export default function UpdateTemiModal(props) {
     formInputHandler('applications', selectedUnits, []);
   };
 
-  // when update button is clicked, the useEffect below is called a few times and the modal shows the initial applications picked
-  // although data are updated correctly, the wrong ui may be misleading
-  // this boolean param prevents any updates when update button is clicked
-  // used in updateUnit() method below
+  /*
+    when update button is clicked, the useEffect below is called a few times and the modal shows the initial applications picked
+    although data are updated correctly, the wrong ui may be misleading
+    this boolean param prevents any updates when update button is clicked
+    used in updateUnit() method below
+  */
   const [isNotUpdated, setNotUpdated] = useState(true);
 
   // populate form with current setting
