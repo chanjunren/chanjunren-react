@@ -5,24 +5,24 @@ import Typography from '@material-ui/core/Typography';
 
 import AboutSectionStyles from './about_us_styles';
 
-import AboutBackground1 from '../../images/about_section/about_bg_1.jpg';
+// import AboutBackground1 from '../../images/about_section/about_bg_1.jpg';
 import AboutBackground2 from '../../images/about_section/about_bg_2.jpg';
-import AboutBackground3 from '../../images/about_section/about_bg_3.jpg';
+// import AboutBackground3 from '../../images/about_section/about_bg_3.jpg';
 import AboutBackground4 from '../../images/about_section/about_bg_4.jpg';
 
 
 const AboutSection = () => {
   const classes = AboutSectionStyles();
 
-  const imageBg1 = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground1})`,
-  }
+  // const imageBg1 = {
+  //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground1})`,
+  // }
   const imageBg2 = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground2})`,
   }
-  const imageBg3 = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground3})`,
-  }
+  // const imageBg3 = {
+  //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground3})`,
+  // }
   const imageBg4 = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${AboutBackground4})`,
   }
@@ -50,12 +50,12 @@ const AboutSection = () => {
             <Typography variant="h6" color="secondary" className={classes.header}>Everyday Robotics</Typography>
             <Typography variant="h3" className={classes.subHeader}>temi as a platform</Typography>
             <Typography variant="body1" className={classes.bodyText}>
-            RoboSolution's flagship product, temi, is a versatile AI powered service 
-            robot that brings to live robotic services such as concierge, tour/showroom guide, 
-            roving announcer, nursing assistant, tele-consultation, video educator, autonomous 
-            delivery and many more. Its intuitive web-based fleet management platform allows 
-            business users to easily program (without coding) their desired  user interfaces and 
-            customer experiences.
+              RoboSolution's flagship product, temi, is a versatile AI powered service
+              robot that brings to live robotic services such as concierge, tour/showroom guide,
+              roving announcer, nursing assistant, tele-consultation, video educator, autonomous
+              delivery and many more. Its intuitive web-based fleet management platform allows
+              business users to easily program (without coding) their desired  user interfaces and
+              customer experiences.
             </Typography>
           </div>
         </Grid>
@@ -85,10 +85,10 @@ const AboutSection = () => {
             <Typography variant="h6" color="secondary" className={classes.header}>What We Provide</Typography>
             <Typography variant="h3" className={classes.subHeader}>One Stop Service</Typography>
             <Typography variant="body1" className={classes.bodyText}>
-            We provide end-to-end services to deploy and manage fleets of temi(s) – 
-            from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.<br/>
-            <br/>
-            Request for a demo. Reimagine, redefine, re-envision your services with temi service robots.
+              We provide end-to-end services to deploy and manage fleets of temi(s) –
+              from installations, training, custom programming, add-on IoTs  to  maintenance and repairs.<br />
+              <br />
+              Request for a demo. Reimagine, redefine, re-envision your services with temi service robots.
             </Typography>
           </div>
         </Grid>

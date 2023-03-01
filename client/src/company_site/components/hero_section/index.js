@@ -1,5 +1,5 @@
 import React from 'react';
-import getS3AssetUrl from '../../../util/aws_url_generator';
+// import getS3AssetUrl from '../../../util/aws_url_generator';
 import RsAppLogo from '../../images/temi.jpg';
 
 // import Video from '../../videos/homeVideo.mp4';
@@ -7,7 +7,7 @@ import RsAppLogo from '../../images/temi.jpg';
 import {
   HeroContainer,
   HeroBg,
-  VideoBg,
+  // VideoBg,
   HeroImg,
   // HeroContent,
   // HeroH1,
@@ -24,7 +24,7 @@ const HeroSection = () => {
   //   setHover(!hover);
   // };
 
-  const videoUrl = getS3AssetUrl('homeVideo.mp4');
+  // const videoUrl = getS3AssetUrl('homeVideo.mp4');
 
   return (
     <HeroContainer id="home">
@@ -39,7 +39,7 @@ const HeroSection = () => {
             type='video/mp4'
           />
         </VideoBg> */}
-        <HeroImg src={RsAppLogo} alt='temi products'/>
+        <HeroImg src={RsAppLogo} alt='temi products' />
       </HeroBg>
       {/* <HeroContent>
         <HeroH1>Your Personal Robot Assistant</HeroH1>
