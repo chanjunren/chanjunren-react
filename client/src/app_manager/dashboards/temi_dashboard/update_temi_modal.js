@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -47,9 +47,15 @@ export default function UpdateTemiModal(props) {
     formInputHandler('applications', selectedUnits, []);
   };
 
+  // when update button is clicked, the useEffect below is called a few times and the modal shows the initial applications picked
+  // although data are updated correctly, the wrong ui may be misleading
+  // this boolean param prevents any updates when update button is clicked
+  // used in updateUnit() method below
+  const [isNotUpdated, setNotUpdated] = useState(true);
+
   // populate form with current setting
   useEffect(() => {
-    if (editApplications.length != 0) setSelectedUnits(editApplications);
+    if (isNotUpdated && editApplications.length !== 0) setSelectedUnits(editApplications);
   }, [editApplications]);
 
   const dataContext = useContext(DataContext);
@@ -58,9 +64,8 @@ export default function UpdateTemiModal(props) {
 
   const updateUnit = async () => {
     if (formState.isFormValid) {
-      const selectedIds = formState.inputs.applications.value.map((appName) => {
-        return appNameToIdMap[appName];
-      });
+      setNotUpdated(false); // prevent update here
+      const selectedIds = formState.inputs.applications.value.map((appName) => appNameToIdMap[appName]);
 
       await sendRequest(
         editEndpoint, 'PATCH',
@@ -78,6 +83,7 @@ export default function UpdateTemiModal(props) {
 
       // To update the page
       dataContext.fetchTemiUnits(authContext.token);
+      setNotUpdated(true); // allow update when everything is done
     }
   };
 
