@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import CustomisedSnackBar from '../../../shared/components/snackbar';
 import DataContext from '../../shared/data_context';
 import CreateTemiModal from './create_temi_modal';
+import UpdateTemiModal from './update_temi_modal';
 import DeleteModal from '../shared/delete_modal';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
 
@@ -38,7 +39,7 @@ const TemiDashboard = () => {
     clearError,
   } = useContext(DataContext);
 
-  const {token} = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     fetchTemiUnits(token);
@@ -64,11 +65,27 @@ const TemiDashboard = () => {
     toggleCreateModal(!openCreateModal);
   };
 
+  const [openUpdateModal, toggleUpdateModal] = useState(false);
+  const [apiEndPoint, setApiEndPoint] = useState();
+  const [editOwner, setEditOwner] = useState();
+  const [editSerialNumber, setEditSerialNumber] = useState();
+  const [editApplications, setEditApplications] = useState([]);
+  const updateModalHandler = (event) => {
+    toggleUpdateModal(!openUpdateModal);
+  };
+
+  const showUpdateModal = (apiEndpoint, owner, serialNumber, applications) => {
+    setApiEndPoint(apiEndpoint);
+    setEditOwner(owner);
+    setEditSerialNumber(serialNumber);
+    setEditApplications(applications);
+    toggleUpdateModal(true);
+  };
+
   const [openDeleteModal, toggleDeleteModal] = useState(false);
-  const [deleteEndpoint, setDeleteEndpoint] = useState()
-  const showDeleteModal = (link) => {
+  const showDeleteModal = (apiEndpoint) => {
     toggleDeleteModal(true);
-    setDeleteEndpoint(link);
+    setApiEndPoint(apiEndpoint);
   };
 
   const hideDeleteModal = (event) => {
@@ -92,10 +109,20 @@ const TemiDashboard = () => {
         appNameToIdMap={appNameToIdMap}
         applications={applications.map((app) => app.name)}
       />
+      <UpdateTemiModal
+        updateModal={openUpdateModal}
+        modalHandler={updateModalHandler}
+        appNameToIdMap={appNameToIdMap}
+        applications={applications.map((app) => app.name)}
+        editEndpoint={apiEndPoint}
+        editOwner={editOwner}
+        editSerialNumber={editSerialNumber}
+        editApplications={editApplications.map((appId) => appIdToNameMap[appId])}
+      />
       <DeleteModal
         openModal={openDeleteModal}
         hideDeleteModal={hideDeleteModal}
-        deleteEndpoint={deleteEndpoint}
+        deleteEndpoint={apiEndPoint}
         deleteMessage="Are you sure you want to delete this unit?"
         deleteTemiUnit
       />
@@ -103,10 +130,11 @@ const TemiDashboard = () => {
         <TemiCollapsibleTable
           units={temiUnits}
           applicationsMap={appIdToNameMap}
+          showUpdateModal={showUpdateModal}
           showDeleteModal={showDeleteModal}
         />
         <Button
-        className={classes.addTemiButton}
+          className={classes.addTemiButton}
           variant="outlined"
           size="medium"
           color="secondary"
