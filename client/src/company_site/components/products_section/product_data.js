@@ -1,26 +1,26 @@
-import TemiPreview from '../../images/products/temi.png';
+// import TemiPreview from '../../images/products/temi.png';
 
-import SteamiPreview from '../../images/products/steami_preview.png';
+// import SteamiPreview from '../../images/products/steami_preview.png';
 // import SteamiDemo from '../../images/products/steami_demo.mp4';
 
-import SnapFitPreview from '../../images/products/snap_fit_tray_preview.png';
+// import SnapFitPreview from '../../images/products/snap_fit_tray_preview.png';
 // import SnapFitDemo from '../../images/products/snap_fit_tray_demo.mp4';
 
-import PesGuardPreview from '../../images/products/pes_guard_preview.png';
+// import PesGuardPreview from '../../images/products/pes_guard_preview.png';
 // import PesGuardDemo from '../../images/products/pes_guard_demo.mp4';
 
-import IaqXPreview from '../../images/products/iaq_x_preview.png';
+// import IaqXPreview from '../../images/products/iaq_x_preview.png';
 // import IaqXDemo from '../../images/products/iaq_x_demo.mp4';
 
-import TrayRunnerPreview from '../../images/products/tray_runner_preview.png';
+// import TrayRunnerPreview from '../../images/products/tray_runner_preview.png';
 // import TrayRunnerDemo from '../../images/products/tray_runner_demo.mp4';
 
-import getS3AssetUrl from '../../../util/aws_url_generator';
+// import getS3AssetUrl from '../../../util/aws_url_generator';
 
 import TemiV3Preview from '../../images/products/temiV3.png';
 import TemiPlatformPreview from '../../images/products/temi_Platform.png';
-import TemiGoPreview from '../../images/products/temi_Go.png';
-import TemiGoTrayPreview from '../../images/products/temi_Go\(tray\).png';
+// import TemiGoPreview from '../../images/products/temi_Go.png';
+import TemiGoTrayPreview from '../../images/products/temi_Go(tray).png';
 
 // const productData = [
 //   {
@@ -71,14 +71,14 @@ const productData = [
   {
     title: 'temi Platform',
     description: 'Autonomous Mobile Robot',
-    cardImg: TemiPlatformPreview, 
+    cardImg: TemiPlatformPreview,
     demoVideo: '',
     type: null,
   },
   {
     title: 'temi',
     description: 'Autonomous Service Robot',
-    cardImg: TemiV3Preview, 
+    cardImg: TemiV3Preview,
     demoVideo: '',
     type: null,
   },
@@ -92,7 +92,7 @@ const productData = [
   {
     title: 'temi Go',
     description: 'Autonomous Delivery robot',
-    cardImg: TemiGoTrayPreview, 
+    cardImg: TemiGoTrayPreview,
     demoVideo: '',
     type: null,
   }
