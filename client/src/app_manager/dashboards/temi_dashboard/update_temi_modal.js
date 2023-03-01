@@ -61,12 +61,12 @@ export default function UpdateTemiModal(props) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
+
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/temis/`,
-        'POST',
+        editEndpoint, 'PATCH',
         JSON.stringify({
-          owner: formState.inputs.ownerTextField.value,
-          serialNumber: formState.inputs.serialNumberTextField.value,
+          owner: editOwner,
+          serialNumber: editSerialNumber,
           applications: selectedIds,
         }),
         {
