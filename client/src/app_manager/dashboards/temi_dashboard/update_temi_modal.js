@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 import useForm from '../../../shared/hooks/form_hook';
+import { VALIDATOR_REQUIRE } from '../../../util/form_validators';
 import DataContext from '../../shared/data_context';
 import SelectUnits from '../shared/select_units';
 import { AuthContext } from '../../../company_site/components/shared/auth_context';
@@ -37,11 +38,20 @@ export default function UpdateTemiModal(props) {
   const classes = useStyles();
   const { updateModal, modalHandler, appNameToIdMap, applications, editEndpoint, editOwner, editSerialNumber, editApplications } = props;
   const [formState, formInputHandler] = useForm({
+    ownerTextField: {
+      value: '',
+      isValid: true,
+    },
     applications: {
       value: [],
       isValid: true,
     },
   });
+
+  const onOwnerInput = (event) => {
+    const ownerValidators = [VALIDATOR_REQUIRE()];
+    formInputHandler('ownerTextField', event.target.value, ownerValidators);
+  };
 
   const setSelectedUnits = (selectedUnits) => {
     formInputHandler('applications', selectedUnits, []);
@@ -72,7 +82,7 @@ export default function UpdateTemiModal(props) {
       await sendRequest(
         editEndpoint, 'PATCH',
         JSON.stringify({
-          owner: editOwner,
+          owner: formState.inputs.ownerTextField.value,
           serialNumber: editSerialNumber,
           applications: selectedIds,
         }),
@@ -107,15 +117,14 @@ export default function UpdateTemiModal(props) {
           <Grid className={classes.paper} container direction='column' spacing={1}>
             <Grid item>
               <TextField
+                error={!formState.inputs.ownerTextField.isValid}
                 id="ownerTextField"
                 className={classes.textField}
                 label="Owner"
                 variant="outlined"
+                onInput={onOwnerInput}
                 color="secondary"
                 defaultValue={editOwner}
-                InputProps={{
-                  readOnly: true,
-                }}
               />
             </Grid>
             <Grid item>
