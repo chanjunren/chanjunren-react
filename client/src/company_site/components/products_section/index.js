@@ -58,7 +58,6 @@ const ProductsSection = () => {
     return (
       <SwiperSlide tag="div" key={`slider-slide-${index}`}>
         <ProductCard
-          index={index}
           cardImg={item.cardImg}
           title={item.title}
           description={item.description}
