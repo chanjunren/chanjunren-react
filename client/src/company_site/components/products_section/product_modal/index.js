@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductModal(props) {
   const classes = useStyles();
-  const { openModal, modalHandler, resourceData } = props;
+  const { openModal, modalHandler, pdfFile } = props;
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -55,16 +55,9 @@ export default function ProductModal(props) {
     >
       <Fade in={openModal}>
         <div className={classes.modalContent}>
-          <ReactPlayer
-            className={classes.resource}
-            controls
-            playing
-            url={resourceData}
-          />
+          {pdfFile}
           <Button className={classes.exitButton} onClick={modalHandler}>Exit</Button>
-
         </div>
-        
       </Fade>
     </Modal>
   );

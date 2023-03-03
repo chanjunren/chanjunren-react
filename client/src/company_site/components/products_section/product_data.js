@@ -22,6 +22,10 @@ import TemiPlatformPreview from '../../images/products/temi_Platform.png';
 // import TemiGoPreview from '../../images/products/temi_Go.png';
 import TemiGoTrayPreview from '../../images/products/temi_Go(tray).png';
 
+import TemiV3Pdf from './pdf_files/tmp.pdf';
+import TemiPlatformPdf from './pdf_files/tmp.pdf';
+import TemiGoTrayPdf from './pdf_files/sample.pdf';
+
 // const productData = [
 //   {
 //     title: 'temi',
@@ -72,14 +76,14 @@ const productData = [
     title: 'temi Platform',
     description: 'Autonomous Mobile Robot',
     cardImg: TemiPlatformPreview,
-    demoVideo: '',
+    pdfFile: TemiPlatformPdf,
     type: null,
   },
   {
     title: 'temi',
     description: 'Autonomous Service Robot',
     cardImg: TemiV3Preview,
-    demoVideo: '',
+    pdfFile: TemiV3Pdf,
     type: null,
   },
   // {
@@ -93,7 +97,7 @@ const productData = [
     title: 'temi Go',
     description: 'Autonomous Delivery robot',
     cardImg: TemiGoTrayPreview,
-    demoVideo: '',
+    pdfFile: TemiGoTrayPdf,
     type: null,
   }
 ]
