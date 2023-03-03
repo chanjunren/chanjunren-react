@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
   modalContent: {
     display: 'grid',
     alignItems: 'center',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    width: '80%',
+    height: '200%',
   },
   exitButton: {
     marginTop: '10px',
@@ -53,7 +55,7 @@ export default function ProductModal(props) {
     >
       <Fade in={openModal}>
         <div className={classes.modalContent}>
-          <iframe src={pdfFile} title='Specs' height="100%" width="100%" />
+          <iframe src={`${pdfFile}#view=fitH`} title='Specs' height="100%" width="100%" />
         </div>
       </Fade>
     </Modal>
