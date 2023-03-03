@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import ReactPlayer from 'react-player';
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   productModal: {
@@ -30,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
   modalContent: {
     display: 'grid',
     alignItems: 'center',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    width: '80%',
+    height: '200%',
   },
   exitButton: {
     marginTop: '10px',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductModal(props) {
   const classes = useStyles();
-  const { openModal, modalHandler, resourceData } = props;
+  const { openModal, modalHandler, pdfFile } = props;
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -55,16 +55,8 @@ export default function ProductModal(props) {
     >
       <Fade in={openModal}>
         <div className={classes.modalContent}>
-          <ReactPlayer
-            className={classes.resource}
-            controls
-            playing
-            url={resourceData}
-          />
-          <Button className={classes.exitButton} onClick={modalHandler}>Exit</Button>
-
+          <iframe src={`${pdfFile}#view=fitH`} title='Specs' height="100%" width="100%" />
         </div>
-        
       </Fade>
     </Modal>
   );

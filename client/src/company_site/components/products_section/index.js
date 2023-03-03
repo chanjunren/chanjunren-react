@@ -16,30 +16,30 @@ const ProductsSection = () => {
   const psClasses = psStyle();
 
   const [openModal, toggleOpenModal] = useState(false);
-  
+
   const modalHandler = (event) => {
     toggleOpenModal(!openModal);
   };
 
   const [selectedProduct, setProductIdx] = useState(-1);
-  const resourceMap = {};
 
   // For keeping track of expanded card and ensuring that
   // only 1 card can be expanded
   const [currentCard, setCurrentCard] = useState(0);
   const [isCardExpanded, setCardExpanded] = useState(false);
 
+  const pdfMap = {};
   for (var i = 0; i < productData.length; i++) {
-    resourceMap[i] = productData[i].demoVideo;
+    pdfMap[i] = productData[i].pdfFile;
   }
-    
+
   const openProductModal = (index) => {
     setProductIdx(index);
     toggleOpenModal(true);
   };
 
   const [swiper, setSwiper] = useState(null);
-  const slideTo = (index) => {if (swiper) swiper.slideTo(index)};
+  const slideTo = (index) => { if (swiper) swiper.slideTo(index) };
 
   const onCardClick = (index) => {
     if (index !== currentCard) {
@@ -58,7 +58,6 @@ const ProductsSection = () => {
     return (
       <SwiperSlide tag="div" key={`slider-slide-${index}`}>
         <ProductCard
-          index={index}
           cardImg={item.cardImg}
           title={item.title}
           description={item.description}
@@ -76,7 +75,7 @@ const ProductsSection = () => {
   return (
     <div id="products" className={psClasses.productRoot}  >
       <ProductModal
-        resourceData={resourceMap[selectedProduct]}
+        pdfFile={pdfMap[selectedProduct]}
         modalHandler={modalHandler}
         openModal={openModal}
       />
@@ -84,7 +83,7 @@ const ProductsSection = () => {
         open={snackbarOpen}
         handleClose={() => setSnackbarOpen(false)}
       />
-      
+
       <Typography className={psClasses.sectionHeader} variant="h4" component="h4" color="primary" >
         Our Products
       </Typography>
@@ -125,12 +124,12 @@ const ProductsSection = () => {
             modifier: 1,
             slideShadows: true,
           }}
-          onSlideChange={(event) => { setCurrentCard(event.realIndex);}}
+          onSlideChange={(event) => { setCurrentCard(event.realIndex); }}
         >
           {products}
         </Swiper>
       </div>
-      
+
     </div>
   );
 };
