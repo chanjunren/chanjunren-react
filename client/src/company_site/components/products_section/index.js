@@ -15,11 +15,8 @@ import ProductSnackbar from './product_snackbar';
 const ProductsSection = () => {
   const psClasses = psStyle();
 
-  const [openModal, toggleOpenModal] = useState(false);
-
-  const modalHandler = (event) => {
-    toggleOpenModal(!openModal);
-  };
+  const [openModal, setModalVisibility] = useState(false);
+  const closeProductModal = () => setModalVisibility(false);
 
   const [selectedProduct, setProductIdx] = useState(-1);
 
@@ -35,7 +32,7 @@ const ProductsSection = () => {
 
   const openProductModal = (index) => {
     setProductIdx(index);
-    toggleOpenModal(true);
+    setModalVisibility(true);
   };
 
   const [swiper, setSwiper] = useState(null);
@@ -76,7 +73,7 @@ const ProductsSection = () => {
     <div id="products" className={psClasses.productRoot}  >
       <ProductModal
         pdfFile={pdfMap[selectedProduct]}
-        modalHandler={modalHandler}
+        closeModal={closeProductModal}
         openModal={openModal}
       />
       <ProductSnackbar

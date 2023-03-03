@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -39,14 +38,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductModal(props) {
   const classes = useStyles();
-  const { openModal, modalHandler, pdfFile } = props;
+  const { openModal, closeModal, pdfFile } = props;
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       className={classes.productModal}
       open={openModal}
-      onClose={modalHandler}
+      onClose={closeModal}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
