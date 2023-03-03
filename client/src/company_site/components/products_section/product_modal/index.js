@@ -55,8 +55,7 @@ export default function ProductModal(props) {
     >
       <Fade in={openModal}>
         <div className={classes.modalContent}>
-          {pdfFile}
-          <Button className={classes.exitButton} onClick={modalHandler}>Exit</Button>
+          <iframe src={pdfFile} title='Specs' height="100%" width="100%" />
         </div>
       </Fade>
     </Modal>
