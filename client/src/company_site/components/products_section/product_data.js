@@ -22,9 +22,9 @@ import TemiPlatformPreview from '../../images/products/temi_Platform.png';
 // import TemiGoPreview from '../../images/products/temi_Go.png';
 import TemiGoTrayPreview from '../../images/products/temi_Go(tray).png';
 
-import TemiV3Pdf from './pdf_files/tmp.pdf';
-import TemiPlatformPdf from './pdf_files/tmp.pdf';
-import TemiGoTrayPdf from './pdf_files/sample.pdf';
+import TemiV3Pdf from './pdf_files/Temi v3 specs.pdf';
+import TemiPlatformPdf from './pdf_files/Temi platform specs.pdf';
+import TemiGoTrayPdf from './pdf_files/TemiGo specs.pdf';
 
 // const productData = [
 //   {
