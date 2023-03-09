@@ -71,6 +71,11 @@ export default function CreateAppModal(props) {
   });
   const { sendRequest, errorEncountered, clearError } = dataContext;
 
+  const closeModal = () => {
+    setSelectedUnits([])
+    modalHandler()
+  }
+
   const addNewUnit = async () => {
     if (formState.isFormValid) {
       const selectedIds = formState.inputs.temiUnits.value.map(
@@ -78,6 +83,7 @@ export default function CreateAppModal(props) {
           return temiUnitsMap[serialNumber];
         },
       );
+
       try {
         await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/api/apps/`,
@@ -91,7 +97,8 @@ export default function CreateAppModal(props) {
             Authorization: 'Bearer ' + authContext.token,
           },
         );
-        modalHandler();
+
+        closeModal()
       } catch (err) {
         console.error(err);
       } finally {
@@ -107,7 +114,7 @@ export default function CreateAppModal(props) {
       aria-describedby="transition-modal-description"
       className={classes.modal}
       open={openModal}
-      onClose={modalHandler}
+      onClose={closeModal}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
@@ -144,7 +151,7 @@ export default function CreateAppModal(props) {
 
               <Grid item>
                 <div>
-                  <Button onClick={modalHandler}>
+                  <Button onClick={closeModal}>
                     Cancel
                   </Button>
                   <Button

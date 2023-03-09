@@ -74,11 +74,17 @@ export default function CreateTemiModal(props) {
   const authContext = useContext(AuthContext);
   const { sendRequest } = dataContext;
 
+  const closeModal = () => {
+    setSelectedUnits([])
+    modalHandler()
+  }
+
   const addNewUnit = async () => {
     if (formState.isFormValid) {
       const selectedIds = formState.inputs.applications.value.map((appName) => {
         return appNameToIdMap[appName];
       });
+
       await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/api/temis/`,
         'POST',
@@ -92,7 +98,8 @@ export default function CreateTemiModal(props) {
           Authorization: 'Bearer ' + authContext.token,
         },
       );
-      modalHandler();
+
+      closeModal();
 
       // To update the page
       dataContext.fetchTemiUnits(authContext.token);
@@ -105,7 +112,7 @@ export default function CreateTemiModal(props) {
       aria-describedby="transition-modal-description"
       className={classes.modal}
       open={openModal}
-      onClose={modalHandler}
+      onClose={closeModal}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
@@ -148,7 +155,7 @@ export default function CreateTemiModal(props) {
 
             <Grid item>
               <div>
-                <Button onClick={modalHandler}>
+                <Button onClick={closeModal}>
                   Cancel
                 </Button>
                 <Button
