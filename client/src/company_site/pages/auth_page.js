@@ -116,17 +116,17 @@ const AuthPage = () => {
                 className={classes.signInButton}
                 variant="outlined"
                 color="secondary"
-                href="/"
+                type="submit"
               >
-                Back To Home
+                Sign In
               </Button>
               <Button
                 className={classes.signInButton}
                 variant="outlined"
                 color="secondary"
-                type="submit"
+                href="/"
               >
-                Sign In
+                Back To Home
               </Button>
             </div>
           </form>
