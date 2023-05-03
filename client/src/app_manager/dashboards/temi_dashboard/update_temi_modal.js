@@ -53,6 +53,10 @@ export default function UpdateTemiModal(props) {
     formInputHandler('ownerTextField', event.target.value, ownerValidators);
   };
 
+  const setOwner = (owner) => {
+    formInputHandler('ownerTextField', owner, []);
+  };
+
   const setSelectedUnits = (selectedUnits) => {
     formInputHandler('applications', selectedUnits, []);
   };
@@ -67,7 +71,10 @@ export default function UpdateTemiModal(props) {
 
   // populate form with current setting
   useEffect(() => {
-    if (isNotUpdated && editApplications.length !== 0) setSelectedUnits(editApplications);
+    if (isNotUpdated && editApplications.length !== 0) {
+      setOwner(editOwner);
+      setSelectedUnits(editApplications);
+    }
   }, [editApplications]);
 
   const dataContext = useContext(DataContext);
